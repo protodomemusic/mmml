@@ -1,0 +1,112 @@
+%===================================================================%
+% TITLE      : MMML Template
+% COMPOSER   :
+% PROGRAMMER : You!
+% DATE       : 
+% NOTES      : A blank template ready for MMML commands. Here's a
+%              quick cheatsheet to get started (an X indicates a
+%              required value):
+%
+%              cX - gX   : Note values (and duration)
+%              rX        : Rest / pause (and duration)
+%              1,2,4,8,
+%              16,32,64,
+%              128       : Possible note / rest durations
+%              X.        : Dotted note (X plus an additional 1/2 X)
+%              + or #    : Sharpen a note
+%              o1-5      : Channel octave (1 lowest, 5 highest)
+%              < or >    : Decrease, or increase, the current octave
+%              v0-8      : Channel 'volume' (actually pulse width)
+%                          8=50%,7=25%,6=12.5%,5=6.25%,4=3.125%,
+%                          3=1.5625,2=0.78125,1=0.390625.
+%              [2-255    : Start X number of loops
+%              ]         : End a loop
+%              m1-255    : Call a macro (channel agnostic data)
+%              t1-255    : Set the global tempo
+%              @         : Channel / macro start. Channels are
+%                          declared sequentially from A - D, macros
+%                          are specified underneath.
+%              cX - eX   : Possible drum sounds (c=pop,
+%                          c#=beep,d=kick,d#=snare,e=hi-hat)
+%
+%              Some quick tips:
+%
+%              -> You can nest up to five loops - or four in a macro.
+%                 e.g.: "[X[X[X[X[X ]]]]]"
+%
+%              -> Notes don't need multiple, identical durations.
+%                 e.g.: "cX cX cX" could be written as "cX c c"
+%
+%              -> Careful when jumping to a macro, it won't remember
+%                 your octave! Best practice is to declare an octave
+%                 at the start of each macro, and when you return.
+%                 e.g.: "@ oX" and "mX oX"
+%
+%              -> Save space whenever and wherever you can! Arpeggios
+%                 can be condensed into loops and repeated passages
+%                 should become macros.
+%
+%              -> Channels will loop back to the beginning when they
+%                 have completed reading their data.
+%
+%              -> I always start with a quarter note pause as, when
+%                 microcontrollers are first switched on, the first
+%                 few milliseconds can vary slightly, changing the
+%                 duration.
+%
+%              -> Tempo commands can be placed in any channel, but
+%                 apply globally (unfortunately, no unique tempo per 
+%                 channel).
+%
+%              I hope you have fun writing tiny music! If you have
+%              any questions / suggestions / corrections contact me
+%              at: hello@protodome.com
+%===================================================================%
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL A %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ r4 t40 % set tempo
+
+% channel a data here
+
+% shh
+[255 r1]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL B %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ r4
+
+% channel b data here
+
+% shh
+[255 r1]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL C %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ r4
+
+% channel c data here
+
+% shh
+[255 r1]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL D %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ r4
+
+% channel d data here
+
+% shh
+[255 r1]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-%   MACRO   %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+% m1
+@ o1 % macro 1 data here
+
+% m2
+@ o1 % macro 2 data here
+
+% m3, m4, m5...
+
+%===================================================================%

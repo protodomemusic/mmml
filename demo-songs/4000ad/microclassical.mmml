@@ -1,0 +1,364 @@
+%===================================================================%
+% TITLE      : Microclassical
+% COMPOSER   : Blake 'PROTODOME' Troise
+% PROGRAMMER : Blake 'PROTODOME' Troise
+% DATE       : 3rd February 2019
+% NOTES      : Introduction based on Paganini's Caprices, then
+%              devolves into 7/4 nonsense.
+%===================================================================%
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL A %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ r4
+
+% paganini-esque introduction
+v4 m25 r8 t45
+
+% fade-in
+[4 o3v2c32rv1[3cr]v2crv1crv2[3cr][2v1crcrv2cr]cr ]
+v3c32rcrv2[9cr]v3crv4crv5crv6crv7cr
+
+% proper introduction
+m2 m2
+
+% section A (arp)
+[2 
+  [4 m2 ] 
+  [3 o3v4d+32v2d+v4c+v2c+v4g+v2g+v4<g+v2g+v4>d+v2d+v4fv2fv4g+v2g+v4<g+v2g+ ]
+  o3v4d+32v2d+v4c+v2c+v4g+v2g+v4<g+v2g+ m2
+]
+m2
+
+% section B1
+m14 m14
+m15 r64 % solo echo
+m14 m14
+
+% section B2
+[2
+  v7o5c64<b64g64e64c64<b64g64e64c64r32.>e64c64<b64g64r8>e64c64<b64g64
+  v5[6o4e64c64<b64g64]r16
+
+  v7o4e64d64<b64g64r8>e64d64<b64g64r8
+  >e64d64<b64g64v5[3o4e64d64<b64g64]
+  v7o5c32<b32g32e32d32c32<b32a32
+
+  v7>f64d+64c64<g64r8>f64d+64c64<g64r8>f64d+64c64<g64
+  v5[6o4f64d+64c64<g64]r16
+
+  v7o4g64d+64c64<a+64r8>g64d+64c64<a+64r8>f64d64c64<g64
+  v5[5o4f64d64c64<g64]
+  v8[2o4f64d64<b64g64]
+]
+
+v1[2o4b64d+64<b64g+64v2] % .'.'.
+v3[2o4b64d+64<b64g+64v4] % blblb
+v5[2o4b64d+64<b64g+64v6] % bLbLb
+v7[2o4b64d+64<b64g+64v8] % BLBLB
+
+% section B3
+[2 % wow, this 4 bar segment wasn't worth the memory cost
+  v7[2m17r16v5]
+  v3[2m17r16v2] m17
+  v7[2m18r16v5]
+  v3[2m18r16v2] m18
+  v7[2m19r16v5]
+  v3[2m19r16v2] m19
+  v7[2m20r16v5]
+  v3m20
+  [2v7o4[2f64e64c64g64]r16v6]
+]
+
+% ending
+o3g32g+32f16o5c16<g+16<b16g16>d64>d32.b64<b32.>c32r32<g32r32d+16<g16
+v8[2m17r16v7]v6[2m17r16v5]v4[2m17r16v3]v2[2m17r16v1]o1c16c2
+
+% shh
+[255 r1]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL B %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ r4
+
+% paganini-esque introduction
+r16 v3 m25 r16
+
+% fade-in
+r1r
+[2 v2o4d32[2v1o3fv2gv1>dv2cv1<gv2fv1>cv2d]v1<fv2gv1>dv2gv1<gv2>fv1gv2ev1fv2cv1ev2<gv1>cv2<fv1g ]
+v2o4d32v1<fv2gv1>dv3cv2<gv3fv2>cv4dv2<fv4gv2>dv4cv2<gv4fv2>cv4dv2<fv4gv2>dv4gv2<gv4>fv2gv4ev2fv4cv2ev5<gv3>cv5<fv3g
+
+% proper introduction
+m3
+
+% section A (bass)
+[2
+  [3 m3 ]
+  [4 o1v5a+16v3a+16 [2 v4o4c16v2c16v4<d16v2d16v5<<a+32v3a+32 ] v4o4c16<c16 ]
+  m3
+  [2 o2v5c+16v3c+16 [2 v4o4c+16v2c+16v4<d+16v2d+16v5<c+32v3c+32 ] v4>>c+16<c+16 ]
+]
+
+[2 m3 ]
+
+% section B1
+m13 m13
+r64 m15 % solo
+m13 m13
+
+% section B2
+[2 m5 v6 [2 o3 f64g>dfg>dfg32f64d<gfd<gf ] ]
+r2
+
+% section B3
+[2 % another massive waste of space
+  v8[2m21r16v6]
+  v4[2m21r16v3]
+  v1m21
+  v8[2m22r16v6]
+  v4[2m22r16v3]
+  v1m22
+  v8[2m23r16v6]
+  v4[2m23r16v3]
+  v1m23
+  v8[2m24r16v6]
+  v4m24
+  v8[2o3e64f64a64>c64e64g64>c64f64r16v7]
+]
+
+% ending
+r2.v8[2m21r16v7]v6[2m21r16v5]v4[2m21r16v3]v2[2m21r16v1]r16r2
+
+% shh
+[255 r1]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL C %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ r4
+
+% paganini-esque introduction
+r8 v2 m25
+
+% fade-in
+r1rr
+[3 o3v2d32v1dv2cv1cv2gv1gv2<gv1gv2>dv1dv2ev1ev2gv1gv2<gv1g ]
+
+% proper introduction
+[15 m1 ]
+
+% section A1 (melody)
+[2 m5 m1 ] m6 m5 m1 m4
+m1 m1 o3v4d32v2dv4cv2cv4gv2gv4<gv2g
+
+v7 [2 m7 m8 v6 ] v5 m7 m8 v4 m7 % arp
+
+% section A2 (melody)
+[2 m5 m1 ] m6 m5 m1
+o3v6c8.v4c8.v2c8v6f8v2f16v6g+8v2g+16v6a+8.
+v4a+8.v2a+8v6g+8.a64a+b>cc+dd+eff+gg+
+
+v6[18 o3c64e64g64>f+64d64<b64  ] c64e64g64>f+64
+  [18 o4d64c64<d+64f64g+64>g64 ] d64c64<d+64f64
+  [18 o3a64f+64d64>a64f+64d64  ] f+64d64>a64
+v7[10 o4g64d64<a+64g64d64>a+64 ] g64d64<a+64g64d64
+v8[7  o4b64g64d+64<b64g64d64   ] b64g64d+64<b64g32
+
+% section B1
+[4 m10 ]
+[2
+  o1c8>c64r32.<c16r8>c8<v8[6c32r32]v7g8
+  r8>c64r16.r64g8<v8[6g32r32]v7c+8>c64r32.<c+16
+  r8>c+8<v8[6c+32r32]v7g+8r16>c64r16.r64c64r32.
+  g+16.g64d64<g16a32r32f32r32g16>c16g16
+]
+
+% section B2
+m10 m10
+r2
+
+% section B3
+[2 v7o2c32<c16.r2>c32<c16.r8>g32<g16.r2.>c+32<c+16.r2>c+32<c+16.r8>g+32<g+16.r4.>g32<g16.r4 ]
+
+% ending
+r2.r16v8[2m21r16v7]v6[2m21r16v5]v4[2m21r16v3]v2[2m21r16v1]r2
+
+% shh
+[255 r1]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL D %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ r4
+
+% paganini-esque introduction & fade-in & proper introduction & section A1
+[58 r1 ]
+d+64d+32.r16d16d+16e16d+64d+32.d16r16d+16d+16
+
+% section A2
+[4 m9 ]
+d16rerdrerd+rererdreed+64d+32.r16dd+ed+64d+32.d16rd+d+
+m9 m9
+
+% section B1
+[8 m11 m12 ]
+[2[3 d16e16e16d16c+16e16d+64d+32.r16[6 c+64e32. ]] m12 ]
+
+% section B2
+[2
+  m16
+  m11 m12
+]
+d+16c16e32e32c+64c+64c+64c+64d+64d+32.e16c+16d+64d+32.
+
+% section B3
+[4 m16 ]
+
+% ending
+r2.r1r1r16
+
+% shh
+[255 r1]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-%   MACRO   %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+% m1: C arp #1
+@ o3v4d32v2dv4cv2cv4gv2gv4<gv2gv4>dv2dv4ev2ev4gv2gv4<gv2g
+
+% m2: A arp #1
+@ [7 o3v4c32v2cv4gv2gv4<gv2gv4>dv2dv4ev2ev4gv2gv4<gv2gv4>dv2d ]
+
+% m3: B bass #1
+@ [3 o2v5c16v3c16 [2 v4o4c16v2c16v4<d16v2d16v5<c32v3c32 ] v4>>c16<c16 ]
+  o2v5c16v3c16v5>>c16v3c16v5<d16v3d16v5<c32v3c32v5>>c16v3c16v5<<g16v3b64v5>c32.<c16>d32e32<<b32v3b32
+
+% m4: C tune #3
+@ o4v6c64<c8&c32.v4c8.v2c8v6>f64<f16.&f64v2f16v6>g+64<g+16.&g+64v2g+16v6>a+64<a+8&
+  a+32.v4a+8.v2a+8v6>g+64<g+8&g+32.v4g+8.v6>g64<g8.&g32.v4g4
+
+% m5: C (& B) tune #1
+@ o4v6c64<c8&c32.v4c8.v2c8v6>e64<e16.&e64v2e16v6>g64<g16.&g64v2g16v6>b64<b8&
+  b32.v4b8.v2b8v6>c32>d64<d8&d64v4d8.v6>c64<c8.&c32.
+  v5c4v4c4v3c2
+
+% m6: C tune #2
+@ o4v6c64<c8&c32.v4c8.v2c8v6>f64<f16.&f64v2f16v6>g64<g16.&g64v2g16v6>>c64<c8&
+  c32.v4c8.v2c8v6>d64<d8&d32.v2d8.v6e32>f64<f8.&f64
+  v2f8v6d32>e64<e8.&e64v2e8v6>c64<c8.&c32.v4c4v3c4v2c4
+
+% m7: C arp #2a
+@ [2o5g64edc<gedc]
+
+% m8: C arp #2b
+@ [2o4g64edc<gedc]
+
+% m9: D kit #1
+@ d16rec+d+rererc+ed+rerdrec+d+rerec+red+eed
+  r8e16c+d+rereec+ed+redd+d+64d+32.e16c+d+ed+d+
+
+% m10: C bass #1
+@ v7o1c8>c64r32.<c16r8>c8r16c64r32.<c8>c16.<b64a64g8
+  r8>c64r16.r64g8r16c64r32.<g8>f32g16.<c+8>c64r32.<c+16
+  r8>c+8r16c64r32.<c+16>g+16<c+16d64e64f64g64g+8r16>c64r16.r64c64r32.
+  g+16.g64d64<g16a32r32f32r32g16>c16g16
+
+% m11: D kit #2
+@ d16eedc+ed+64d+32.e16eedede
+
+% m12: D kit #3
+@ d16eedeed+64d+32.e16eeded+64d+32.d16
+
+% m13: B arp #1
+@ [2 v7o3d+64g64>c64d+64g64>c64d+64g32d+64c64<g64d+64c64<g64d+64 ] r4.
+  [2 o2b64>d64g64b64>d64g64b64>d32<b64g64d64<b64g64d64<b64] r4.
+  [2 o3f64g+64>c+64f64g+64>c+64f64g+32f64c+64<g+64f64c+64<g+64f64 ] r4.
+  [2 o3c64d+64g+64>c64d+64g+64>c64d+32c64<g+64d+64c64<g+64d+64c64 ]
+  [2 o5f64e64c64<a64g64f64e64c64<a64g64f64e64 ]
+
+% m14: A arp #2
+@ v8o4c64d+64<g64a+64  v6[7o4c64d+64<g64a+64]
+  v8o5g64a+64r32       v6[5g64a+64r32]
+  v8o3g64b64>d64f64    v6[7o3g64b64>d64f64]
+  v8o5g64b64r32        v6[5g64b64r32]
+  v8o4c+64f64<g+64>c64 v6[7o4c+64f64<g+64>c64]
+  v8o5f64g+64r32       v6[5f64g+64r32]
+  v8o3g+64>c64d+64g64  v6[7o3g+64>c64d+64g64]
+  v8f64e64c64g64       v6[5f64e64c64g64]
+
+% m15: A (& B) solo
+@ v7o4a+64>c32.<g16d+16<g16d+16f16g16>c32r32d+16c16<g16v8d+32r32c16<g16
+  v7b16>g16
+  d16b32.>c64c+64d32.g16b16>d16g16b16g16d16<b32r32f64g32.f16c+16<g+16f16
+  >>c64f32.c+16<g+16f32.r64c+16<g+32r32f16g+32r32c+32.r64f16g+32r32>c16
+  d64d+32.g+16>c16d+16
+  g16f16c16<g16d+64f32.c16<g16f16v8c32d+32g32>c32d+32g32>c32d+32g32d+32
+  c32<g32d+32c32<g32d+32
+  v7c32r32d32r32d+32r32f32r32g32r32b32r32v8<g32b32>d32g32b32>d32g32b32
+  >d32<b32g32d32<b32g32d32<b32v7>g64<g32r64>a64<a32r64
+  >b64<b32r64>>c64<c32r64>d64<d32r64>d+64<d+32r64v8c+32f32g+32>c+32f32
+  g+32>c+32f32g+32f32c+32<g+32f32c+32<g+32f32v7c+16d+16f32r32a+16
+  g+16>c+16f64g32.d+16c32r32<g+16g16d+16c16g16a32>c32d32d+32v8>e64<e32
+  r64>f64<f32r64>g64<g32r64>c32.
+
+% m16: D kit #4
+@ d8.c16e8d8d+64d+16.r64e16d16e8d8
+  c16d16e8d+64d+16.r64e8d16e16d+64d+16.r64
+
+% m17: A arp #3a
+@ [2o4c64d+64<g64a+64]
+
+% m18: A arp #3b
+@ [2o3g64b64>d64f64]
+
+% m19: A arp #3c
+@ [2o4c+64f64<g+64>c64]
+
+% m20: A arp #3d
+@ [2o3g+64>c64d+64g64]
+
+% m21: B arp #1a
+@ o3d+64g64>c64d+64g64>c64d+64g64
+
+% m22: B arp #1b
+@ o2b64>d64g64b64>d64g64b64>d64
+
+% m23: B arp #1c
+@ o3f64g+64>c+64f64g+64>c+64f64g+64
+
+% m24: B arp #1d
+@ o3c64d+64g+64>c64d+64g+64>c64d+64
+
+% m25: paganini-esque solo (intro taken from the movie crossroads)
+@ o2t90c16t70d+g>t60cd+t56g>cd+gd+t55c<gd+c<d+c
+  t80dft70gb>t60dt50fgb>d<bt55gfd<bt60gt70f
+  t70cet65ga+>t56cega+>c<a+gec<a+ge
+  t60cft55g+>cft53g+>cfg+t55fc<g+fc<g+f
+  dfg+b>dfg+b>d<bg+fd<bg+f
+  t50cgd+>c<t55g>d+cgd+>t80c<g>d+t90cgd+t100b
+  t200>c4t40r1
+  % let's gooooo!
+  t60c16t50<g16t48d+16<g16d+16f16t44g16>c+16d16<b16g16d+16d16t40<b16>d16f16
+  d+16g16a+16>d+16g16a+16>d+16g16a+16f16d16<a+16f16d16<a+16f16
+  >>e16c16<g16e16c16<g16e16g16c16f16g+16>c16f16g+16>c16f16
+  a+16f16d16<a+16f16d16<a+16f16<a+16>d+16g16a+16>d+16g16a+16>d+16
+  f16d16<b16g+16f16d16<b16g+16>d+16c16<g16d+16c16<g16d+16g16
+  >g+16f16>>c16<g+16<b16g16>>d16<b16>c16<g16d+16<g16c16r8.
+  >c32d+32g32>c32d+32r16.<<g32b32>d32g32b32>d32r16<<c32d+32g32>c32d+32g32
+  >c32<g32d+32c32<g32d+32c32r16.
+  >>c16<g16d+16c16g16d+16c16<f+16g16<b16>d16f+16g16b16>d16f16
+  c32d+32g32>c32d+32r16.<<g32b32>d32g32b32>d32r16<<c32d+32g32>c32d+32g32
+  >c32<g32d+32c32<g32d+32c32r16.
+  c16e16g16>c16<d16f16a+16>f16<g16a+16>d+16g16<b16>d16g16b16
+  <c32e32g32>c32e32g32>c32e32c32<g32e32c32<g32e32c32e32f32g+32>c32f32g+32
+  >c32f32g+32g32g+32f32c32<g+32f32c32<g+32
+  <a+32>d32f32a+32>d32f32a+32>d32<a+32f32d32<a+32f32d32<a+32>d32d+32g32
+  a+32>d+32g32a+32>d+32g32a+32g32d+32<a+32g32d+32<a+32g32
+  <g+32>c32d+32g+32>c32d+32g+32>c32<g+32d+32c32<g+32d+32c32<g+32>c32d32
+  f+32a32>d32f+32a32>d32f+32a32f+32d32<a32f+32d32<a32f+32
+  g+16f16>>c16<g+16<b16g16>>d16<b16>c16<g16d+16<g16c16r8.
+  >>d+16c16<g16d+16c16g16d+16c16>d16<b16g16d16b16g16d16<b16
+  >>d+16c16<g16d+16c16g16d+16c16>d16<b16g16d+16d16d+32d32d+32d32d+32d32
+  >g16e16c16<g16e16c16<a+16g16>>f16c16<g+16f16c16<g+16f16e16
+  >>f16d16<a+16g+16f16d16<a+16g+16>>d+16<a+16g16d+16<a+16>d+16<g16a+16
+  >>d16c16<b16g+16g16f16d+16d16c16<a+16g+16g16f16f+16g16c16
+  g+16f16>>t50c16<g+16<b16t60g16>>d16<b16>t70c16<g16t80e16<t90g16t200c4
+
+%===================================================================%
