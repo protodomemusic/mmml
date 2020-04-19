@@ -1,0 +1,427 @@
+%===================================================================%
+% TITLE      : Sunglasses Snake
+% COMPOSER   : Blake 'PROTODOME' Troise
+% PROGRAMMER : Blake 'PROTODOME' Troise
+% DATE       : 20th December 2017
+% NOTES      : A cool funk song about a pretty chill snake.
+%===================================================================%
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL A %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ o5 v8 r4
+
+% intro
+f+32f32d+16c16f16d+16c32r32<a+16a16g32r32c16<a+32r32>d+32r32<g16
+f+16f16>c16 v6
+
+% theme a
+[2 r8 m11 o4 r1
+r16g32g+32a16a+16
+r8 m11 o4 r1
+r8g+16a16
+r8d32r8r32d16r8.<b16r16>c16r16c+16r8
+d16r1
+r16 m11 o4 r2
+r8.f16
+r16a16r16e16r16g+16d+8
+r8d16r8.d8.r4d32r4
+r32c16r2r16c4
+r8g32r8r32g16r8.c+16r16d16r16d+16r8
+e16r2.r8.
+
+% theme b1
+m7
+m12 o4 r4g32g+32a16a+16
+m7 o4
+r8e16d+16c32d32c32<a+32a32r32g+16g16e16f16f+32r32c16<b32r32a+16g+16
+r8>>d32r16.d+16r16d16r16d+32r32d+32r32d32r16.d+16f16r16d+16
+r16d+16d32r16.d+16r16d16r16d+16e32r32f16d+16e16c32r32<g16f16
+d+32e8r32c32r32<a+32r32a32r32a+32r32>c16r16d+16r16e16f16f+16r16g16
+r16>c16r8c16r8c16r8d16r8c+8r8.
+c16r4c8r4c32r4
+r32c16r2r16c4
+r8<a16r16a+32>c32<a+32r32a16r16a+16r16a32r16.a+16b16r16>c16
+r1 ]
+
+% solo
+>d+16c16<f+32f32d+32r32c16<a+32r32f+16g16a32a+32>c16<f+32f32d+32r32f16
+g16d+32e16.
+c16r8.>g16r8g16r16<g+32a32>c16d+16r16c32r32d+16a+32f32
+f+32a+32f+32a+32f+32a+32g32a+32g32a+32g16g+32a32>c16<f16c32r32d+16f16
+d+32e32d+32c32<a+16>c16
+r4.r16<f32f+32g16a+16>d16f16d+32e32c16<a+16g16
+g+32a16r16.>c16<b32a32f32e32c32r32r8d32d+16r32g16r16a+16r16>d16
+d+16d32c+32c16d32r32g16f32f+32f16a16f32r32d32d+32<a+32>c32<a+32g+32f32
+d32d+32c32f32d+32g+32d+32
+e8>c16<c16a16c32r32a32r32c4r16g16>c32r16d32r16
+d+32r32c32r32d32r16. [4 c32<a+32> ] c32< [7 a32>c32< ] a32
+v6 r8>c32r8r32c16r8<b16>c32r16.c16r8.c16
+r8.c32r8r32c16r8.c32r8r32c16r8
+c16r2r16<g8r16g+8r16
+
+% theme c
+g+32a8r32 m9 o4 c16r16<g+4
+r16g+16r16g16r16g+16>c16d16<g+8b32>c16. m10 o3
+r8r32g32r16.f+32g4&
+g16.f4d+32
+e8.&e32g4
+m8 o3 r4r16c16r16d32e8&
+e32r8.c16r16f8r8g8.r16
+c16.r32
+c+16d4r8.d+32e16.r16f8r16g8
+g+32a16.r16 m9 o4 c32r16.d32d+8.
+r16.d16r8.c16d32c32d32c32<g+8r8 m10 o3
+r4r32f+32g4&
+g16.r8g8r8f+32
+g16.r16f+8r16
+m8 o2 a32r32>c32r32f32r32g32r32>c32r32f32r32g32r32c8
+r1
+
+% theme d
+m6 o4 r8r32a32a+16r32a16
+r16g16r16f16d+32f32c16<a+16>c16r16<a+16r16a16r16g16b8>
+m6 o4 r4r16.
+<b8r16>c8r8c32c+16.r8d8r16d+8
+
+% theme b2
+e16.d+32<a16r16a+16r16a32r32a+16r16a+16r8a+16>c16d32r32<a32a+32
+m12 o3 v5 a32 v4 g+32 v3 g32 v2 f+32r8. v6 a+32>c32
+<a+32>c32
+<a+32r32a+16a16r16a+16r16a16a+16r16>c16d+32r16.f16c16r16c16
+r2.<g16g+8.
+g16r16>d16r16d+16r16d32r32d+16r16d+16r8d+16f16g32r32d32d+32
+r16d+16d16r16d+16r16d16r16d+16r2
+r16<a8r16>c32r32<a+16>d32
+r32d+16e16f16<a32>d+32e16c16<g16f16
+d+32e16.r16c16r8.>d+32r8.r32d+32r8r32d+16.r8
+r32d16r8.d8.
+r4d32r32<<g+32r16.
+g8r16o5d+16e32r32c16<g16a+16f32d+32f32d+32c32d+32c32<a+32>c32<a+32g32
+f+32f32g32d+32<a+32>
+
+% ending
+c16r16 m11 o3 r4
+f16r16d16f+16r16d+16g16r16e16g+16r16f16a16r16f+16r2
+>c8r4.r16
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL B %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ o4 v7 r4
+
+% intro
+r64f+32f32d+16c16f16d+16c32r32<a+16a16g32r32c16<a+32r32>d+32r32<g16f+32.
+f16>c16 v6
+
+% theme a
+[2 c16r16 m16 m16 o3
+a32r8r32a16r8.f+16r16g16r16g+16r8
+a16r1
+r16 m18 o4 r2
+<b16>c16c+16d16r8.c+16r8c8
+r8<b16r8.a+8.r4a+32r4
+r32a16r2r16g+4
+r8>d32r8r32d16r8.<g16r16g+16r16a16r8
+a+16r2.r8.
+
+% theme b1
+m14 o3
+r16e16d+16r16e16r16d+16r16e16r4r16>d+16e16
+m14 o3
+r1
+<g+32a16r32>a+32r16.>c16r16<a+16r16>c32r32c32r32<a+32r16.b16a+16r16a16
+r16a16g+32r16.a16r16g+16r16a16r4.r16
+c8&c32r2.r8
+r32f+16r8f16r8e16r8g16r8e8r8.
+f+16r4f+8r4a32r4
+r32a16r2r16g+16f16d+16c+16
+r8f16r16g32a32g32r32f16r16g16r16f32r16.f+16f16r16e16 
+r1 ]
+
+% solo
+r16>b32r1
+r8r32d+32e32r8d+32e32
+[4 r1 ]
+r2.
+<d32d+32r4.r16d32e32r8.
+a+32r32g32r32a+32r16. [4 g32c32 ] [8 f+32c32 ]
+r8f32r32c32r16.f16r16c32r32e16f32r32c32r32f16r8g32r32f16
+r8c32r32f32r16.c32r32f16r8c32r32f32r8r32f16r8
+e16r2r16d+8r16e8r16
+
+% theme c
+e8&e32r32e16r16e32r16.e32r8r32e32r16.e16r16d+4
+r16d+16r16d16r16d+16r8d+8f8 m17 o3
+r8r32d32r16.c+4.
+r2.
+m15 o2 g8.
+r8.g16r2r8.
+a+4r4a+8r16a+8r16a+8
+>e8r16e16r16e32r16.e32r8r32e32r16.e32r16.g+8.&
+g+32r16.g+16
+r8.g+16r8d+8r8 m17 o3
+r32c8d8c+4.
+r8e8r8d8r16c+8r16
+m15 o3 e8
+r8<c32r32d+8r16f8r16f32f+8&f+32g8a+32r32>c16
+
+% theme d
+m13 o3
+r4r32<a+16>c16
+r8.a+32r8r32a+32r8.r32a+32r8r32>f+16r16f16
+f+32r32d+16c16r4.<f+16r16f16r16d+16f32g+32f32g+32
+m13 o3
+r2
+r16.a+32r8r32a+32r8.r32a+32r4r16.
+c+32d16.r16d+32g32d+32g32r8e8r8f8r16f+32a+32f+32a+32
+
+% theme b2
+g16.f+32f16r16g16r16f32r32g16r16f+16r8f16g16r16e16
+r16e16d+16c16e16r16d+16r16e16r4r16<a+16>c16
+g32r32g16f16r16g16r16f16g16r16g+16a32r16.a16f+16r16g16
+r16c32r32d+16f16g32f32d+16c16r16<a+16>c32r32<a+16a16>e4
+d+16r16a+16r16>c16r16<a+32r32>c16r16<b16r8a+16>c16r16<a16
+r16a16g+16f16a16f32r32g+16r16a16r2
+r16e8r8.e32r8.r32e32r2
+r8.r32
+a+32r8.r32a+32r8r32a+16.r8
+r32b16r8.a32a+8&a+32r4a+32r1
+r4
+r32
+
+% ending
+m18 o3 r4
+c16r8c+16r8d16r8d+16r8e16r2
+r8e8r4.r16
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL C %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ o3 v7 r4
+
+% intro
+f+32f32d+16c16f16d+16c32r32<a+16a16g32r32c16<a+32r32>d+32r32<g16f+16
+f16>c16
+
+% theme a
+[2 m19 o2
+c8>>c16<c16r16a16<a16a+16r8>c16<g16d16<c32r32>d+16e16
+m19 o2
+c8>>c16<c32r16.a+16a16d+16e32r32c16<a16a+32r32g16<c16>d+16e16
+<f8>>d+32r32<f32r16.>d+16<d+16f16r16>c16r16c+16r16d16<e8
+f16r16>g+16<g+32r16.>f32r32<f16g+16a16>c16<g32g+32d+16<a+16f16g+16c+16
+c8>>a+32r32<c32r32<c32r32>>a+16<<a+16>c16>a16a+32r16.a+16r16<<b8.
+>c8r16>c32r8r32<<c32r32f16r16>a16>d+32r32<<e16r16>g+16<d+8
+d8>>f+16r8<< m27 m21 o3
+a+32r32<c16a16>a+16<<a+16>c16r16<a16>a32r32<a+16>a+32r32<b16r8
+>c16r16 m22 o1
+r32a+16a32r32a+16
+
+% theme b1
+[4 c8>g32r32c32r16.<g32r32a+16>c16r16<c32r16.c32r32>d+16<g32r32d+8 ]
+m28 o2 r8a16<f32r32>g+16c32r32<g+8
+f8>e32r32f32r32a16c32r32d+16e16f16r16c16.r32<f16.r32c+8
+c8r16>c32r32<a+32r32a32r32a+16>c16r16d+16r16e16f16f+16r16g16
+r16a16g32r16.g+16r16f32r32g16e32r32<g16>a+16r16<a16>a16<a32r32d+16
+d8>d16r16>c32r32<<d32r16.>d8<d32r32>d32r32<d16r16 m21 o2
+r16c16a16r16<a+16>f32r8r32<a16>a32r32<a+16b16r16>c16
+r8 m22 o1 r32
+a+16a32r32a+16 ]
+
+% solo
+[4 m26 ]
+[2 m28 o1 r16f32r16.f32r32>g+16c32r32<g+8 ]
+m26 o1
+g8>>d32r32<<g16r16>d32r32f16f+16r16<a32r16.>d32r32>c16<d32r32<f+8
+f8>>c32r32<f32r16.e16f16c16r16<f32r32>c16<f32r32>a16c32r32>d16<<g+16
+g8>f32r32<g32r16.g16>f16g32r32<c32r32g32r16.g32r32>f16c32r32<g16>g16
+<c16r8.c32r32>>c16<<g32r32g+16>g+32r32<a16a+8>a32r32<b8>b32r32
+
+% theme c
+<f8&f32r32f16>f32r32<f32r16.f32r32>f32r32g32r32<f32r16.f16r16f8.&
+f32
+r32>f32r32<f16r16e16r16f16>f32r32g32r32<f8f8>c8
+m25 o1 a32r16.>e8g32r16.e8d+8
+m23 o1 r16c32r32>c16g32r32<f16r16g16>c8.
+r8<g16r16c32r32>c32d8.&d32c8.<c16r8
+g8r16g32r16.>d32r32<g32r16.>c8r16d8r16e8
+<f8&f32r32>e16f16<f32r16.>g16f32r32g32r32<f32r16.f+8f8.&
+f32
+r32>f32r32>d+16<<e16f16>f32r32>d+16<f32r32g32r32<f16r16>f16g16<f8
+m25 o1 a16.r32g32r32>a32r32<a8r16>d+8r16
+m23 o1 a16>c16f16g16>c16f16g16<< v8 c8
+r8c32r32d+8r16f8r16f32f+8&f+32g8a+32r32>c16 v7
+
+% theme d
+m20 o2 c16
+m24 o1 b8>c8
+>c32r32<<a+16>c16<d+32r32>d+16>c16<<d+32r32>a+16r16a+16a16d16<c32r32
+>c+8
+m20 o3 c16
+m24 o1 f+16>f16
+f+32r32
+<g8>g32r32<g+8>g+32r16.<a16>g+16a32r32<a16a+16>>d16<a+32r32<b8
+
+% theme b2
+c8r8>c16r8.<a+16>c16r16c16r2
+<d+32r32>c16d+32r32e32r32>c16r8<d+16d16<c32r32a+16>c16
+<c8r8>c16r8g32r32<a+16>c16r16c16r16<b8>c8
+r4.<d+32r4r16.c32r32f+8
+f16r8.>f16r8.d+16f16r16f16r8.<f16
+r16f16d+16r16f16r16d+16r16>f16d+32r32c16<a+16g+16a32r32f8
+c8>a+8c16r8a+32r32<a+16>c16r16a+32r2
+r32<d+32r32>c16d+32
+r32>e32r8.r32e32r32<d16<c32r32a+16>c16
+<d8>>f+16<d16r16 m27 o3 f+32r16.<<f+16
+g8r2.r8
+
+% ending
+o1 c8>>a+32r32<c32r16.>a+16<<a+16>c16>a16a+32r32c32r32a+16<<a+32r32
+f16f+16>f+16
+<g8r16g+8r16a8r16a+8r16b8r2
+r16>c8r8.<c8r8
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL D %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ t52 r4
+
+% intro
+d16r8.e16r8.e16r8.e16e32e32d+16c+16
+
+% theme a
+[2 [5 m1 m2 ]
+m5 e16
+d+16 m4
+
+% theme b1
+[3 m1 m2 ]
+d16e16c+16e16d+16e16c+16e16e16d+16e16d16d+16d+16e16d16
+e16d+16c+16e16d+16e16c+16d+16e16d16c+16e16d+16e16c+16d+16
+m1 m2
+m5 d+16
+e16 m4 ]
+
+% solo
+[5 m1 m2 ]
+d16r16c16e16r16e16r16e16e16e16d+16r8d+16r8
+
+% theme c
+[6 m3 ]
+d16r16c+16e16d+16c+16c16e16 [2 d16r16c+16e16d+16r16c16e16 ]
+d16r8d16r8d16r16
+[5 m3 ]
+d16r16c16d16r16c+16d+16e16e16e16e16e16e16e16d+16r8.
+d16e16r8e16r8e16r8e16e16d+16e16
+
+% theme d
+[3 m1 m2 ]
+m1
+d16e16e16d+16e16e16e16d+16e16e16e16d16e16e16d+16d+16
+
+% theme b2
+[4 m1 m2 ]
+m1
+d+16r16c+16r8.c+16r8.c+16r8.c+16r16
+
+% ending
+m1
+d16e16r16d16e16e16d16r16e16d16e16r16d16e16e16d16
+e32e32c16e16c+16c16c16e16d+16r2
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-%   MACRO   %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+% macro #01 - channel D: drum pattern #1 (main beat bar a)
+@ d16e16c+16e16d+16e16c+16e16e16e16c+16e16d+16e16c+16e16
+
+% macro #02 - channel D: drum pattern #2 (main beat bar b)
+@ d16e16c+16e16d+16e16c+16e16e16d16c+16e16d+16e16c+16d+16
+
+% macro #03 - channel D: drum pattern #3 (theme c main beat)
+@ d16r16c+16e16d+16r16c+16e16d16r16c+16e16d+16r16c16e16
+
+% macro #04 - channel D: drum pattern #4 (theme a/b fill #1)
+@ r16e32e32e16r16e16r16e16r16d16e16e32e32d+16c16c32c32d+16
+
+% macro #05 - channel D: drum pattern #5 (theme a/b fill #2)
+@ d16e16c16e16d+16e16c16e16e16d16e16c16e16c16e16
+
+% macro #06 - channel A: theme d chord stabs
+@ o4 r8.d+32r8r32d+32r8.r32d+32r8.r32d32d+8.
+  r32d+32r4.r32d+32r4r32d+16e16
+  r8.d+32r8r32d+32r8.r32d+32
+
+% macro #07 - channel A: theme b1 main melody riff
+@ o3 a+32r32a+16a16r16a+16r16a16r16a+16r16a32r16.a+16>c16r16<a+16
+
+% macro #08 - channel A: theme c melodic fragment #1
+@ o3 f8&f32r32f16r8f16r4r16 [4 a32>c32< ]
+  f8&f32r32f16r8f16
+
+% macro #09 - channel A: theme c melodic fragment #2
+@ o3 a16r16a32r16.a32r32>c16d16<a32r16.
+
+% macro #10 - channel A: theme c melodic fragment #3
+@ o3 g+8
+  g8.&g32r32g16r8g32r32>c16<g32
+
+% macro #11 - channel A: theme a / ending chord stabs
+@ o4 g32r8r32g16r8f+16g32r16.g16
+
+% macro #12 - channel A: theme b1 / b2 melody fragment
+@ o3 r16a+16a16r16a+16r16a16r16a+16
+
+% macro #13 - channel B: theme d chord stabs
+@ o3 r8.a+32r8r32a+32r8.r32a+32r8.r32a+8.&
+  a+32r32a+32r4.r32a+32
+
+% macro #14 - channel B: theme b backing melody fragment
+@ o3 g32r32g16f16r16g16r16f16r16g16r16f32r16.f+16f16r16e16
+
+% macro #15 - channel B: theme c backing melody fragment
+@ o3 c8&c32r32<a16r8>c16r2r16
+  c8&c32r32<a16r8>c16r4.r16
+
+% macro #16 - channel B: theme a backing melody fragment #1
+@ o4 d32r8r32d16r8c+16d32r16.d16r1r8d+16e16r8
+
+% macro #17 - channel B: theme c backing melody fragment
+@ o3 d+8
+  d8.&d32r32d16r8d32r16.d32
+
+% macro #18 - channel B: theme a backing melody fragment #2
+@ o4 d32r8r32d16r8c+16d32r16.d16
+
+% macro #19 - channel C: theme a bassline
+@ o1 c8>>a+32r32<c32r16.>a+16<<a+16>c16>a16a+32r16.a+16r16<<b8.
+
+% macro #20 - channel C: theme d bassline #1
+@ o1 c8r16>>g32r32<c16r16>g32r16.<<a+16>c16>g32r32<c16r8>g8.&g32
+  r32g32r32c16<<d+32r32>c16d+32r32e32r32a+16>g32r32<a+16a16d16<c32r32a+16
+
+% macro #21 - channel C: theme a / b1 bassline fragment #1
+@ o3 f+32r32<g+32r32<f+16
+  g8>>f16r8<<g32r32>g16<f+16g16>c16f32r32>c16<c+8<c+8
+  c8
+
+% macro #22 - channel C: theme a / b1 bassline fragment #2
+@ o3 d+16e32r32<<c32r32>>c16<c32r32<g32r32a16>c32r32<a+16a32r32>>c32
+
+% macro #23 - channel C: theme c bassline fragment
+@ o2 d8&d32r32d16r8d16r16<d16>c16r16<f8>c32r32<e8
+  g8&g32r32g16r8g16
+
+% macro #24 - channel C: theme d bassline #2
+@ o1 c8r16>>g32r32<c16r16>g32r32<g32r32<a+16>c16>g32r32<c16r16
+
+% macro #25 - channel C: theme c bassline fragment
+@ o1 e8.&e32r32e16>e32r16.<e32r16.e32r32e8g8a4.
+  >e32r32<d+32r32
+
+% macro #26 - channel C: solo bassline e riff
+@ o1 c8>g32r32c32r8r32<a+16>c16r16<c32r32>d16d+16e16<c+8.
+
+% macro #27 - channel C: theme a / b2 bassline fragment
+@ o1 d32r32>>f+8.<<d32r32>d32r32<d16>>f16
+
+% macro #28 - channel C: theme b1 / solo bassline fragment
+@ o1 f8>>c32r32<f32r16.c32r32d+16f16
+
+%===================================================================%

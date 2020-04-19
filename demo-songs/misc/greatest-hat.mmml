@@ -1,0 +1,245 @@
+%===================================================================%
+% TITLE      : Greatest Hat
+% COMPOSER   : Blake 'PROTODOME' Troise
+% PROGRAMMER : Blake 'PROTODOME' Troise
+% DATE       : 22th January 2018
+% NOTES      : A short piece about a really good hat.
+%===================================================================%
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL A %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ o3 v6 r4
+
+% intro / outro 1
+[4 m6 a+16r8a+16r4.a+8r16 ]
+
+% verse 1
+[2 m4 o4 r16e32f16r32c8
+<a+4&a+16r16>d32f32d32f32d32f32d32r32<f8.g8.
+m4 o4 r16g+32a16.c8
+a32a+8.b32>c8.c+64c64<b64>c64<<f4g4
+g+32a8&a32r16>c8r32<f32a32>c32f8g16r16g32a16r32c8
+e4f4d4f4
+c4<<a+32>f32d32a32f32>c32<a32>d32c32f32d32g32f32a+32g32>c32<f4
+d32e32d8.g32>c32<a32r32f32<a+32>c16f8r8g8&g32g+64g64f+64g64g+64g64 ]
+
+% chorus 1
+f8e32d32<a+32g32 m3 o5
+&c32 [2 c+64c64<b64>c64 ] c+64e64f8.e32d32
+r8<c8f8a16f32r32a+16a32r16.g16r16f8r16
+c32d8&d32f8a32r16.c+32r32>c+8&c+32r32d8&d32r32e8
+f32g32f2&f8.[8 g64f64 ]
+<f4r4<f32g8.&g32g+4
+
+% verse 2
+m5 o4 e32f16r32c16r16
+<a32a+8.&a+32r8>c8.r16<f8.g8.
+m5 o4 g+32a16r32f16r16
+a32a+8.&a+32r8f8r8c+8r16<a+8r16
+a8r4>d8<a8r4>d+32e16.
+<g+16a16r16a16r8a16r16f8r4g8
+e32f16.<f32c32g32f32a32g32>c32<a+32>f32c32g32e32f32a32g32>c32<a32>f32
+e32c32g32f32a32g32>c32<a32>e32c32
+f16<<f16r8>c8r8<f8e32d+32d32c+32c32<b32a+32a32g+32g32f+32f32>
+
+% chorus 2
+f8r8 m3 o3
+g16r8f+16r16>f16r16
+<f8r16f16g32a16.g16r16f8r16a16r16c+16g8
+f8r16g8r16f16r16g32a16.f32r32d16r8f16r16
+f8c16f16g32a32g16c16f16d16c16<a16a+16>c16<g16g+16a16
+a+8r8>c16f16d16g16f16a16g16>c32<a+32a16a+16>c16e16
+
+% intro / outro 2
+f32f+32f4.&f16 [4 f+64f64e64f64 ]
+[2 g32f32g32f32 ] [6 a32f32 ] [6 a+32f32 ] d+32c+32<a+8r16
+m6 o4 c16r8<f8r4g8r4.
+f8r2r8>
+
+% ending chord
+v3 [14 g64a64g64a64>c64e64c64e64< ] r4
+
+% silence
+[255 r1 ]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL B %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ o3 v6 r4
+
+% intro / outro 1
+[4 m8 c+16r4.c+8r16 ]
+
+% verse 1
+[2 m10 o3 a16.r32f+32g16.
+d4&d16r4r16d8.c+8.
+m10 o4 f8<a8
+>d16c16d16f16g16f16a+16d16<c+16<a+16>c+16<a+16>d+16c16d+16c16
+e32f16.r8f8c32r16.a8>c+16r16c16.r32<e8
+g8>c32d32c32d32<a8>d32g32d32g32<f4b4
+f4r2a+4
+a+4r4a+8r8a+4 ]
+
+% chorus 1
+o4 c8 m7 o3
+r16>c+32e32c+32e32c+32
+e32c+32e32 [4 <a+32>d32 ] <f32a+32>f32g32a+8.&a+32
+a32
+r1
+r2a8&a32r32f+32g8r32e8
+[4 <a32>c32 ] r4 [4 <b32>d32 ] r4
+[4 <a+32>d32 ] r4<c4e4
+
+% verse 2
+m9
+f4r8f8.r16c+8.c+8.
+m9
+[4 >c32<f32 ] r8>c+8r8<a+8r16g8r16
+f8r4.f8e8c+16r16f16r16
+e16f16r16f16c32r16.f16r16<b8r4a+32b16.
+a+8r4.g8r8b16>c8.
+<a+8r8>f8r8<a+8r4.>
+
+% chorus 2
+c8 m7 o4
+r8f8e8d+8<d+16c16r16
+c16r16a16r16
+d8r16d16r8d16r16c+8r16c+16r16<a+16r8
+>c8r16c16r8c16r16<b8r16b16r8b16r16
+a+8r2.r8
+>f8r2.r8
+
+% intro / outro 2
+f32a32f32a32r16f32a32r8f32a32r2r16
+d32a+32d32a+32r16d32a+32r8c+32a+32c+32a+32r4r16c+8r16
+m8 c+8r4c+8r4.
+<a8r2r8>>
+
+% ending chord
+v3 [12 e32c32<a32g32f32> ] r8
+
+% silence
+[255 r1 ]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL C %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ o1 v6 r4
+
+% intro / outro 1
+[4 m13
+f8r16fr8f16r>e8f16a+rf8c16< ]
+
+% verse 1
+[2 [3 o1 f8r16fr8f16r>e8f16r8.<c16r ]
+o3 f32r16.<a+16>f32r<fr16.<f16r>c8c+fd+
+d>c16<ar8dc+r16ar8c+
+c8r16a+r8c<b>f32r<br>g16bf<a
+a+r8>>d16r8<<f16ra+>a32r>crd16c32r<c16d<f
+>c8r16crc32ra+16>cr<c8>c16<c32ra+16<a+>c ]
+
+% chorus 1
+m11
+m12
+m11 o1
+r8>f+8.d16<a32rb16>c8r16c32r>c8<g16a+
+m11 o1
+ara>a32r<a16ra>a32r>c+8&c+32r<a8&a32rg8
+d8.>d16r<da+32r>fr<g8>d32rgr<gr>c16<c+8
+c4>c16<c32r16.>c32r<g8f16c32r16.<f+32r>f+8
+
+% verse 2
+o1 f8r16f>>e8<<f16r>>d8g16rc8.r16
+d4r8<<f16>>d<e8f16a+rg<a+>c
+<f8>f16r<g8>g16r<a8>a16rc8>c
+<d4r8>a+<ef16a+rg<a+>c
+d8>c32r<d16fd32r>c16d<c+8r8.f32rc+8
+<b16>crcrc32ra+rcr<g8r4>d8
+<g8r2.r8
+>crgrcr4.
+
+% chorus 2
+m11
+m12
+m11 o1
+a8>f32rg16ad<a32rb16>c8r16c32r8r32>d+16r
+<<a+8r16a+r8a+16ra+8r16>grg<gr
+a8r16ar8a16rg8r16gr8g16r
+g8r4.r16grgraa+b
+>c8r4c16ra+>cr<cr<a+>c<g
+m13
+f8r16fr8f>c+f16a+rf8c+16
+m13 o1
+f8r16fr8fr4f8r4.
+f8r2r8
+
+% ending chord
+v2 f1 v1 f1
+
+% silence
+[255 r1 ]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL D %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ t48 r4
+
+[4 m1 ]
+[35 m2 ]
+d16r8.d+16r8.d16re32eeed+16rc+d+
+[7 m2 ]
+d2d16ed+8e16d+de
+[3 m1 ]
+d8e16d8.d4d8d+d16e32e
+d16cc+ed+2.
+r1r1
+
+% silence
+[255 r1 ]
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-%   MACRO   %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+% macro #01 - channel D: intro drum loop
+@ d8e16d8.d4d8d+e16e
+
+% macro #02 - channel D: main drum loop
+@ d8ed+16eeedeeed+eee
+
+% macro #03 - channel A: chorus segment
+@ o4 f8a16f32ra+16a32r16.g16rf8r16
+c32d8&d32c8.&c32c+64c<b>cc+cf16r<fg>c32dcrg16a
+r8cfa16ca+32ra16rgrf>f8
+c+32d8&d32c4.
+
+% macro #04 - channel A: verse 1 segment
+@ o3 g+32a8&a32r16>c8 [2 c32<a> ] f8g16
+
+% macro #05 - channel A: verse 2 segment
+@ o3 g+32a8&a32r16>c8rfg16r
+
+% macro #06 - channel A: introduction segment
+@ o3 a8r16ar8a16r2r16
+  a+8r16
+
+% macro #07 - channel B: chorus segment
+@ o4 c8r2r8<g+8
+  g32a8&a32g4&g16a+r1
+  r2
+
+% macro #08 - channel B: introduction segment
+@ o3 f8r16fr8f16r2r16
+  d8r16dr8
+
+% macro #09 - channel B: verse 2 segment
+@ o3 f8.r16g8r>cd16r<a8.r16
+
+% macro #10 - channel B: verse 1 segment
+@ o3 e32f8&f32r16f8ra>c16r
+
+% macro #11 - channel C: chorus riff 1
+@ o1 f8r16>fr8<f16rg8>>c32r<g16rd32r<g+8
+
+% macro #12 - channel C: chorus fiff 2
+@ o1 a8>f32rg16ad<a32rb16>c8r16c32r16.>c32r<c16>c
+
+% macro #13 - channel C: introduction segment
+@ o1 f8r16fr8f16r2r16
+
+%===================================================================%

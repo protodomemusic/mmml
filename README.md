@@ -9,7 +9,30 @@ This guide assumes you're using OSX or Linux. It definitely works on Windows so,
 
 I hope you have fun writing tiny music! If you have any questions/suggestions/corrections contact me at: hello@protodome.com
 
+## 19th April 2020
+
+I've added a bare-bones wave synthesizer that interprets .mmmldata files built by a new desktop compiler. The synthesizer requires two flags, an input file '-f' and a duration in seconds '-s'. As μMML currently has no way to determine the end of a track (officially anyway, you may notice that `0xFE` is a 'track end' flag; it's a pretty flaky system I used for the 4000AD physicals), you currently have to tell the synthesizer how many seconds you'd like it to run for. So, building and running the new features might looks something like this:
+
+Build both programs:
+`$ gcc mmml-desktop-compiler.c -o compiler`
+
+`$ gcc mmml-desktop-synthesizer.c -o synthesizer`
+
+Run the compiler first...
+`$ ./compiler -f FILENAME.mmml`
+
+...then build the output file.
+`$ ./synthesizer -f output.mmmldata -s 60`
+
+Which will create a 60 second long wave file.
+
+Additionally, I'm moving all the compilation features into a single compiler, so that it can build desktop and avr sources. There's a DOS player in the works, so I'm trying not to have multiple forks of the compiler, especially if the core mmml engine is expanded. As a heads-up, to support this planned functionality, the compiler will now require flags to declare input files (-f). This means that the code in the 'avr' folder is destined to be replaced at some point and, as such, I will not be updating the compiler there any longer.
+
+There's also been a fix for 64-bit Linux systems where error 14 fired off erroneously. This fix is on the desktop compiler only for now.
+
 ## How To Use
+
+**Scruss has written an excellent, incredibly comprehensive, guide to programming and building your own 1-bit music boxes using μMML, which you can find [HERE](https://scruss.com/blog/2020/04/02/protodomes-wonderful-chiptunes-how-to-play-them-on-your-own-attiny85-chips/). If you're new to AVR programming, this is where you should really start.**
 
 There are two required components to this project: the `mmml.c` player for your chosen AVR microcontroller and the `mmml-compiler.c` program for your chosen OS. The `mmml.c` player is built for AVR microcontrollers clocked at 8MHz (such as the Attiny85, or Atmega168) but, with a little tweaking, you should easily be able to adapt for other platforms. The `mmml.c` player requires prerequisite use of the `mmml-compiler.c` program to create a `musicdata.h` data file (where your song data is stored).
 
@@ -21,7 +44,7 @@ To run `mmml-compiler.c`, you must compile with your system. For example, on Lin
 
 `$ gcc mmml-compiler.c -o mmml-compiler`
 
-This will create an output file named '1-bit-generator' (or whatever is entered after the -o flag), then run the output program from the terminal like so:
+This will create an output file named 'mmml-compiler' (or whatever is entered after the -o flag), then run the output program from the terminal like so:
 
 `$ ./mmml-compiler`
 

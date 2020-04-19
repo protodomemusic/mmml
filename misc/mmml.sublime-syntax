@@ -1,0 +1,46 @@
+%YAML 1.2
+---
+
+#------------------------------------------------------#
+# A litte Micro Music Macro Language syntax highlighter.
+# Reliant on default C scope colours because it's easy.
+#------------------------------------------------------#
+
+name: MMML
+file_extensions: [mmml]
+scope: source.c
+contexts:
+  main:
+  # Octaves
+  - match: '(o|>|<)([0-9]*)'
+    scope: keyword.control.c
+
+  # Volumes
+  - match: 'v([0-9]*)'
+    scope: storage.type.c
+
+  # Macros & Channel
+  - match: 'm([0-9]*)|@'
+    scope: entity.name.constant.preprocessor.c
+
+  # Loops & Tempo
+  - match: '(\[|\]|t)([0-9]*)'
+    scope: string.quoted.double.c
+
+  # Note Durations
+  - match: '[0-9]|[0-9]*\.'
+    scope: constant.numeric.c
+
+  # Unimplemented
+  - match: '&'
+    scope: comment.line.c
+
+  # Comments
+  - match: '%'
+    scope: punctuation.definition.comment.c
+    push: line_comment
+
+  line_comment:
+    - meta_scope: comment.line.c
+    - match: $
+      pop: true
