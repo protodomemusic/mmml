@@ -71,15 +71,18 @@ typedef struct wavfile_header_s
 #define BYTE_RATE       (SAMPLE_RATE * NUM_CHANNELS * BITS_PER_SAMPLE/8)
 #define BLOCK_ALIGN     (NUM_CHANNELS * BITS_PER_SAMPLE/8)
 
+char *source = NULL;
+long bufsize;
+
 /********************** µMML variables ***********************/
 
 // note table (plus an initial 'wasted' entry for rests)
 const unsigned int note[13] = 
 {
-    // the rest command is technically note 0 and thus requires a frequency 
-    255,
-    // one octave of notes, equal temperament
-    1024,967,912,861,813,767,724,683,645,609,575,542
+	// the rest command is technically note 0 and thus requires a frequency 
+	255,
+	// one octave of notes, equal temperament
+	1024,967,912,861,813,767,724,683,645,609,575,542
 };
 
 // location of individual samples in sample array
@@ -91,45 +94,45 @@ const unsigned char sample_index[6] =
 // raw PWM sample data
 const unsigned char sample[SAMPLE_LENGTH] =
 {
-    // bwoop (0)
-    0b10101010,0b10110110,0b10000111,0b11111000,
-    0b10000100,0b00110111,0b11101000,0b11000001,
-    0b00000111,0b00111101,0b11111000,0b11100000,
-    0b10010001,0b10000111,0b00000111,0b00001111,
-    0b00001111,0b00011011,0b00011110,
-    // beep (19)
-    0b10101010,0b00101010,0b00110011,0b00110011,
-    0b00110011,0b00110011,0b00110011,0b11001101,
-    0b11001100,0b11001100,0b11001100,0b10101100,
-    0b10011001,0b00110001,0b00110011,
-    // kick (34)
-    0b10010101,0b10110010,0b00000000,0b11100011,
-    0b11110000,0b00000000,0b11111111,0b00000000,
-    0b11111110,0b00000000,0b00000000,0b00000000,
-    0b11111111,0b11111111,0b11111111,0b00100101,
-    0b00000000,0b00000000,0b00000000,0b00000000,
-    0b11111111,0b11110111,0b11111111,0b11111111,
-    0b11111111,0b10111111,0b00010010,0b00000000,
-    0b10000000,0b00000000,0b00000000,0b00000000,
-    0b00000000,0b11101110,0b11111111,0b11111111,
-    0b11111111,0b11110111,0b11111111,0b11111110,
-    // snare (74)
-    0b10011010,0b10011010,0b10101010,0b10010110,
-    0b01110100,0b10010101,0b10001010,0b11011110,
-    0b01110100,0b10100000,0b11110111,0b00100101,
-    0b01110100,0b01101000,0b11111111,0b01011011,
-    0b01000001,0b10000000,0b11010100,0b11111101,
-    0b11011110,0b00010010,0b00000100,0b00100100,
-    0b11101101,0b11111011,0b01011011,0b00100101,
-    0b00000100,0b10010001,0b01101010,0b11011111,
-    0b01110111,0b00010101,0b00000010,0b00100010,
-    0b11010101,0b01111010,0b11101111,0b10110110,
-    0b00100100,0b10000100,0b10100100,0b11011010,
-    // hi-hat (118)
-    0b10011010,0b01110100,0b11010100,0b00110011,
-    0b00110011,0b11101000,0b11101000,0b01010101,
-    0b01010101,
-    // end (26)
+	// bwoop (0)
+	0b10101010,0b10110110,0b10000111,0b11111000,
+	0b10000100,0b00110111,0b11101000,0b11000001,
+	0b00000111,0b00111101,0b11111000,0b11100000,
+	0b10010001,0b10000111,0b00000111,0b00001111,
+	0b00001111,0b00011011,0b00011110,
+	// beep (19)
+	0b10101010,0b00101010,0b00110011,0b00110011,
+	0b00110011,0b00110011,0b00110011,0b11001101,
+	0b11001100,0b11001100,0b11001100,0b10101100,
+	0b10011001,0b00110001,0b00110011,
+	// kick (34)
+	0b10010101,0b10110010,0b00000000,0b11100011,
+	0b11110000,0b00000000,0b11111111,0b00000000,
+	0b11111110,0b00000000,0b00000000,0b00000000,
+	0b11111111,0b11111111,0b11111111,0b00100101,
+	0b00000000,0b00000000,0b00000000,0b00000000,
+	0b11111111,0b11110111,0b11111111,0b11111111,
+	0b11111111,0b10111111,0b00010010,0b00000000,
+	0b10000000,0b00000000,0b00000000,0b00000000,
+	0b00000000,0b11101110,0b11111111,0b11111111,
+	0b11111111,0b11110111,0b11111111,0b11111110,
+	// snare (74)
+	0b10011010,0b10011010,0b10101010,0b10010110,
+	0b01110100,0b10010101,0b10001010,0b11011110,
+	0b01110100,0b10100000,0b11110111,0b00100101,
+	0b01110100,0b01101000,0b11111111,0b01011011,
+	0b01000001,0b10000000,0b11010100,0b11111101,
+	0b11011110,0b00010010,0b00000100,0b00100100,
+	0b11101101,0b11111011,0b01011011,0b00100101,
+	0b00000100,0b10010001,0b01101010,0b11011111,
+	0b01110111,0b00010101,0b00000010,0b00100010,
+	0b11010101,0b01111010,0b11101111,0b10110110,
+	0b00100100,0b10000100,0b10100100,0b11011010,
+	// hi-hat (118)
+	0b10011010,0b01110100,0b11010100,0b00110011,
+	0b00110011,0b11101000,0b11101000,0b01010101,
+	0b01010101,
+	// end (26)
 };
 
 unsigned int header_size = 0;
@@ -169,79 +172,77 @@ unsigned int   tick_counter    = 0,
 
 void error_message(char number)
 {
-    printf(ANSI_COLOR_RED "[ERROR %d] ",number);
+	printf(ANSI_COLOR_RED "[ERROR %d] ",number);
 
-    switch(number)
-    {
-        case 0 :
-            printf("Generic error.\n");
-            break;
-        case 1 :
-            printf("File either doesn't exist, or it can't be opened.\n");
-            break;
-        case 2 :
-            printf("No file specified.\n");
-            break;
-        }
-        printf(ANSI_COLOR_RESET);
+	switch(number)
+	{
+		case 0 :
+			printf("Generic error.\n");
+			break;
+		case 1 :
+			printf("File either doesn't exist, or it can't be opened.\n");
+			break;
+		case 2 :
+			printf("No file specified.\n");
+			break;
+		}
+		printf(ANSI_COLOR_RESET);
 
-    printf("\nTerminating due to error. Really sorry! μMML Desktop Synthesizer end. :(\n\n");
+	printf("\nTerminating due to error. Really sorry! μMML Desktop Synthesizer end. :(\n\n");
 
-    exit(0);
+	exit(0);
 }
 
 /*Return 0 on success and -1 on failure*/
 int write_PCM8_mono_header(FILE* file_p, int32_t SampleRate, int32_t FrameCount)
 {
-    int ret;
+	int ret;
 
-    wavfile_header_t wav_header;
-    int32_t subchunk2_size;
-    int32_t chunk_size;
+	wavfile_header_t wav_header;
+	int32_t subchunk2_size;
+	int32_t chunk_size;
 
-    size_t write_count;
+	size_t write_count;
 
-    subchunk2_size  = FrameCount * NUM_CHANNELS * BITS_PER_SAMPLE/8;
-    chunk_size      = 4 + (8 + SUBCHUNK1SIZE) + (8 + subchunk2_size);
+	subchunk2_size  = FrameCount * NUM_CHANNELS * BITS_PER_SAMPLE/8;
+	chunk_size      = 4 + (8 + SUBCHUNK1SIZE) + (8 + subchunk2_size);
 
-    wav_header.ChunkID[0] = 'R';
-    wav_header.ChunkID[1] = 'I';
-    wav_header.ChunkID[2] = 'F';
-    wav_header.ChunkID[3] = 'F';
+	wav_header.ChunkID[0] = 'R';
+	wav_header.ChunkID[1] = 'I';
+	wav_header.ChunkID[2] = 'F';
+	wav_header.ChunkID[3] = 'F';
 
-    wav_header.ChunkSize = chunk_size;
+	wav_header.ChunkSize = chunk_size;
 
-    wav_header.Format[0] = 'W';
-    wav_header.Format[1] = 'A';
-    wav_header.Format[2] = 'V';
-    wav_header.Format[3] = 'E';
+	wav_header.Format[0] = 'W';
+	wav_header.Format[1] = 'A';
+	wav_header.Format[2] = 'V';
+	wav_header.Format[3] = 'E';
 
-    wav_header.Subchunk1ID[0] = 'f';
-    wav_header.Subchunk1ID[1] = 'm';
-    wav_header.Subchunk1ID[2] = 't';
-    wav_header.Subchunk1ID[3] = ' ';
+	wav_header.Subchunk1ID[0] = 'f';
+	wav_header.Subchunk1ID[1] = 'm';
+	wav_header.Subchunk1ID[2] = 't';
+	wav_header.Subchunk1ID[3] = ' ';
 
-    wav_header.Subchunk1Size = SUBCHUNK1SIZE;
-    wav_header.AudioFormat = AUDIO_FORMAT;
-    wav_header.NumChannels = NUM_CHANNELS;
-    wav_header.SampleRate = SampleRate;
-    wav_header.ByteRate = BYTE_RATE;
-    wav_header.BlockAlign = BLOCK_ALIGN;
-    wav_header.BitsPerSample = BITS_PER_SAMPLE;
+	wav_header.Subchunk1Size = SUBCHUNK1SIZE;
+	wav_header.AudioFormat = AUDIO_FORMAT;
+	wav_header.NumChannels = NUM_CHANNELS;
+	wav_header.SampleRate = SampleRate;
+	wav_header.ByteRate = BYTE_RATE;
+	wav_header.BlockAlign = BLOCK_ALIGN;
+	wav_header.BitsPerSample = BITS_PER_SAMPLE;
 
-    wav_header.Subchunk2ID[0] = 'd';
-    wav_header.Subchunk2ID[1] = 'a';
-    wav_header.Subchunk2ID[2] = 't';
-    wav_header.Subchunk2ID[3] = 'a';
-    wav_header.Subchunk2Size = subchunk2_size;
+	wav_header.Subchunk2ID[0] = 'd';
+	wav_header.Subchunk2ID[1] = 'a';
+	wav_header.Subchunk2ID[2] = 't';
+	wav_header.Subchunk2ID[3] = 'a';
+	wav_header.Subchunk2Size = subchunk2_size;
 
-    write_count = fwrite(   &wav_header, 
-                            sizeof(wavfile_header_t), 1,
-                            file_p);
+	write_count = fwrite(&wav_header, sizeof(wavfile_header_t), 1, file_p);
 
-    ret = (1 != write_count)? -1 : 0;
+	ret = (1 != write_count)? -1 : 0;
 
-    return ret;
+	return ret;
 }
 
 typedef struct PCM8_mono_s
@@ -257,11 +258,50 @@ PCM8_mono_t *allocate_PCM8_mono_buffer(int32_t FrameCount)
 /*Return the number of audio frames sucessfully written*/
 size_t  write_PCM8_wav_data(FILE* file_p, int32_t FrameCount, PCM8_mono_t *buffer_p)
 {
-    size_t ret;
+	size_t ret;
 
-    ret = fwrite(buffer_p, sizeof(PCM8_mono_t), FrameCount, file_p);
+	ret = fwrite(buffer_p, sizeof(PCM8_mono_t), FrameCount, file_p);
 
-    return ret;
+	return ret;
+}
+
+void read_file(char *file_name)
+{
+	FILE *input_file = fopen(file_name, "r");
+
+	if (input_file != NULL)
+	{
+		printf("Reading file: '%s'.\n", file_name);
+
+		// jump to the end of the input file
+		if (fseek(input_file, 0L, SEEK_END) == 0)
+		{
+			// get size of file
+			bufsize = ftell(input_file);
+
+			printf("Input file size: %ld bytes.\n\n", bufsize);
+
+			if (bufsize == -1)
+				error_message(0);
+	
+			// allocate memory
+			source = malloc(sizeof(char) * (bufsize + 1));
+	
+			if (fseek(input_file, 0L, SEEK_SET) != 0)
+				error_message(0);
+	
+			// read file into memory
+			size_t newLen = fread(source, sizeof(char), bufsize, input_file);
+
+			if ( ferror( input_file ) != 0 )
+				error_message(1);
+			else
+				source[newLen++] = '\0';
+		}
+		fclose(input_file);
+	}
+	else
+		error_message(1);
 }
 
 int generate_audio( int32_t SampleRate, int32_t FrameCount, PCM8_mono_t  *buffer_p, char *source)
@@ -271,7 +311,7 @@ int generate_audio( int32_t SampleRate, int32_t FrameCount, PCM8_mono_t  *buffer
 
 	//===== WAVE SAMPLE DATA CODE =====//
 
-	printf("Synthesising wave file...\n\n");
+	printf("Synthesising wave file...\n");
 
 	unsigned int v = 0;
 
@@ -505,8 +545,6 @@ int main(int argc, char *argv[])
 
     size_t written;
 
-	char *source = NULL;
-
 	printf("Hello and Welcome to the μMML Desktop Synthesizer! (v1.2)\n\n");
 
 	if(argc == 1){
@@ -520,36 +558,7 @@ int main(int argc, char *argv[])
 			if(i == argc-1)
 				error_message(0);
 			else
-			{
-				FILE *input_file = fopen(argv[i+1], "r");
-
-				if (input_file != NULL)
-				{
-					// jump to the end of the input file
-					if (fseek(input_file, 0L, SEEK_END) == 0)
-					{
-						if (bufsize == -1)
-							error_message(0);
-					
-						// allocate memory
-						source = malloc(sizeof(char) * (bufsize + 1));
-
-						if (fseek(input_file, 0L, SEEK_SET) != 0)
-							error_message(0);
-					
-						/* Read the entire file into memory. */
-						size_t newLen = fread(source, sizeof(char), bufsize, input_file);
-
-						if ( ferror( input_file ) != 0 )
-							error_message(1);
-						else
-							source[newLen++] = '\0';
-					}
-					fclose(input_file);
-				}
-				else
-					error_message(1);
-			}
+				read_file(argv[i+1]);
 			i++;
 		}
 		else if (strcmp(argv[i], "-s") == 0){
@@ -559,60 +568,64 @@ int main(int argc, char *argv[])
 				duration = atoi(argv[i+1]);
 			i++;
 		}
+		else
+			error_message(0);
 	}
 
-    uint32_t FrameCount = duration * SAMPLE_RATE;
+	uint32_t FrameCount = duration * SAMPLE_RATE;
 
-    /*Open the wav file*/
-    file_p = fopen("./output.wav", "w");
-    if(NULL == file_p)
-    {
-        perror("fopen failed in main");
-        ret = -1;
-        goto error0;
-    }
+	/*Open the wav file*/
+	file_p = fopen("./output.wav", "w");
+	if(NULL == file_p)
+	{
+		perror("fopen failed in main");
+		ret = -1;
+		goto error0;
+	}
 
-    /*Allocate the data buffer*/
-    buffer_p = allocate_PCM8_mono_buffer(FrameCount);
-    if(NULL == buffer_p)
-    {
-        perror("fopen failed in main");
-        ret = -1;
-        goto error1;        
-    }
+	/*Allocate the data buffer*/
+	buffer_p = allocate_PCM8_mono_buffer(FrameCount);
+	if(NULL == buffer_p)
+	{
+		perror("fopen failed in main");
+		ret = -1;
+		goto error1;        
+	}
 
-    /*Fill the buffer*/
-    ret = generate_audio(SAMPLE_RATE, FrameCount, buffer_p, source);
-    if(ret < 0)
-    {
-        fprintf(stderr, "generate_audio failed in main\n");
-        ret = -1;
-        goto error2;
-    }
+	/*Fill the buffer*/
+	ret = generate_audio(SAMPLE_RATE, FrameCount, buffer_p, source);
+	if(ret < 0)
+	{
+		fprintf(stderr, "generate_audio failed in main\n");
+		ret = -1;
+		goto error2;
+	}
 
-    /*Write the wav file header*/
-    ret = write_PCM8_mono_header(file_p, SAMPLE_RATE, FrameCount);
-    if(ret < 0)
-    {
-        perror("write_PCM8_mono_header failed in main");
-        ret = -1;
-        goto error2;
-    }
+	/*Write the wav file header*/
+	ret = write_PCM8_mono_header(file_p, SAMPLE_RATE, FrameCount);
+	if(ret < 0)
+	{
+		perror("write_PCM8_mono_header failed in main");
+		ret = -1;
+		goto error2;
+	}
 
-    /*Write the data out to file*/
-    written = write_PCM8_wav_data(file_p, FrameCount, buffer_p);
-    if(written < FrameCount)
-    {
-        perror("write_PCM8_wav_data failed in main");
-        ret = -1;
-        goto error2;
-    }
+	/*Write the data out to file*/
+	written = write_PCM8_wav_data(file_p, FrameCount, buffer_p);
+	if(written < FrameCount)
+	{
+		perror("write_PCM8_wav_data failed in main");
+		ret = -1;
+		goto error2;
+	}
 
-    /*Free and close everything*/    
+	printf("\nCompilation finished! μMML Desktop Synthesizer end.\n\n");
+
+	/*Free and close everything*/    
 	error2:
-    	free(buffer_p);
+		free(buffer_p);
 	error1:
-    	fclose(file_p);
+		fclose(file_p);
 	error0:
-    	return ret;    
+		return ret;    
 }
