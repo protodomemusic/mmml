@@ -31,12 +31,13 @@
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
 signed char   line_counter = -1;
-char          loop_temp_string[4],
-              tempo_temp_string[4],
-              macro_temp_string[4];
 
-char          *source_data = NULL;
-char          *output = NULL;
+char          *loop_temp_string  = NULL,
+              *source_data       = NULL,
+              *output            = NULL,
+              *tempo_temp_string = NULL,
+              *macro_temp_string = NULL;
+
 long          bufsize;
 
 unsigned char header_data[TOTAL_POSSIBLE_MACROS * 2];
@@ -134,7 +135,7 @@ void error_message(char number, int line)
 	exit(0);
 }
 
-void save_output_data(char input)
+void save_output_data(unsigned char input)
 {
 	output[output_data_accumulator] = input;
 	output_data_accumulator++;
@@ -142,16 +143,19 @@ void save_output_data(char input)
 
 void write_file(void)
 {
-	printf("\nWriting...\n\n");
+	unsigned char data;
+
 	FILE *newfile = fopen("output.mmmldata", "w");
 
 	for (unsigned long i = 0; i < channel * 2; i++)
-	{
 		fprintf(newfile, "%c", header_data[i]);
-	}
 
 	for (unsigned long i = 0; i < output_data_accumulator; i++)
-		fprintf(newfile, "%c", output[i]);
+	{
+		data = output[i];
+
+		fprintf(newfile, "%c", data);
+	}
 
 	fclose(newfile);
 
@@ -180,7 +184,7 @@ void read_file(char *file_name)
 				error_message(0,0);
 	
 			// allocate memory
-			source_data = malloc(sizeof(char) * (bufsize + 1));
+			source_data = (char*)malloc(sizeof(char) * (bufsize + 1));
 	
 			if (fseek(input_file, 0L, SEEK_SET) != 0)
 				error_message(0,0);
@@ -284,11 +288,7 @@ int compiler_core()
 	 *  6  :  Apparently nothing? I just jumped to 7?
 	 *  7  :  Tempo was last input.
 	 *  8  :  Macro was last input.
-	 */
-
-	printf("\nCompiling...\n\n");
-
-	/*
+	 *
 	 *  The language is essentially a more legible version of the
 	 *  nibble structure read by the mmml.c program, so no complex
 	 *  interpretation has to be done. The program looks for the
@@ -334,27 +334,26 @@ int compiler_core()
 						 * real quick. It checks to see whether you've put two
 						 * octave changes in succession, then ignores the redundant
 						 * octave. */
-						CHECKOCTAVEUP:
-						if(source_data[i+1] == '>')
+						while(source_data[i+1] == '>')
 						{
 							octave++;
 							i++;
-							goto CHECKOCTAVEUP;
 						}
-						else{
-							if(octave >= 5)
-								error_message(6,line);
-							else if(octave == 4)
-								save_output_data(0xDF);
-							else if(octave == 3)
-								save_output_data(0xD7);
-							else if(octave == 2)
-								save_output_data(0xD3);
-							else if(octave == 1)
-								save_output_data(0xD1);
-							octave++;
-							next_byte();
-						}
+
+						if(octave >= 5)
+							error_message(6,line);
+						else if(octave == 4)
+							save_output_data(0xDF);
+						else if(octave == 3)
+							save_output_data(0xD7);
+						else if(octave == 2)
+							save_output_data(0xD3);
+						else if(octave == 1)
+							save_output_data(0xD1);
+
+						octave++;
+						next_byte();
+
 					}
 					else
 						error_message(3,line);
@@ -366,27 +365,25 @@ int compiler_core()
 				{
 					if(command == 0)
 					{
-						CHECKOCTAVEDOWN:
-						if(source_data[i+1] == '<')
+						while(source_data[i+1] == '<')
 						{
 							octave--;
 							i++;
-							goto CHECKOCTAVEDOWN;
 						}
-						else{
-							if(octave == 5)
-								save_output_data(0xD7);
-							else if(octave == 4)
-								save_output_data(0xD3);
-							else if(octave == 3)
-								save_output_data(0xD1);
-							else if(octave == 2)
-								save_output_data(0xD0);
-							else if(octave <= 1)
-								error_message(11,line);
-							octave--;
-							next_byte();
-						}
+
+						if(octave == 5)
+							save_output_data(0xD7);
+						else if(octave == 4)
+							save_output_data(0xD3);
+						else if(octave == 3)
+							save_output_data(0xD1);
+						else if(octave == 2)
+							save_output_data(0xD0);
+						else if(octave <= 1 || octave > 5)
+							error_message(11,line);
+
+						octave--;
+						next_byte();
 					}
 					else
 						error_message(3,line);
@@ -579,6 +576,11 @@ int compiler_core()
 						save_output_data(0xF3);
 						next_byte();
 
+						tempo_temp_string = (char*)malloc(sizeof(char) * (4));
+						
+						for(unsigned char p = 0; p < 4; p++)
+							tempo_temp_string[p] = '\0';
+
 						for(unsigned char n = 0; n < 4; n++)
 						{
 							if(isdigit(source_data[i+1]))
@@ -607,10 +609,7 @@ int compiler_core()
 									}
 
 									save_output_data(tempo_value);
-
-									// clear the temporary string
-									for(unsigned char b = 0; b < 3; b++)
-										tempo_temp_string[b] = 0;
+									free(tempo_temp_string);
 								}
 								break;
 							}
@@ -647,6 +646,11 @@ int compiler_core()
 						save_output_data(0xF0);
 						next_byte();
 
+						loop_temp_string = (char*)malloc(sizeof(char) * (4));
+
+						for(unsigned char p = 0; p < 4; p++)
+							loop_temp_string[p] = '\0';
+
 						for(unsigned char n = 0; n < 4; n++)
 						{
 							if(isdigit(source_data[i+1]))
@@ -675,10 +679,7 @@ int compiler_core()
 									}
 
 									save_output_data(loop_value);
-
-									// clear the temporary string
-									for(unsigned char b=0; b<3; b++)
-										loop_temp_string[b] = 0;
+									free(loop_temp_string);
 								}
 								break;
 							}
@@ -688,6 +689,7 @@ int compiler_core()
 					else
 						error_message(3,line);
 				}
+				break;
 
 			case ']' :
 				if(command != 5)
@@ -711,6 +713,11 @@ int compiler_core()
 						save_output_data(0xF2);
 						next_byte();
 
+						macro_temp_string = (char*)malloc(sizeof(char) * (4));
+
+						for(unsigned char p = 0; p < 4; p++)
+							macro_temp_string[p] = '\0';
+
 						for(unsigned char n = 0; n < 4; n++)
 						{
 							if(isdigit(source_data[i+1]))
@@ -720,26 +727,19 @@ int compiler_core()
 							}
 							else{
 								if(n == 0)
-								{
 									error_message(3,line);
-								}
 								if(n > 3)
-								{
 									error_message(12,line);
-								}
 								if(n > 0 && n <= 3)
 								{
-									macro_temp_string[n+1] = '\0'; // null terminate string
+									macro_temp_string[n+1] = '\0';
+
 									macro_value = atoi(macro_temp_string);
 									
 									if(macro_value > 255)
-									{
 										error_message(12,line);
-									}
 									else if(macro_value == 0)
-									{
 										error_message(15,line);
-									}
 
 									if(macro_value > highest_macro)
 									{
@@ -752,10 +752,8 @@ int compiler_core()
 									macro_value--;
 
 									save_output_data(macro_value);
+									free(macro_temp_string);
 
-									// clear the temporary string
-									for(unsigned char b = 0; b < 3; b++)
-										macro_temp_string[b] = 0;
 								}
 								break;
 							}
@@ -1160,7 +1158,10 @@ int main(int argc, char *argv[])
 			error_message(2,0);
 	}
 
+	printf("\nCompiling...\n");
 	compiler_core();
+
+	printf("\nWriting...\n");
 	write_file();
 
 	printf("\nμMML Desktop Compiler end.\n\n");

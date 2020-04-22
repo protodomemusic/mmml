@@ -285,7 +285,7 @@ void read_file(char *file_name)
 				error_message(0);
 	
 			// allocate memory
-			source = malloc(sizeof(char) * (bufsize + 1));
+			source = (char*)malloc(sizeof(char) * (bufsize + 1));
 	
 			if (fseek(input_file, 0L, SEEK_SET) != 0)
 				error_message(0);
@@ -401,9 +401,9 @@ int generate_audio( int32_t SampleRate, int32_t FrameCount, PCM8_mono_t  *buffer
 						if(buffer2 == 0)
 						{
 							loops_active[voice]++;
-							loop_point[loops_active[voice] - 1][voice] = data_pointer[voice] + 3;
-							loop_duration[loops_active[voice] - 1][voice] = buffer3;
-							data_pointer[voice] += 2;
+							loop_point[loops_active[voice] - 1][voice] = data_pointer[voice] + 2;
+							loop_duration[loops_active[voice] - 1][voice] = buffer3 - 1;
+							data_pointer[voice]+= 2;
 						}
 						// loop end
 						else if(buffer2 == 1)
