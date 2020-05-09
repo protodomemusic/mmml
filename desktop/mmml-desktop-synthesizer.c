@@ -185,7 +185,7 @@ void error_message(char number)
 		case 2 :
 			printf("No file specified.\n");
 			break;
-		}
+	}
 		printf(ANSI_COLOR_RESET);
 
 	printf("\nTerminating due to error. Really sorry! μMML Desktop Synthesizer end. :(\n\n");

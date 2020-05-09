@@ -4,8 +4,7 @@
 *                Compiler
 *
 *  NOTES:        Converts .mmml (or .txt) files to .mmmldata
-*                files for the μMML Desktop Synthesizer
-*                program.
+*                files, also .c files for GBDK!
 *
 *                To compile .mmml code, simply run:
 *                $ ./compiler -f FILENAME.mmml
@@ -51,6 +50,8 @@ unsigned char command,
               loops,
               macro_line;
 
+signed char   build_target = -1;
+
 unsigned char temp_nibble = 0;
 
 unsigned int  total_bytes,
@@ -76,7 +77,7 @@ void error_message(char number, int line)
 			printf("File either doesn't exist, or it can't be opened.\n");
 			break;
 		case 2 :
-			printf("No file specified. Use the '-f' flag to chose a file (eg. '-f FILENAME.mmml').\n");
+			printf("You must specify a (f)ile using the '-f' flag (eg. '-f FILENAME.mmml').\n");
 			break;
 		case 3 :
 			printf("Line %d: Consecutive commands (missing a value).\n\nAlso, there are no two character commands in μMML.\n", line);
@@ -94,7 +95,7 @@ void error_message(char number, int line)
 			printf("Line %d: Volumes only range from 1 to 8. (1 quietest - 8 loudest)\n", line);
 			break;
 		case 8 :
-			printf("Line %d: Invalid loop amount, 2 - 255 only.\n\nRemember, a loop refers to how many times the nested material should play, so a value of 0 and 1 would be redundant.\n", line);
+			printf("Line %d: Invalid loop amount, 2 - 255 only.\n", line);
 			break;
 		case 11 :
 			printf("Line %d: Invalid octave value; yours has gone below 'o1'.\n\nThis is easily missed with the '<' command. Check to see where you've decremented below the base octave value.\n", line);
@@ -123,6 +124,12 @@ void error_message(char number, int line)
 		case 19 :
 			printf("Line %d: Invalid loop amount; must be non-zero.\n\nThe compiler will only accept tempos from 1 to 255.\n", line);
 			break;
+		case 20 :
+			printf("You must specify a build (t)arget using the '-t' flag. Options are 'data' for .mmmldata file (for the desktop synthesiser) or 'gb' for Game Boy.\n");
+			break;
+		case 21 :
+			printf("Not a valid build target. Options are 'data' for .mmmldata file or 'gb' for Game Boy.\n");
+			break;
 		}
 		printf(ANSI_COLOR_RESET);
 
@@ -144,24 +151,56 @@ void save_output_data(unsigned char input)
 void write_file(void)
 {
 	unsigned char data;
+	unsigned char line = 0;
 
-	FILE *newfile = fopen("output.mmmldata", "w");
-
-	for (unsigned long i = 0; i < channel * 2; i++)
-		fprintf(newfile, "%c", header_data[i]);
-
-	for (unsigned long i = 0; i < output_data_accumulator; i++)
+	// data file
+	if (build_target == 0)
 	{
-		data = output[i];
+		FILE *newfile = fopen("output.mmmldata", "wb");
 
-		fprintf(newfile, "%c", data);
+		fwrite(header_data, channel * 2, 1, newfile);
+		fwrite(output, output_data_accumulator, 1, newfile);
+
+		fclose(newfile);
 	}
 
-	fclose(newfile);
+	// game boy
+	else if (build_target == 1)
+	{
+		FILE *newfile = fopen("gb-mmml-data.c", "w");
 
-	printf(ANSI_COLOR_GREEN "Successfully compiled!" ANSI_COLOR_RESET);	
-	printf("\nTotal sequence is %d bytes.", total_bytes);
-	printf("\nOutput written to 'output.mmmldata'.\n");
+		fprintf(newfile, "#include <stdio.h>\n#include <gb/gb.h>\n\nconst UINT8 source [%u] = {\n\t", total_bytes + (channel * 2));
+
+		for (unsigned long i = 0; i < channel * 2; i++)
+		{
+			fprintf(newfile, "0x%X,", header_data[i]);
+			if (line++ == 16)
+			{
+				fprintf(newfile, "\n\t");
+				line = 0;
+			}
+		}
+
+		for (unsigned long i = 0; i < output_data_accumulator; i++)
+		{
+			data = output[i];
+
+			fprintf(newfile, "0x%X,", data);
+
+			if (line++ == 16)
+			{
+				fprintf(newfile, "\n\t");
+				line = 0;
+			}
+		}
+		fprintf(newfile, "\n};");
+
+		fclose(newfile);
+	}
+
+	printf(ANSI_COLOR_GREEN "Successfully compiled!\n" ANSI_COLOR_RESET);	
+	printf("Total sequence is %d bytes.\n", total_bytes);
+	printf("Output written to 'output.mmmldata'.\n\n");
 }
 
 void read_file(char *file_name)
@@ -178,7 +217,7 @@ void read_file(char *file_name)
 			// get size of file
 			bufsize = ftell(input_file);
 
-			printf("Input file size: %ld bytes.\n", bufsize);
+			printf("Input file size: %ld bytes.\n\n", bufsize);
 
 			if (bufsize == -1)
 				error_message(0,0);
@@ -340,16 +379,34 @@ int compiler_core()
 							i++;
 						}
 
-						if(octave >= 5)
-							error_message(6,line);
-						else if(octave == 4)
-							save_output_data(0xDF);
-						else if(octave == 3)
-							save_output_data(0xD7);
-						else if(octave == 2)
-							save_output_data(0xD3);
-						else if(octave == 1)
-							save_output_data(0xD1);
+						if(build_target == 0)
+						{
+							if(octave >= 5)
+								error_message(6,line);
+							else if(octave == 4)
+								save_output_data(0xDF);
+							else if(octave == 3)
+								save_output_data(0xD7);
+							else if(octave == 2)
+								save_output_data(0xD3);
+							else if(octave == 1)
+								save_output_data(0xD1);
+						}
+						else if(build_target == 1)
+						{
+							if(octave >= 6)
+								error_message(6,line);
+							else if(octave == 5)
+								save_output_data(0xD5);
+							else if(octave == 4)
+								save_output_data(0xD4);
+							else if(octave == 3)
+								save_output_data(0xD3);
+							else if(octave == 2)
+								save_output_data(0xD2);
+							else if(octave == 1)
+								save_output_data(0xD1);
+						}
 
 						octave++;
 						next_byte();
@@ -371,16 +428,34 @@ int compiler_core()
 							i++;
 						}
 
-						if(octave == 5)
-							save_output_data(0xD7);
-						else if(octave == 4)
-							save_output_data(0xD3);
-						else if(octave == 3)
-							save_output_data(0xD1);
-						else if(octave == 2)
-							save_output_data(0xD0);
-						else if(octave <= 1 || octave > 5)
-							error_message(11,line);
+						if(build_target == 0)
+						{
+							if(octave == 5)
+								save_output_data(0xD7);
+							else if(octave == 4)
+								save_output_data(0xD3);
+							else if(octave == 3)
+								save_output_data(0xD1);
+							else if(octave == 2)
+								save_output_data(0xD0);
+							else if(octave <= 1 || octave > 5)
+								error_message(11,line);
+						}
+						else if(build_target == 1)
+						{
+							if(octave == 6)
+								save_output_data(0xD4);
+							else if(octave == 5)
+								save_output_data(0xD3);
+							else if(octave == 4)
+								save_output_data(0xD2);
+							else if(octave == 3)
+								save_output_data(0xD1);
+							else if(octave == 2)
+								save_output_data(0xD0);
+							else if(octave <= 1 || octave > 6)
+								error_message(11,line);
+						}
 
 						octave--;
 						next_byte();
@@ -801,12 +876,18 @@ int compiler_core()
 								print_duration(1);
 							break;
 						case 2: // octave
-							temp_nibble = temp_nibble | 0x00;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x00;
+							else if (build_target == 1)
+								temp_nibble = temp_nibble | 0x00;
 							save_output_data(temp_nibble);
 							octave = 1;
 							break;
 						case 3: //volume
-							temp_nibble = temp_nibble | 0x08;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x08;
+							else if (build_target == 1)
+								temp_nibble = temp_nibble | 0x01;
 							save_output_data(temp_nibble);
 							break;
 					}
@@ -832,12 +913,18 @@ int compiler_core()
 								print_duration(2);
 							break;
 						case 2: // octave
-							temp_nibble = temp_nibble | 0x01;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x01;
+							else if (build_target == 1)
+								temp_nibble = temp_nibble | 0x01;
 							save_output_data(temp_nibble);
 							octave = 2;
 							break;
 						case 3: //volume
-							temp_nibble = temp_nibble | 0x07;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x07;
+							else if (build_target == 1)
+								temp_nibble = temp_nibble | 0x02;
 							save_output_data(temp_nibble);
 							break;
 						break;
@@ -870,12 +957,18 @@ int compiler_core()
 								error_message(5,line);
 							break;
 						case 2: // octave
-							temp_nibble = temp_nibble | 0x03;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x03;
+							else if (build_target == 1)
+								temp_nibble = temp_nibble | 0x02;
 							save_output_data(temp_nibble);
 							octave = 3;
 							break;
 						case 3: // volume
-							temp_nibble = temp_nibble | 0x06;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x06;
+							else if (build_target == 1)
+								temp_nibble = temp_nibble | 0x03;
 							save_output_data(temp_nibble);
 							break;
 						break;
@@ -905,12 +998,18 @@ int compiler_core()
 								}
 							break;
 						case 2: // octave
-							temp_nibble = temp_nibble | 0x07;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x07;
+							else if (build_target == 1)
+								temp_nibble = temp_nibble | 0x03;
 							save_output_data(temp_nibble);
 							octave = 4;
 							break;
 						case 3: // volume
-							temp_nibble = temp_nibble | 0x05;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x05;
+							else if (build_target == 1)
+								temp_nibble = temp_nibble | 0x04;
 							save_output_data(temp_nibble);
 							break;
 						break;
@@ -931,12 +1030,18 @@ int compiler_core()
 							error_message(5,line);
 							break;
 						case 2: // octave
-							temp_nibble = temp_nibble | 0x0F;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x0F;
+							if (build_target == 1)
+								temp_nibble = temp_nibble | 0x04;
 							save_output_data(temp_nibble);
 							octave = 5;
 							break;
 						case 3: // volume
-							temp_nibble = temp_nibble | 0x04;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x04;
+							if (build_target == 1)
+								temp_nibble = temp_nibble | 0x06;
 							save_output_data(temp_nibble);
 							break;
 						break;
@@ -969,10 +1074,20 @@ int compiler_core()
 								error_message(5,line);
 							break;
 						case 2:
-							error_message(6,line);
+							if (build_target == 0)
+								error_message(6,line);
+							if (build_target == 1)
+							{
+								temp_nibble = temp_nibble | 0x05;
+								save_output_data(temp_nibble);
+								octave = 6;
+							}
 							break;
 						case 3: //volume
-							temp_nibble = temp_nibble | 0x03;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x03;
+							if (build_target == 1)
+								temp_nibble = temp_nibble | 0x08;
 							save_output_data(temp_nibble);
 							break;
 						break;
@@ -996,7 +1111,10 @@ int compiler_core()
 							error_message(6,line);
 							break;
 						case 3: //volume
-							temp_nibble = temp_nibble | 0x02;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x02;
+							if (build_target == 1)
+								temp_nibble = temp_nibble | 0x0A;
 							save_output_data(temp_nibble);
 							break;
 						break;
@@ -1029,7 +1147,10 @@ int compiler_core()
 							error_message(6,line);
 							break;
 						case 3: //volume
-							temp_nibble = temp_nibble | 0x01;
+							if (build_target == 0)
+								temp_nibble = temp_nibble | 0x01;
+							if (build_target == 1)
+								temp_nibble = temp_nibble | 0x0D;
 							save_output_data(temp_nibble);
 							break;
 						break;
@@ -1144,27 +1265,51 @@ int compiler_core()
 
 int main(int argc, char *argv[])
 {
-	printf("Hello and welcome to the μMML Desktop Compiler! (v1.2)\n\n");
+	unsigned char file_flag = 0;
+
+	printf("Hello and welcome to the μMML Desktop Compiler! (v1.3)\n\n");
 
 	for (uint8_t i = 1; i < argc; i++){
+
 		if (strcmp(argv[i], "-f") == 0){
 			if(i == argc-1)
 				error_message(1,0);
-			else
+			else{
 				read_file(argv[i+1]);
+				file_flag = 1;
+			}
 			i++;
 		}
-		else
-			error_message(2,0);
+
+		if (strcmp(argv[i], "-t") == 0){
+			if(i == argc-1)
+				error_message(20,0);
+			else
+			{
+				if (strcmp(argv[i+1], "gb") == 0)
+					build_target = 1; // game boy build
+
+				else if (strcmp(argv[i+1], "data") == 0)
+					build_target = 0; // .mmmldata build
+				else
+					error_message(21,0);
+			}
+			i++;
+		}
 	}
 
-	printf("\nCompiling...\n");
+	if (build_target == -1)
+		error_message(20,0);
+	if (file_flag == 0)
+		error_message(2,0);
+
+	printf("Compiling...\n\n");
 	compiler_core();
 
-	printf("\nWriting...\n");
+	printf("Writing...\n\n");
 	write_file();
 
-	printf("\nμMML Desktop Compiler end.\n\n");
+	printf("μMML Desktop Compiler end.\n");
 
 	// Just in case I port this to DOS.
 	free(source_data);

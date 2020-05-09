@@ -1,13 +1,21 @@
 # μMML - Micro Music Macro Language
-*An MML implementation for AVR microcontrollers*
+*An MML implementation for AVR microcontrollers (and other platforms, but largely 1-bit focused still).*
 
 This little project was built to facilitate simple composing of 1-bit music for AVR microcontrollers using a derivation of *Music Macro Language* (MML). You can then, with the most basic of components, make cool embedded albums that run off a single coin cell battery.
 
-**Note: The compiler is very bare-bones, stubborn and inflexible at the moment. It is in desperate need of complete refactoring.** It does work however, and that's all it needed to do to write my 1-bit album. So, with that in mind, read on and, if you like this project and want to help out, I would be honestly thrilled.
-
-This guide assumes you're using OSX or Linux. It definitely works on Windows so, if you know what you're doing, it should be simple.
+**Scruss has written an excellent, incredibly comprehensive, guide to programming and building your own 1-bit music boxes using μMML, which you can find [HERE](https://scruss.com/blog/2020/04/02/protodomes-wonderful-chiptunes-how-to-play-them-on-your-own-attiny85-chips/). If you're new to AVR programming, this is where you should really start.**
 
 I hope you have fun writing tiny music! If you have any questions/suggestions/corrections contact me at: hello@protodome.com
+
+## 9th May 2020
+
+Fixed the compiler on Windows. Additionally added some really early compiler support for the Game Boy μMML player (which is coming later).
+
+As there are multiple build targets, you will have to run the compiler like this:
+
+`$ ./compiler -f FILENAME.mmml -t data`
+
+This will set the build (t)arget to .mmmldata file. (If you want Game Boy, you'll need to do `-t gb`, but that will produce a useless C file right now without the player.)
 
 ## 19th April 2020
 
@@ -19,7 +27,7 @@ Build both programs:
 `$ gcc mmml-desktop-synthesizer.c -o synthesizer`
 
 Run the compiler first...
-`$ ./compiler -f FILENAME.mmml`
+`$ ./compiler -f FILENAME.mmml -t data`
 
 ...then build the output file.
 `$ ./synthesizer -f output.mmmldata -s 60`
@@ -32,7 +40,9 @@ There's also been a fix for 64-bit Linux systems where error 14 fired off errone
 
 ## How To Use
 
-**Scruss has written an excellent, incredibly comprehensive, guide to programming and building your own 1-bit music boxes using μMML, which you can find [HERE](https://scruss.com/blog/2020/04/02/protodomes-wonderful-chiptunes-how-to-play-them-on-your-own-attiny85-chips/). If you're new to AVR programming, this is where you should really start.**
+**Note: The compiler is very bare-bones, stubborn and inflexible at the moment. It is in desperate need of complete refactoring.** It does work however, and that's all it needed to do to write my 1-bit album. So, with that in mind, read on and, if you like this project and want to help out, I would be honestly thrilled.
+
+This guide assumes you're using OSX or Linux. It definitely works on Windows so, if you know what you're doing, it should be simple.
 
 There are two required components to this project: the `mmml.c` player for your chosen AVR microcontroller and the `mmml-compiler.c` program for your chosen OS. The `mmml.c` player is built for AVR microcontrollers clocked at 8MHz (such as the Attiny85, or Atmega168) but, with a little tweaking, you should easily be able to adapt for other platforms. The `mmml.c` player requires prerequisite use of the `mmml-compiler.c` program to create a `musicdata.h` data file (where your song data is stored).
 
