@@ -127,10 +127,10 @@ void error_message(char number, int line)
 			printf("Line %d: Invalid loop amount; must be non-zero.\n\nThe compiler will only accept tempos from 1 to 255.\n", line);
 			break;
 		case 20 :
-			printf("You must specify a build (t)arget using the '-t' flag. Options are 'data' for .mmmldata file (for the desktop synthesiser) or 'gb' for Game Boy.\n");
+			printf("You must specify a build (t)arget using the '-t' flag. Options are 'data' for .mmmldata file (for the desktop synthesiser), 'avr' for AVR microcontroller, or 'gb' for Game Boy.\n");
 			break;
 		case 21 :
-			printf("Not a valid build target. Options are 'data' for .mmmldata file or 'gb' for Game Boy.\n");
+			printf("Not a valid build target. Options are 'data' for .mmmldata file, 'avr' for AVR microcontroller, or 'gb' for Game Boy.\n");
 			break;
 		}
 		printf(ANSI_COLOR_RESET);

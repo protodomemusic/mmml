@@ -7,6 +7,16 @@ This little project was built to facilitate simple composing of 1-bit music for 
 
 I hope you have fun writing tiny music! If you have any questions/suggestions/corrections contact me at: hello@protodome.com
 
+## 10th May 2020
+
+Removed the old AVR specific compiler and updated the AVR player to work with the new format. Now there are three possible build targets:
+
+1. `-t avr` for AVR microcontroller. Creates an .h include file for the mmml-avr-player.c program.
+2. `-t gb` for Game Boy. Creates a .c file for the mmml-gb-player.c program (not included just yet).
+3. `-t data` for desktop/DOS. Creates an .mmmldata file for the desktop synthesiser. Also read by the DOS player (not included just yet).
+
+As the compiler is now centralised, it will be updated in a single location, supporting all future build platforms.
+
 ## 9th May 2020
 
 Fixed the compiler on Windows. Additionally added some really early compiler support for the Game Boy μMML player (which is coming later).
