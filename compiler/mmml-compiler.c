@@ -4,7 +4,9 @@
 *                Compiler
 *
 *  NOTES:        Converts .mmml (or .txt) files to .mmmldata
-*                files, also .c files for GBDK!
+*                files, also .c files for AVR and GBDK!
+*
+*                Compile this compiler with gcc or cl.exe.
 *
 *                To compile .mmml code, simply run:
 *                $ ./compiler -f FILENAME.mmml
@@ -89,7 +91,7 @@ void error_message(char number, int line)
 			printf("Line %d: Not a valid note duration.\n\nThe available values here are: 128,64,64.,32,32.,16,16.,8,8.,4,4.,2,2.,1\n", line);
 			break;
 		case 6 :
-			printf("Line %d: Invalid octave value; yours has gone above 'o5'.\n\nThis is easily missed with the '>' command. Check to see where you've incremented over the five octave limit.\n", line);
+			printf("Line %d: Invalid octave value; yours has gone above 'o6'.\n\nThis is easily missed with the '>' command. Check to see where you've incremented over the six octave limit.\n", line);
 			break;
 		case 7 :
 			printf("Line %d: Volumes only range from 1 to 8. (1 quietest - 8 loudest)\n", line);
@@ -153,7 +155,7 @@ void write_file(void)
 	unsigned char data;
 	unsigned char line = 0;
 
-	// data file
+	// target: .mmmldata file
 	if (build_target == 0)
 	{
 		FILE *newfile = fopen("output.mmmldata", "wb");
@@ -164,16 +166,20 @@ void write_file(void)
 		fclose(newfile);
 	}
 
-	// game boy
+	// target: Game Boy
 	else if (build_target == 1)
 	{
 		FILE *newfile = fopen("gb-mmml-data.c", "w");
-
-		fprintf(newfile, "#include <stdio.h>\n#include <gb/gb.h>\n\nconst UINT8 source [%u] = {\n\t", total_bytes + (channel * 2));
+		fprintf(newfile, "#include <stdio.h>\n#include <gb/gb.h>\n\nconst UINT8 source [%u] = {\n\t", total_bytes + (channel * 2));	
 
 		for (unsigned long i = 0; i < channel * 2; i++)
 		{
-			fprintf(newfile, "0x%X,", header_data[i]);
+			// add leading zero to tidy up output file
+			if (header_data[i] < 0x10)
+				fprintf(newfile, "0x0%X,", header_data[i]);
+			else
+				fprintf(newfile, "0x%X,", header_data[i]);
+			
 			if (line++ == 16)
 			{
 				fprintf(newfile, "\n\t");
@@ -185,7 +191,53 @@ void write_file(void)
 		{
 			data = output[i];
 
-			fprintf(newfile, "0x%X,", data);
+			// add leading zero to tidy up output file
+			if (data < 0x10)
+				fprintf(newfile, "0x0%X,", data);
+			else
+				fprintf(newfile, "0x%X,", data);
+
+			if (line++ == 16)
+			{
+				fprintf(newfile, "\n\t");
+				line = 0;
+			}
+		}
+		fprintf(newfile, "\n};");
+
+		fclose(newfile);
+	}
+
+	// target: AVR
+	else if (build_target == 2)
+	{
+		FILE *newfile = fopen("avr-mmml-data.h", "w");
+		fprintf(newfile, "const unsigned char data[%u] PROGMEM = {\n\t", total_bytes + (channel * 2));
+
+		for (unsigned long i = 0; i < channel * 2; i++)
+		{
+			// add leading zero to tidy up output file
+			if (header_data[i] < 0x10)
+				fprintf(newfile, "0x0%X,", header_data[i]);
+			else
+				fprintf(newfile, "0x%X,", header_data[i]);
+			
+			if (line++ == 16)
+			{
+				fprintf(newfile, "\n\t");
+				line = 0;
+			}
+		}
+
+		for (unsigned long i = 0; i < output_data_accumulator; i++)
+		{
+			data = output[i];
+
+			// add leading zero to tidy up output file
+			if (data < 0x10)
+				fprintf(newfile, "0x0%X,", data);
+			else
+				fprintf(newfile, "0x%X,", data);
 
 			if (line++ == 16)
 			{
@@ -379,34 +431,18 @@ int compiler_core()
 							i++;
 						}
 
-						if(build_target == 0)
-						{
-							if(octave >= 5)
-								error_message(6,line);
-							else if(octave == 4)
-								save_output_data(0xDF);
-							else if(octave == 3)
-								save_output_data(0xD7);
-							else if(octave == 2)
-								save_output_data(0xD3);
-							else if(octave == 1)
-								save_output_data(0xD1);
-						}
-						else if(build_target == 1)
-						{
-							if(octave >= 6)
-								error_message(6,line);
-							else if(octave == 5)
-								save_output_data(0xD5);
-							else if(octave == 4)
-								save_output_data(0xD4);
-							else if(octave == 3)
-								save_output_data(0xD3);
-							else if(octave == 2)
-								save_output_data(0xD2);
-							else if(octave == 1)
-								save_output_data(0xD1);
-						}
+						if(octave >= 6)
+							error_message(6,line);
+						else if(octave == 5)
+							save_output_data(0xD5);
+						else if(octave == 4)
+							save_output_data(0xD4);
+						else if(octave == 3)
+							save_output_data(0xD3);
+						else if(octave == 2)
+							save_output_data(0xD2);
+						else if(octave == 1)
+							save_output_data(0xD1);
 
 						octave++;
 						next_byte();
@@ -428,34 +464,18 @@ int compiler_core()
 							i++;
 						}
 
-						if(build_target == 0)
-						{
-							if(octave == 5)
-								save_output_data(0xD7);
-							else if(octave == 4)
-								save_output_data(0xD3);
-							else if(octave == 3)
-								save_output_data(0xD1);
-							else if(octave == 2)
-								save_output_data(0xD0);
-							else if(octave <= 1 || octave > 5)
-								error_message(11,line);
-						}
-						else if(build_target == 1)
-						{
-							if(octave == 6)
-								save_output_data(0xD4);
-							else if(octave == 5)
-								save_output_data(0xD3);
-							else if(octave == 4)
-								save_output_data(0xD2);
-							else if(octave == 3)
-								save_output_data(0xD1);
-							else if(octave == 2)
-								save_output_data(0xD0);
-							else if(octave <= 1 || octave > 6)
-								error_message(11,line);
-						}
+						if(octave == 6)
+							save_output_data(0xD4);
+						else if(octave == 5)
+							save_output_data(0xD3);
+						else if(octave == 4)
+							save_output_data(0xD2);
+						else if(octave == 3)
+							save_output_data(0xD1);
+						else if(octave == 2)
+							save_output_data(0xD0);
+						else if(octave <= 1 || octave > 6)
+							error_message(11,line);
 
 						octave--;
 						next_byte();
@@ -876,15 +896,12 @@ int compiler_core()
 								print_duration(1);
 							break;
 						case 2: // octave
-							if (build_target == 0)
-								temp_nibble = temp_nibble | 0x00;
-							else if (build_target == 1)
-								temp_nibble = temp_nibble | 0x00;
+							temp_nibble = temp_nibble | 0x00;
 							save_output_data(temp_nibble);
 							octave = 1;
 							break;
 						case 3: //volume
-							if (build_target == 0)
+							if (build_target == 0 || build_target == 2)
 								temp_nibble = temp_nibble | 0x08;
 							else if (build_target == 1)
 								temp_nibble = temp_nibble | 0x01;
@@ -913,15 +930,12 @@ int compiler_core()
 								print_duration(2);
 							break;
 						case 2: // octave
-							if (build_target == 0)
-								temp_nibble = temp_nibble | 0x01;
-							else if (build_target == 1)
-								temp_nibble = temp_nibble | 0x01;
+							temp_nibble = temp_nibble | 0x01;
 							save_output_data(temp_nibble);
 							octave = 2;
 							break;
 						case 3: //volume
-							if (build_target == 0)
+							if (build_target == 0 || build_target == 2)
 								temp_nibble = temp_nibble | 0x07;
 							else if (build_target == 1)
 								temp_nibble = temp_nibble | 0x02;
@@ -957,15 +971,12 @@ int compiler_core()
 								error_message(5,line);
 							break;
 						case 2: // octave
-							if (build_target == 0)
-								temp_nibble = temp_nibble | 0x03;
-							else if (build_target == 1)
-								temp_nibble = temp_nibble | 0x02;
+							temp_nibble = temp_nibble | 0x02;
 							save_output_data(temp_nibble);
 							octave = 3;
 							break;
 						case 3: // volume
-							if (build_target == 0)
+							if (build_target == 0 || build_target == 2)
 								temp_nibble = temp_nibble | 0x06;
 							else if (build_target == 1)
 								temp_nibble = temp_nibble | 0x03;
@@ -998,15 +1009,12 @@ int compiler_core()
 								}
 							break;
 						case 2: // octave
-							if (build_target == 0)
-								temp_nibble = temp_nibble | 0x07;
-							else if (build_target == 1)
-								temp_nibble = temp_nibble | 0x03;
+							temp_nibble = temp_nibble | 0x03;
 							save_output_data(temp_nibble);
 							octave = 4;
 							break;
 						case 3: // volume
-							if (build_target == 0)
+							if (build_target == 0 || build_target == 2)
 								temp_nibble = temp_nibble | 0x05;
 							else if (build_target == 1)
 								temp_nibble = temp_nibble | 0x04;
@@ -1030,15 +1038,12 @@ int compiler_core()
 							error_message(5,line);
 							break;
 						case 2: // octave
-							if (build_target == 0)
-								temp_nibble = temp_nibble | 0x0F;
-							if (build_target == 1)
-								temp_nibble = temp_nibble | 0x04;
+							temp_nibble = temp_nibble | 0x04;
 							save_output_data(temp_nibble);
 							octave = 5;
 							break;
 						case 3: // volume
-							if (build_target == 0)
+							if (build_target == 0 || build_target == 2)
 								temp_nibble = temp_nibble | 0x04;
 							if (build_target == 1)
 								temp_nibble = temp_nibble | 0x06;
@@ -1074,17 +1079,12 @@ int compiler_core()
 								error_message(5,line);
 							break;
 						case 2:
-							if (build_target == 0)
-								error_message(6,line);
-							if (build_target == 1)
-							{
-								temp_nibble = temp_nibble | 0x05;
-								save_output_data(temp_nibble);
-								octave = 6;
-							}
+							temp_nibble = temp_nibble | 0x05;
+							save_output_data(temp_nibble);
+							octave = 6;
 							break;
 						case 3: //volume
-							if (build_target == 0)
+							if (build_target == 0 || build_target == 2)
 								temp_nibble = temp_nibble | 0x03;
 							if (build_target == 1)
 								temp_nibble = temp_nibble | 0x08;
@@ -1111,7 +1111,7 @@ int compiler_core()
 							error_message(6,line);
 							break;
 						case 3: //volume
-							if (build_target == 0)
+							if (build_target == 0 || build_target == 2)
 								temp_nibble = temp_nibble | 0x02;
 							if (build_target == 1)
 								temp_nibble = temp_nibble | 0x0A;
@@ -1147,7 +1147,7 @@ int compiler_core()
 							error_message(6,line);
 							break;
 						case 3: //volume
-							if (build_target == 0)
+							if (build_target == 0 || build_target == 2)
 								temp_nibble = temp_nibble | 0x01;
 							if (build_target == 1)
 								temp_nibble = temp_nibble | 0x0D;
@@ -1288,9 +1288,10 @@ int main(int argc, char *argv[])
 			{
 				if (strcmp(argv[i+1], "gb") == 0)
 					build_target = 1; // game boy build
-
 				else if (strcmp(argv[i+1], "data") == 0)
 					build_target = 0; // .mmmldata build
+				else if (strcmp(argv[i+1], "avr") == 0)
+					build_target = 2; // avr build
 				else
 					error_message(21,0);
 			}

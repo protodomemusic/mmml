@@ -11,7 +11,7 @@
 *                Safayet Ahmed!
 *
 *                To generate a wave file, simply run:
-*                $ ./synthesizer -f FILENAME.mmml -s SECONDS
+*                $ ./synthesizer -f output.mmmldata -s SECONDS
 *
 *                WARNING - The wave files this generates are
 *                huge because of the high sample rate. Should
@@ -479,7 +479,7 @@ int generate_audio( int32_t SampleRate, int32_t FrameCount, PCM8_mono_t  *buffer
 					{
 						// octave
 						if(buffer1 == 13)
-							octave[voice] = buffer2 + 1;
+							octave[voice] = 1 << buffer2;
 						// volume
 						if(buffer1 == 14)
 							volume[voice] = buffer2;

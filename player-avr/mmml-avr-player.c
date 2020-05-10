@@ -3,7 +3,9 @@
 *  DESCRIPTION:   Micro Music Macro Language (μMML) Player for
 *                 AVR microcontrollers.
 *
-*  NOTES:         A four-channel MML inspired 1-bit music
+*  NOTES:         To be compiled with AVR C.
+*
+*                 A four-channel MML inspired 1-bit music
 *                 player. Three channels of harmonic pulse
 *                 wave and a percussive sampler or noise
 *                 generator.
@@ -33,7 +35,7 @@
 
 #include <avr/io.h>         // core avr functionality
 #include <avr/pgmspace.h>   // * * *
-#include "musicdata.h"      // holds the data[] and data_index[] arrays
+#include "avr-mmml-data.h"  // holds the data[] arrays
 
 // note table (plus an initial 'wasted' entry for rests)
 const unsigned int note[13] PROGMEM = 
@@ -42,7 +44,6 @@ const unsigned int note[13] PROGMEM =
 	255,
 	// one octave of notes, equal temperament in Gb
 	1024,967,912,861,813,767,724,683,645,609,575,542
-	// 795,750,708,669,631,596,562,531,501,473,446,421,
 };
 
 // location of individual samples in sample array
@@ -135,7 +136,8 @@ int main(void)
 
 	for(unsigned char i=0; i<CHANNELS; i++)
 	{
-		data_pointer[i] = pgm_read_word(&data_index[i]);
+		data_pointer[i] = pgm_read_byte(&data[(i*2)]) << 8;
+		data_pointer[i] = data_pointer[i] | pgm_read_byte(&data[(i*2)+1]);
 		frequency[i]    = 255; // random frequency (won't ever be sounded)
 		volume[i]       = 1;   // default volume : 50% pulse wave
 		octave[i]       = 3;   // default octave : o3
@@ -249,9 +251,9 @@ int main(void)
 						if(buffer2 == 0)
 						{
 							loops_active[voice]++;
-							loop_point[loops_active[voice] - 1][voice] = data_pointer[voice] + 3;
-							loop_duration[loops_active[voice] - 1][voice] = buffer3;
-							data_pointer[voice] += 2;
+							loop_point[loops_active[voice] - 1][voice] = data_pointer[voice] + 2;
+							loop_duration[loops_active[voice] - 1][voice] = buffer3 - 1;
+							data_pointer[voice]+= 2;
 						}
 						// loop end
 						else if(buffer2 == 1)
@@ -274,7 +276,9 @@ int main(void)
 						else if(buffer2 == 2)
 						{
 							pointer_location[voice] = data_pointer[voice] + 2;
-							data_pointer[voice] = pgm_read_word(&data_index[buffer3 + CHANNELS]);
+
+							data_pointer[voice] = pgm_read_byte(&data[(buffer3 + CHANNELS) * 2]) << 8;
+							data_pointer[voice] = data_pointer[voice] | pgm_read_byte(&data[((buffer3 + CHANNELS) * 2) + 1]);
 						}
 						// tempo
 						else if(buffer2 == 3)
@@ -296,7 +300,10 @@ int main(void)
 							}
 							// ...If not, go back to the start.
 							else
-								data_pointer[voice] = pgm_read_word(&data_index[voice]);
+							{
+								data_pointer[voice] = pgm_read_byte(&data[(voice*2)]) << 8;
+								data_pointer[voice] = data_pointer[voice] | pgm_read_byte(&data[(voice*2)+1]);
+							}
 						}
 
 						/* For any command that should happen 'instantaneously' (e.g. anything
@@ -311,7 +318,7 @@ int main(void)
 					{
 						// octave
 						if(buffer1 == 13)
-							octave[voice] = buffer2 + 1;
+							octave[voice] = 1 << buffer2;
 						// volume
 						if(buffer1 == 14)
 							volume[voice] = buffer2;
