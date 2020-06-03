@@ -68,8 +68,6 @@ void error_message(char number, int line)
 {
 	printf(ANSI_COLOR_RED "[ERROR %d] ",number);
 
-	line++;
-
 	switch(number)
 	{
 		case 0 :
@@ -170,7 +168,7 @@ void write_file(void)
 	else if (build_target == 1)
 	{
 		FILE *newfile = fopen("gb-mmml-data.c", "w");
-		fprintf(newfile, "#include <stdio.h>\n#include <gb/gb.h>\n\nconst UINT8 source [%u] = {\n\t", total_bytes + (channel * 2));	
+		fprintf(newfile, "#include <stdio.h>\n#include <gb/gb.h>\n\nconst UINT8 source [%u] = {\n\t", total_bytes);	
 
 		for (unsigned long i = 0; i < channel * 2; i++)
 		{
@@ -212,7 +210,7 @@ void write_file(void)
 	else if (build_target == 2)
 	{
 		FILE *newfile = fopen("avr-mmml-data.h", "w");
-		fprintf(newfile, "const unsigned char data[%u] PROGMEM = {\n\t", total_bytes + (channel * 2));
+		fprintf(newfile, "const unsigned char data[%u] PROGMEM = {\n\t", total_bytes);
 
 		for (unsigned long i = 0; i < channel * 2; i++)
 		{
@@ -252,7 +250,19 @@ void write_file(void)
 
 	printf(ANSI_COLOR_GREEN "Successfully compiled!\n" ANSI_COLOR_RESET);	
 	printf("Total sequence is %d bytes.\n", total_bytes);
-	printf("Output written to 'output.mmmldata'.\n\n");
+
+	switch(build_target)
+	{
+		case 0:
+			printf("Output written to 'output.mmmldata'.\n\n");
+			break;
+		case 1:
+			printf("Output written to 'gb-mmml-data.c'.\n\n");
+			break;
+		case 2:
+			printf("Output written to 'avr-mmml-data.h'.\n\n");
+			break;
+	}
 }
 
 void read_file(char *file_name)
@@ -941,7 +951,6 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x02;
 							save_output_data(temp_nibble);
 							break;
-						break;
 					}
 					next_byte();
 				}
@@ -982,7 +991,6 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x03;
 							save_output_data(temp_nibble);
 							break;
-						break;
 					}
 					next_byte();
 				}
@@ -1020,7 +1028,6 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x04;
 							save_output_data(temp_nibble);
 							break;
-						break;
 					}
 					next_byte();
 				}
@@ -1049,7 +1056,6 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x06;
 							save_output_data(temp_nibble);
 							break;
-						break;
 					}
 					next_byte();
 				}
@@ -1090,7 +1096,6 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x08;
 							save_output_data(temp_nibble);
 							break;
-						break;
 					}
 					next_byte();
 				}
@@ -1117,7 +1122,6 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x0A;
 							save_output_data(temp_nibble);
 							break;
-						break;
 					}
 					next_byte();
 				}
@@ -1153,7 +1157,6 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x0D;
 							save_output_data(temp_nibble);
 							break;
-						break;
 					}
 					next_byte();
 				}
@@ -1176,7 +1179,6 @@ int compiler_core()
 						case 3: //volume
 							error_message(7,line);
 							break;
-						break;
 					}
 					next_byte();
 				}
@@ -1197,9 +1199,11 @@ int compiler_core()
 							error_message(11,line);
 							break;
 						case 3: //volume
-							error_message(7,line);
-						break;
+							temp_nibble = temp_nibble | 0x00;
+							save_output_data(temp_nibble);
+							break;
 					}
+					next_byte();
 				}
 				break;
 			break;
