@@ -5,6 +5,8 @@ This little project was built to facilitate simple composing of 1-bit music for 
 
 **Scruss has written an excellent, incredibly comprehensive, guide to programming and building your own 1-bit music boxes using μMML, which you can find [HERE](https://scruss.com/blog/2020/04/02/protodomes-wonderful-chiptunes-how-to-play-them-on-your-own-attiny85-chips/). If you're new to AVR programming, this is where you should really start.**
 
+**You can also find a small tutorial [HERE](https://github.com/farvardin/garvuino/blob/master/doc/garvuino_manual.md) by garvalf (under the MMML heading).**
+
 I hope you have fun writing tiny music! If you have any questions/suggestions/corrections contact me at: hello@protodome.com
 
 ## 10th May 2020
