@@ -9,10 +9,36 @@
 *                Compile this compiler with gcc or cl.exe.
 *
 *                To compile .mmml code, simply run:
-*                $ ./compiler -f FILENAME.mmml
+*                $ ./compiler -f FILENAME.mmml -t gb|avr|data
 *
 *  AUTHOR:       Blake 'PROTODOME' Troise
 ************************************************************H*/
+
+/*
+--------------------------------  -------------------------------------
+| µMML | BYTECODE | COMMAND    |  | µMML      | BYTECODE | COMMAND    |
+--------------------------------  -------------------------------------
+| r    | 0000     | rest       |  | g         | 1000     | note - g   |
+| c    | 0001     | note - c   |  | g+        | 1001     | note - g#  |
+| c+   | 0010     | note - c#  |  | a         | 1010     | note - a   |
+| d    | 0011     | note - d   |  | a+        | 1011     | note - a#  |
+| d+   | 0100     | note - d#  |  | b         | 1100     | note - b   |
+| e    | 0101     | note - e   |  | o,<,>     | 1101     | octave     |
+| f    | 0110     | note - f   |  | v         | 1110     | volume     |
+| f+   | 0111     | note - f#  |  | [,],m,t,@ | 1111     | function   | ---
+--------------------------------  -------------------------------------    |
+----------------------------------------------------------------           |
+| µMML | BINARY | HEX | READS NEXT BYTE? | COMMAND             | <---------
+----------------------------------------------------------------
+| [    | 0000   | 0   | yes              | loop start          |
+| ]    | 0001   | 1   | yes              | loop end            |
+| m    | 0010   | 2   | yes              | macro               |
+| t    | 0011   | 3   | yes              | tempo               |
+| K    | 0100   | 4   | yes              | transpose           |
+|      | ....   | ... | n/a              | 0100 - 1110 unused  |
+| @    | 1111   | F   | no               | channel/macro end   |
+----------------------------------------------------------------
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,11 +59,12 @@
 
 signed char   line_counter = -1;
 
-char          *loop_temp_string  = NULL,
-              *source_data       = NULL,
-              *output            = NULL,
-              *tempo_temp_string = NULL,
-              *macro_temp_string = NULL;
+char          *loop_temp_string       = NULL,
+              *transpose_temp_string  = NULL,
+              *source_data            = NULL,
+              *output                 = NULL,
+              *tempo_temp_string      = NULL,
+              *macro_temp_string      = NULL;
 
 long          bufsize;
 
@@ -63,6 +90,8 @@ unsigned int  total_bytes,
               tempo_value,
               macro_value,
               output_data_accumulator;
+
+signed int    transpose_value;
 
 void error_message(char number, int line)
 {
@@ -129,6 +158,9 @@ void error_message(char number, int line)
 			break;
 		case 21 :
 			printf("Not a valid build target. Options are 'data' for .mmmldata file, 'avr' for AVR microcontroller, or 'gb' for Game Boy.\n");
+			break;
+		case 22 :
+			printf("Line %d: Invalid transpose amount; exceeded maximum/minimum value.\n\nYou cannot transpose more than 99 semitones positively or negatively; I'm surprised you want to!\n", line);
 			break;
 		}
 		printf(ANSI_COLOR_RESET);
@@ -384,11 +416,8 @@ int compiler_core()
 	 *  1  :  Note / rest was last input.
 	 *  2  :  Octave was last input.
 	 *  3  :  Volume was last input.
-	 *  4  :  Loop was last input.
+	 *  4  :  Depricated.
 	 *  5  :  Comment, ignore input.
-	 *  6  :  Apparently nothing? I just jumped to 7?
-	 *  7  :  Tempo was last input.
-	 *  8  :  Macro was last input.
 	 *
 	 *  The language is essentially a more legible version of the
 	 *  nibble structure read by the mmml.c program, so no complex
@@ -671,6 +700,21 @@ int compiler_core()
 				}
 				break;
 
+			/* Volume command */
+
+			case 'v' :
+				if(command != 5)
+				{
+					if(command == 0)
+					{
+						temp_nibble = 0xE0;
+						command = 3;
+					}
+					else
+						error_message(3,line);
+				}
+				break;
+
 			/* Tempo command */
 
 			case 't' :
@@ -695,9 +739,9 @@ int compiler_core()
 							}
 							else{
 								if(n == 0)
-									error_message(3,line);
+									error_message(0,line);
 								if(n > 3)
-									error_message(16,line);
+									error_message(0,line);
 								if(n > 0 && n <= 3)
 								{
 									tempo_temp_string[n+1] = '\0';
@@ -720,21 +764,6 @@ int compiler_core()
 							}
 						}
 						next_byte();
-					}
-					else
-						error_message(3,line);
-				}
-				break;
-
-			/* Volume command */
-
-			case 'v' :
-				if(command != 5)
-				{
-					if(command == 0)
-					{
-						temp_nibble = 0xE0;
-						command = 3;
 					}
 					else
 						error_message(3,line);
@@ -765,9 +794,9 @@ int compiler_core()
 							}
 							else{
 								if(n == 0)
-									error_message(3,line);
+									error_message(0,line);
 								if(n > 3)
-									error_message(16,line);
+									error_message(0,line);
 								if(n > 0 && n <= 3)
 								{
 									loop_temp_string[n+1] = '\0'; // null terminate string
@@ -785,6 +814,61 @@ int compiler_core()
 
 									save_output_data(loop_value);
 									free(loop_temp_string);
+								}
+								break;
+							}
+						}
+						next_byte();
+					}
+					else
+						error_message(3,line);
+				}
+				break;
+
+			/* transpose command */
+
+			case 'K' :
+				if(command != 5)
+				{
+					if(command == 0)
+					{
+						save_output_data(0xF4);
+						next_byte();
+
+						transpose_temp_string = (char*)malloc(sizeof(char) * (4));
+
+						for(unsigned char p = 0; p < 4; p++)
+							transpose_temp_string[p] = '\0';
+
+						for(unsigned char n = 0; n < 4; n++)
+						{
+							if(isdigit(source_data[i+1]) || source_data[i+1] == '-')
+							{
+								i++;
+								transpose_temp_string[n] = source_data[i];
+							}
+							else
+							{
+								if(n == 0)
+									error_message(0,line);
+
+								if(n > 3)
+									error_message(0,line);
+
+								if(n > 0 && n <= 3)
+								{
+									transpose_temp_string[n+1] = '\0'; // null terminate string
+
+									transpose_value = atoi(transpose_temp_string);
+
+									if(transpose_value > 99)
+										error_message(22,line);
+
+									else if(transpose_value < -99)
+										error_message(22,line);
+
+									save_output_data(transpose_value);
+									free(transpose_temp_string);
 								}
 								break;
 							}
@@ -832,9 +916,9 @@ int compiler_core()
 							}
 							else{
 								if(n == 0)
-									error_message(3,line);
+									error_message(0,line);
 								if(n > 3)
-									error_message(12,line);
+									error_message(0,line);
 								if(n > 0 && n <= 3)
 								{
 									macro_temp_string[n+1] = '\0';
@@ -1237,7 +1321,7 @@ int compiler_core()
 			   || source_data[i+1] == '@' || source_data[i+1] == 'm' || source_data[i+1] == 't'
 			   || source_data[i+1] == 'v' || source_data[i+1] == '[' || source_data[i+1] == ']'
 			   || source_data[i+1] == '%' || source_data[i+1] == '<' || source_data[i+1] == '>'
-			   || source_data[i+1] == '\n' )
+			   || source_data[i+1] == 'K' || source_data[i+1] == '\n' )
 			{
 				print_duration(previousDuration);
 				next_byte();
