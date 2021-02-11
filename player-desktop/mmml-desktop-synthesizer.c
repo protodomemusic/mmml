@@ -185,6 +185,15 @@ void error_message(char number)
 		case 2 :
 			printf("No file specified.\n");
 			break;
+		case 3 :
+			printf("No duration specified.\n");
+			break;
+		case 4 :
+			printf("Too few variables specified.\nTo select a file, use the '-f' flag.\nTo choose the length of the wave file in seconds, use the '-s' flag.\n");
+			break;
+		default :
+			printf("Generic error.\n");
+			break;
 	}
 		printf(ANSI_COLOR_RESET);
 
@@ -548,22 +557,25 @@ int main(int argc, char *argv[])
 	printf("Hello and Welcome to the μMML Desktop Synthesizer! (v1.2)\n\n");
 
 	if(argc == 1){
-		printf("No arguments!");
+		error_message(4);
 		exit(1);
 	}
+
+	if(argc < 4)
+		error_message(4);
 
 	/* Open the mmmldata file */
 	for (uint8_t i = 1; i < argc; i++){
 		if (strcmp(argv[i], "-f") == 0){
 			if(i == argc-1)
-				error_message(0);
+				error_message(2);
 			else
 				read_file(argv[i+1]);
 			i++;
 		}
 		else if (strcmp(argv[i], "-s") == 0){
 			if(i == argc-1)
-				error_message(0);
+				error_message(3);
 			else
 				duration = atoi(argv[i+1]);
 			i++;
@@ -619,7 +631,7 @@ int main(int argc, char *argv[])
 		goto error2;
 	}
 
-	printf("\nCompilation finished! μMML Desktop Synthesizer end.\n\n");
+	printf(ANSI_COLOR_GREEN "\nWave file (output.wav) written successfully.\n\n" ANSI_COLOR_RESET "μMML Desktop Synthesizer end.\n\n");
 
 	/*Free and close everything*/    
 	error2:
