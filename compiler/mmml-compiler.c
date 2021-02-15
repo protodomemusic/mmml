@@ -11,6 +11,9 @@
 *                To compile .mmml code, simply run:
 *                $ ./compiler -f FILENAME.mmml -t gb|avr|data
 *
+*                Update 2021 - creates .h files for:
+*                https://github.com/protodomemusic/wavexe
+*
 *  AUTHOR:       Blake 'PROTODOME' Troise
 ************************************************************H*/
 
@@ -34,7 +37,13 @@
 | ]    | 0001   | 1   | yes              | loop end            |
 | m    | 0010   | 2   | yes              | macro               |
 | t    | 0011   | 3   | yes              | tempo               |
+|------|--------|-----|------------------|---------------------|
+| game boy export features (not all players supported)         |
 | K    | 0100   | 4   | yes              | transpose           |
+|------|--------|-----|------------------|---------------------|
+| expanded 'wavexe' features             |                     |
+| i    | 0101   | 5   | yes              | instrument          |
+|------|--------|-----|------------------|---------------------|
 |      | ....   | ... | n/a              | 0100 - 1110 unused  |
 | @    | 1111   | F   | no               | channel/macro end   |
 ----------------------------------------------------------------
@@ -59,12 +68,13 @@
 
 signed char   line_counter = -1;
 
-char          *loop_temp_string       = NULL,
-              *transpose_temp_string  = NULL,
-              *source_data            = NULL,
-              *output                 = NULL,
-              *tempo_temp_string      = NULL,
-              *macro_temp_string      = NULL;
+char          *loop_temp_string      = NULL,
+              *transpose_temp_string = NULL,
+              *source_data           = NULL,
+              *output                = NULL,
+              *tempo_temp_string     = NULL,
+              *waveform_temp_string  = NULL,
+              *macro_temp_string     = NULL;
 
 long          bufsize;
 
@@ -89,6 +99,7 @@ unsigned int  total_bytes,
               loop_value,
               tempo_value,
               macro_value,
+              waveform_value,
               output_data_accumulator;
 
 signed int    transpose_value;
@@ -280,6 +291,48 @@ void write_file(void)
 		fclose(newfile);
 	}
 
+	// target: .h include file for the 'wavexe' program
+	else if (build_target == 3)
+	{
+		FILE *newfile = fopen("wavexe-mmml-data.h", "w");
+		fprintf(newfile, "const unsigned char mmml_data[%u] = {\n\t", total_bytes);
+
+		for (unsigned long i = 0; i < channel * 2; i++)
+		{
+			// add leading zero to tidy up output file
+			if (header_data[i] < 0x10)
+				fprintf(newfile, "0x0%X,", header_data[i]);
+			else
+				fprintf(newfile, "0x%X,", header_data[i]);
+			
+			if (line++ == 16)
+			{
+				fprintf(newfile, "\n\t");
+				line = 0;
+			}
+		}
+
+		for (unsigned long i = 0; i < output_data_accumulator; i++)
+		{
+			data = output[i];
+
+			// add leading zero to tidy up output file
+			if (data < 0x10)
+				fprintf(newfile, "0x0%X,", data);
+			else
+				fprintf(newfile, "0x%X,", data);
+
+			if (line++ == 16)
+			{
+				fprintf(newfile, "\n\t");
+				line = 0;
+			}
+		}
+		fprintf(newfile, "\n};");
+
+		fclose(newfile);
+	}
+
 	printf(ANSI_COLOR_GREEN "Successfully compiled!\n" ANSI_COLOR_RESET);	
 	printf("Total sequence is %d bytes.\n", total_bytes);
 
@@ -293,6 +346,9 @@ void write_file(void)
 			break;
 		case 2:
 			printf("Output written to 'avr-mmml-data.h'.\n\n");
+			break;
+		case 3:
+			printf("Output written to 'wavexe-mmml-data.h'.\n\n");
 			break;
 	}
 }
@@ -685,8 +741,7 @@ int compiler_core()
 				}
 				break;
 
-			/* Octave command */
-
+			/* octave command */
 			case 'o' :
 				if(command != 5)
 				{
@@ -700,8 +755,7 @@ int compiler_core()
 				}
 				break;
 
-			/* Volume command */
-
+			/* volume command */
 			case 'v' :
 				if(command != 5)
 				{
@@ -715,8 +769,7 @@ int compiler_core()
 				}
 				break;
 
-			/* Tempo command */
-
+			/* tempo command */
 			case 't' :
 				if(command != 5)
 				{
@@ -770,8 +823,7 @@ int compiler_core()
 				}
 				break;
 
-			/* Loop command */
-
+			/* loop command */
 			case '[' :
 				if(command != 5)
 				{
@@ -826,7 +878,6 @@ int compiler_core()
 				break;
 
 			/* transpose command */
-
 			case 'K' :
 				if(command != 5)
 				{
@@ -880,6 +931,62 @@ int compiler_core()
 				}
 				break;
 
+
+			/* instrument command */
+			case 'i' :
+				if(command != 5)
+				{
+					if(command == 0)
+					{
+						save_output_data(0xF5);
+						next_byte();
+
+						waveform_temp_string = (char*)malloc(sizeof(char) * (4));
+						
+						for(unsigned char p = 0; p < 4; p++)
+							waveform_temp_string[p] = '\0';
+
+						for(unsigned char n = 0; n < 4; n++)
+						{
+							if(isdigit(source_data[i+1]))
+							{
+								i++;
+								waveform_temp_string[n] = source_data[i];
+							}
+							else{
+								if(n == 0)
+									error_message(0,line);
+								if(n > 3)
+									error_message(0,line);
+								if(n > 0 && n <= 3)
+								{
+									waveform_temp_string[n+1] = '\0';
+
+									waveform_value = atoi(waveform_temp_string);
+
+									if(tempo_value > 255)
+									{
+										error_message(16,line);
+									}
+									else if(tempo_value == 0)
+									{
+										error_message(17,line);
+									}
+
+									save_output_data(waveform_value);
+									free(waveform_temp_string);
+								}
+								break;
+							}
+						}
+						next_byte();
+					}
+					else
+						error_message(3,line);
+				}
+				break;
+
+			/* close loop */
 			case ']' :
 				if(command != 5)
 				{
@@ -893,7 +1000,7 @@ int compiler_core()
 				}
 				break;
 
-			/* Macro command */
+			/* macro command */
 			case 'm' :
 				if(command != 5)
 				{
@@ -999,6 +1106,8 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x08;
 							else if (build_target == 1)
 								temp_nibble = temp_nibble | 0x01;
+							else if (build_target == 3)
+								temp_nibble = temp_nibble | 0x01;
 							save_output_data(temp_nibble);
 							break;
 					}
@@ -1032,6 +1141,8 @@ int compiler_core()
 							if (build_target == 0 || build_target == 2)
 								temp_nibble = temp_nibble | 0x07;
 							else if (build_target == 1)
+								temp_nibble = temp_nibble | 0x02;
+							else if (build_target == 3)
 								temp_nibble = temp_nibble | 0x02;
 							save_output_data(temp_nibble);
 							break;
@@ -1073,6 +1184,8 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x06;
 							else if (build_target == 1)
 								temp_nibble = temp_nibble | 0x03;
+							else if (build_target == 3)
+								temp_nibble = temp_nibble | 0x03;
 							save_output_data(temp_nibble);
 							break;
 					}
@@ -1110,6 +1223,8 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x05;
 							else if (build_target == 1)
 								temp_nibble = temp_nibble | 0x04;
+							else if (build_target == 3)
+								temp_nibble = temp_nibble | 0x04;
 							save_output_data(temp_nibble);
 							break;
 					}
@@ -1138,6 +1253,8 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x04;
 							if (build_target == 1)
 								temp_nibble = temp_nibble | 0x06;
+							else if (build_target == 3)
+								temp_nibble = temp_nibble | 0x05;
 							save_output_data(temp_nibble);
 							break;
 					}
@@ -1178,6 +1295,8 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x03;
 							if (build_target == 1)
 								temp_nibble = temp_nibble | 0x08;
+							else if (build_target == 3)
+								temp_nibble = temp_nibble | 0x06;
 							save_output_data(temp_nibble);
 							break;
 					}
@@ -1204,6 +1323,8 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x02;
 							if (build_target == 1)
 								temp_nibble = temp_nibble | 0x0A;
+							else if (build_target == 3)
+								temp_nibble = temp_nibble | 0x07;
 							save_output_data(temp_nibble);
 							break;
 					}
@@ -1239,6 +1360,8 @@ int compiler_core()
 								temp_nibble = temp_nibble | 0x01;
 							if (build_target == 1)
 								temp_nibble = temp_nibble | 0x0D;
+							else if (build_target == 3)
+								temp_nibble = temp_nibble | 0x08;
 							save_output_data(temp_nibble);
 							break;
 					}
@@ -1380,6 +1503,8 @@ int main(int argc, char *argv[])
 					build_target = 0; // .mmmldata build
 				else if (strcmp(argv[i+1], "avr") == 0)
 					build_target = 2; // avr build
+				else if (strcmp(argv[i+1], "wavexe") == 0)
+					build_target = 3; // avr build
 				else
 					error_message(21,0);
 			}
