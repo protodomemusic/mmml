@@ -9,7 +9,8 @@
 *                Compile this compiler with gcc or cl.exe.
 *
 *                To compile .mmml code, simply run:
-*                $ ./compiler -f FILENAME.mmml -t gb|avr|data
+*                $ ./compiler -f FILENAME.mmml -t gb|avr|data|
+*                wavexe -c [0-32] (optional)
 *
 *                Update 2021 - creates .h files for:
 *                https://github.com/protodomemusic/wavexe
@@ -57,9 +58,6 @@
 
 #define TOTAL_POSSIBLE_MACROS 255 // (the player can't see more than this)
 
-// total number of channels before macros
-#define CHANNELS 4
-
 // terminal print colours
 #define ANSI_COLOR_RED     "\x1b[31m"
 #define ANSI_COLOR_GREEN   "\x1b[32m"
@@ -88,6 +86,9 @@ unsigned char command,
               octave,
               loops,
               macro_line;
+
+// total number of channels before macros        
+unsigned char total_channels = 4;
 
 signed char   build_target = -1;
 
@@ -172,6 +173,12 @@ void error_message(char number, int line)
 			break;
 		case 22 :
 			printf("Line %d: Invalid transpose amount; exceeded maximum/minimum value.\n\nYou cannot transpose more than 99 semitones positively or negatively; I'm surprised you want to!\n", line);
+			break;
+		case 23 :
+			printf("Line %d: Invalid instrument number; exceeded maximum value.\n\nInstruments are represented by 8-bit numbers, therefore the highest value possible is 255.\n", line);
+			break;
+		case 24 :
+			printf("Please enter a valid number of channels, 0 to 32.\n");
 			break;
 		}
 		printf(ANSI_COLOR_RESET);
@@ -472,7 +479,7 @@ int compiler_core()
 	 *  1  :  Note / rest was last input.
 	 *  2  :  Octave was last input.
 	 *  3  :  Volume was last input.
-	 *  4  :  Depricated.
+	 *  4  :  Deprecated.
 	 *  5  :  Comment, ignore input.
 	 *
 	 *  The language is essentially a more legible version of the
@@ -964,13 +971,9 @@ int compiler_core()
 
 									waveform_value = atoi(waveform_temp_string);
 
-									if(tempo_value > 255)
+									if(waveform_value > 255)
 									{
-										error_message(16,line);
-									}
-									else if(tempo_value == 0)
-									{
-										error_message(17,line);
+										error_message(23,line);
 									}
 
 									save_output_data(waveform_value);
@@ -1444,7 +1447,7 @@ int compiler_core()
 			   || source_data[i+1] == '@' || source_data[i+1] == 'm' || source_data[i+1] == 't'
 			   || source_data[i+1] == 'v' || source_data[i+1] == '[' || source_data[i+1] == ']'
 			   || source_data[i+1] == '%' || source_data[i+1] == '<' || source_data[i+1] == '>'
-			   || source_data[i+1] == 'K' || source_data[i+1] == '\n' )
+			   || source_data[i+1] == 'K' || source_data[i+1] == 'i' || source_data[i+1] == '\n' )
 			{
 				print_duration(previousDuration);
 				next_byte();
@@ -1453,10 +1456,10 @@ int compiler_core()
 	}
 
 	/* End of file */
-	if(channel < (CHANNELS - 1))
+	if(channel < (total_channels - 1))
 		error_message(14, line);
 
-	if(highest_macro > (channel - CHANNELS))
+	if(highest_macro > (channel - total_channels))
 		error_message(13, macro_line);
 
 	/* End final channel/macro */
@@ -1480,18 +1483,36 @@ int main(int argc, char *argv[])
 
 	printf("Hello and welcome to the μMML Desktop Compiler! (v1.3)\n\n");
 
-	for (uint8_t i = 1; i < argc; i++){
-
-		if (strcmp(argv[i], "-f") == 0){
+	for (uint8_t i = 1; i < argc; i++)
+	{
+		// file flag
+		if (strcmp(argv[i], "-f") == 0)
+		{
 			if(i == argc-1)
 				error_message(1,0);
-			else{
+			else
+			{
 				read_file(argv[i+1]);
 				file_flag = 1;
 			}
 			i++;
 		}
 
+		// channel flag
+		if (strcmp(argv[i], "-c") == 0)
+		{
+			// very arbitrary 32 channel limit
+			if (atoi(argv[i+1]) > 0 && atoi(argv[i+1]) < 32)
+			{
+				total_channels = atoi(argv[i+1]);
+				printf("Total channels: %i\n", total_channels);
+			}
+			else
+				error_message(24,0);
+			i++;
+		}
+
+		// build target flag
 		if (strcmp(argv[i], "-t") == 0){
 			if(i == argc-1)
 				error_message(20,0);
@@ -1504,7 +1525,7 @@ int main(int argc, char *argv[])
 				else if (strcmp(argv[i+1], "avr") == 0)
 					build_target = 2; // avr build
 				else if (strcmp(argv[i+1], "wavexe") == 0)
-					build_target = 3; // avr build
+					build_target = 3; // wavexe build
 				else
 					error_message(21,0);
 			}
