@@ -23,17 +23,13 @@ contexts:
   - match: 'm([0-9]*)|@'
     scope: entity.name.constant.preprocessor.c
 
-  # Loops & Tempo
-  - match: '(\[|\]|t)([0-9]*)'
+  # Loops, Tempo & Instrument
+  - match: '(\[|\]|t|i)([0-9]*)'
     scope: string.quoted.double.c
 
-  # Note Durations
-  - match: '[0-9]|[0-9]*\.'
+  # Note Durations & Tie
+  - match: '[0-9]|[0-9]*\.|&'
     scope: constant.numeric.c
-
-  # Unimplemented
-  - match: '&'
-    scope: comment.line.c
 
   # Comments
   - match: '%'
