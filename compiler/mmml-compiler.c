@@ -42,8 +42,9 @@
 | game boy export features (not all players supported)         |
 | K    | 0100   | 4   | yes              | transpose           |
 |------|--------|-----|------------------|---------------------|
-| expanded 'wavexe' features             |                     |
+| expanded 'wavexe' features (not all player supported)        |
 | i    | 0101   | 5   | yes              | instrument          |
+| &    | 0110   | 6   | no               | tie                 |
 |------|--------|-----|------------------|---------------------|
 |      | ....   | ... | n/a              | 0100 - 1110 unused  |
 | @    | 1111   | F   | no               | channel/macro end   |
@@ -83,7 +84,7 @@ unsigned int  data_index[TOTAL_POSSIBLE_MACROS],
 
 unsigned char command,
               channel,
-              octave,
+              octave = 3, // default octave (if no 'o' command is specified before a '<' or '>')
               loops,
               macro_line;
 
@@ -996,6 +997,20 @@ int compiler_core()
 					if(command == 0)
 					{
 						save_output_data(0xF1);
+						next_byte();
+					}
+					else
+						error_message(3,line);
+				}
+				break;
+
+			/* tie command */
+			case '&' :
+				if(command != 5)
+				{
+					if(command == 0)
+					{
+						save_output_data(0xF6);
 						next_byte();
 					}
 					else
