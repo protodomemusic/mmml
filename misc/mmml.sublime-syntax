@@ -11,8 +11,8 @@ file_extensions: [mmml]
 scope: source.c
 contexts:
   main:
-  # Octaves
-  - match: '(o|>|<)([0-9]*)'
+  # Octaves & Transpose
+  - match: '(o|>|<|K)([0-9]*)'
     scope: keyword.control.c
 
   # Volumes

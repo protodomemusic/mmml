@@ -15,6 +15,9 @@
 *                Update 2021 - creates .h files for:
 *                https://github.com/protodomemusic/wavexe
 *
+*                BUGS:
+*                - c1&c&c will case an issue.
+*
 *  AUTHOR:       Blake 'PROTODOME' Troise
 ************************************************************H*/
 
