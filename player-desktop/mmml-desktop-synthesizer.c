@@ -445,20 +445,19 @@ int generate_audio( int32_t SampleRate, int32_t FrameCount, PCM8_mono_t  *buffer
 							tick_speed = buffer3 << 4;
 							data_pointer[voice] += 2;
 						}
-						// relative volume decrease
+
+						// transpose (currently unused)
 						else if(buffer2 == 4)
-						{
-							if(volume[voice] < 8)
-								volume[voice]++;
-							data_pointer[voice]++;
-						}
-						// relative volume increase
+							data_pointer[voice] += 2; // skip data
+
+						// instrument (currently unused)
 						else if(buffer2 == 5)
-						{
-							if(volume[voice] > 1)
-								volume[voice]--;
-							data_pointer[voice]++;
-						}
+							data_pointer[voice] += 2; // skip data
+
+						// tie command (currently unused)
+						else if(buffer2 == 6)
+							data_pointer[voice]++; // skip data
+
 						// channel end
 						else if(buffer2 == 15)
 						{

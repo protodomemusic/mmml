@@ -286,10 +286,19 @@ int main(void)
 							tick_speed = buffer3 << 4;
 							data_pointer[voice] += 2;
 						}
-						else if(buffer2 == 14)
-						{
-							data_pointer[voice]++;
-						}
+
+						// transpose (currently unused)
+						else if(buffer2 == 4)
+							data_pointer[voice] += 2; // skip data
+
+						// instrument (currently unused)
+						else if(buffer2 == 5)
+							data_pointer[voice] += 2; // skip data
+
+						// tie command (currently unused)
+						else if(buffer2 == 6)
+							data_pointer[voice]++; // skip data
+
 						else if(buffer2 == 15)
 						{
 							// If we've got a previous position saved, go to it...
