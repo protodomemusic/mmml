@@ -1,2 +1,14 @@
 
 .DS_Store
+.vs/VSWorkspaceState.json
+.vs/slnx.sqlite
+.vs/ProjectSettings.json
+.vs/mmml/v16/ipch/AutoPCH/aed7068ea2027d88/MMML-COMPILER.ipch
+.vs/mmml/v16/Browse.VC.db
+.vs/mmml/v16/.suo
+compiler/mmmlcompiler
+player-desktop/synth
+player-desktop/output.mmmldata
+player-desktop/compiler
+player-desktop/blank.mmml
+player-desktop/4000ad-album-gb.mmml

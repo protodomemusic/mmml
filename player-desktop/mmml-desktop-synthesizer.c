@@ -445,7 +445,6 @@ int generate_audio( int32_t SampleRate, int32_t FrameCount, PCM8_mono_t  *buffer
 							tick_speed = buffer3 << 4;
 							data_pointer[voice] += 2;
 						}
-
 						// transpose (currently unused)
 						else if(buffer2 == 4)
 							data_pointer[voice] += 2; // skip data
@@ -458,6 +457,12 @@ int generate_audio( int32_t SampleRate, int32_t FrameCount, PCM8_mono_t  *buffer
 						else if(buffer2 == 6)
 							data_pointer[voice]++; // skip data
 
+						// debug pointer flag
+						else if(buffer2 == 14)
+						{
+							printf("Flag location: %u\n",data_pointer[voice]); // report data pointer location
+							data_pointer[voice]++; // skip data
+						}
 						// channel end
 						else if(buffer2 == 15)
 						{
