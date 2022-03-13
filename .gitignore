@@ -12,3 +12,7 @@ player-desktop/output.mmmldata
 player-desktop/compiler
 player-desktop/blank.mmml
 player-desktop/4000ad-album-gb.mmml
+player-desktop/output.wav
+player-desktop/input.mmml
+player-desktop/mmml-compiler
+player-desktop/build_macos.sh

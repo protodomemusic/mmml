@@ -243,6 +243,10 @@ void main()
 						else if(buffer2 == 6)
 							data_pointer[voice]++; // skip data
 
+						// panning command (currently unused)
+						else if(buffer2 == 7)
+							data_pointer[voice] += 2; // skip data
+
 						// channel end
 						else if(buffer2 == 15)
 						{

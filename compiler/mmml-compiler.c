@@ -10,13 +10,13 @@
 *
 *                To compile .mmml code, simply run:
 *                $ ./compiler -f FILENAME.mmml -t gb|avr|data|
-*                wavexe -c [0-32] (optional)
+*                wavexe -c [0-32] (optional, wavexe only)
 *
 *                Update 2021 - creates .h files for:
 *                https://github.com/protodomemusic/wavexe
 *
 *                BUGS:
-*                - c1&c&c will case an issue.
+*                - c1&c&c will cause an issue.
 *
 *  AUTHOR:       Blake 'PROTODOME' Troise
 ************************************************************H*/
@@ -33,26 +33,31 @@ Note Command Reference
 | d+   | 0100     | 4   | note - d#  |  | b         | 1100     | C   | note - b   |
 | e    | 0101     | 5   | note - e   |  | o,<,>     | 1101     | D   | octave     |
 | f    | 0110     | 6   | note - f   |  | v         | 1110     | E   | volume     |
-| f+   | 0111     | 7   | note - f#  |  | [,],m,t,@ | 1111     | F   | function   | ---
---------------------------------------  -------------------------------------------    |
-----------------------------------------------------------------                       |
-| µMML | BINARY | HEX | READS NEXT BYTE? | COMMAND             | <---------------------
-----------------------------------------------------------------
-| [    | 0000   | 0   | yes              | loop start          |
-| ]    | 0001   | 1   | yes              | loop end            |
-| m    | 0010   | 2   | yes              | macro               |
-| t    | 0011   | 3   | yes              | tempo               |
-|------|--------|-----|------------------|---------------------|
-| game boy export features (not all players supported)         |
-| K    | 0100   | 4   | yes              | transpose           |
-|------|--------|-----|------------------|---------------------|
-| expanded 'wavexe' features (not all player supported)        |
-| i    | 0101   | 5   | yes              | instrument          |
-| &    | 0110   | 6   | no               | tie                 |
-|------|--------|-----|------------------|---------------------|
-|      | ....   | ... | n/a              | 0100 - 1110 unused  |
-| @    | 1111   | F   | no               | channel/macro end   |
-----------------------------------------------------------------
+| f+   | 0111     | 7   | note - f#  |  | [,],m,t,@ | 1111     | F   | function   | --------
+--------------------------------------  -------------------------------------------         |
+--------------------------------------------------------------------------------            |
+|      |        |     | READS NEXT |                     |                     |            |
+| µMML | BINARY | HEX | BYTE?      | COMMAND             | COMPATIBILITY       | <----------
+--------------------------------------------------------------------------------
+| [    | 0000   | 0   | yes        | loop start          | all                 |
+| ]    | 0001   | 1   | no         | loop end            | all                 |
+| m    | 0010   | 2   | yes        | macro               | all                 |
+| t    | 0011   | 3   | yes        | tempo               | all                 |
+| K    | 0100   | 4   | yes        | transpose           | gb/wavexe           |
+| i    | 0101   | 5   | yes        | instrument          | wavexe              |
+| &    | 0110   | 6   | no         | tie                 | wavexe              |
+| p    | 0111   | 7   | yes        | panning             | wavexe              |
+|      | 1000   | 8   |            |                     |                     |
+|      | 1001   | 9   |            |                     |                     |
+|      | 1010   | A   |            |                     |                     |
+|      | 1011   | B   |            |                     |                     |
+|      | 1100   | C   |            |                     |                     |
+|      | 1101   | D   |            |                     |                     |
+|      | 1110   | E   |            |                     |                     |
+| @    | 1111   | F   | no         | channel/macro end   | all                 |
+--------------------------------------------------------------------------------
+
+Note: some players will crash when encountering incompatible commands.
 
 Note Duration Reference
 -------------------------  ------------------------------
@@ -65,8 +70,9 @@ Note Duration Reference
 | 16   | 0100     | 4   |  | 32.       | 1100     | C   |
 | 32   | 0101     | 5   |  | 64.       | 1101     | D   |
 | 64   | 0110     | 6   |  |           | 1110     | E   |
-| 128  | 0111     | 7   |  |           | 1111     | F   | 
--------------------------  ------------------------------ 
+| 128  | 0111     | 7   |  | 0         | 1111     | F   | __
+-------------------------  ------------------------------   |
+Durationless note is only supported in 'wavexe' export <----
 */
 
 #include <stdio.h>
@@ -83,46 +89,47 @@ Note Duration Reference
 #define ANSI_COLOR_BLUE    "\x1b[34m"
 #define ANSI_COLOR_RESET   "\x1b[0m"
 
-signed char   line_counter = -1;
+int8_t        line_counter = -1;
 
-char          *loop_temp_string      = NULL,
-              *transpose_temp_string = NULL,
-              *source_data           = NULL,
-              *output                = NULL,
-              *tempo_temp_string     = NULL,
-              *waveform_temp_string  = NULL,
-              *macro_temp_string     = NULL;
+char          *source_data           = NULL;
+char          *loop_temp_string      = NULL;
+char          *transpose_temp_string = NULL;
+char          *output                = NULL;
+char          *tempo_temp_string     = NULL;
+char          *waveform_temp_string  = NULL;
+char          *macro_temp_string     = NULL;
+char          *panning_temp_string   = NULL;
 
-long          bufsize;
+uint32_t      bufsize;
 
-unsigned char header_data[TOTAL_POSSIBLE_MACROS * 2];
+uint8_t       header_data[TOTAL_POSSIBLE_MACROS * 2];
 
-unsigned int  data_index[TOTAL_POSSIBLE_MACROS],
-              previousDuration = 4; // default duration (if none specified) is a crotchet
+uint16_t      data_index[TOTAL_POSSIBLE_MACROS];
+uint16_t      previousDuration = 4; // default duration (if none specified) is a crotchet
 
-unsigned char command,
-              channel,
-              octave = 3, // default octave (if no 'o' command is specified before a '<' or '>')
-              loops,
-              macro_line;
+uint8_t       command;
+uint8_t       channel;
+uint8_t       octave = 3; // default octave (if no 'o' command is specified before a '<' or '>')
+uint8_t       loops;
+uint8_t       macro_line;
 
 // total number of channels before macros        
-unsigned char total_channels = 4;
+uint8_t       total_channels = 4;
 
-signed char   build_target = -1;
+int8_t        build_target = -1;
 
-unsigned char temp_nibble = 0;
+uint8_t       temp_nibble = 0;
 
-unsigned int  total_bytes,
-              line = 1,
-              highest_macro,
-              loop_value,
-              tempo_value,
-              macro_value,
-              waveform_value,
-              output_data_accumulator;
-
-signed int    transpose_value;
+uint16_t      total_bytes;
+uint16_t      line = 1;
+uint16_t      highest_macro;
+uint16_t      loop_value;
+uint16_t      tempo_value;
+uint16_t      macro_value;
+uint16_t      waveform_value;
+uint16_t      output_data_accumulator;
+int16_t       transpose_value;
+int16_t       panning_value;
 
 void error_message(char number, int line)
 {
@@ -146,7 +153,7 @@ void error_message(char number, int line)
 			printf("Line %d: Consecutive (numerical) values - invalid number.\n\nYou might have entered a number that the command doesn't support. Additionally, the compiler could be expecting this value to be a certain number of digits in length and you might have exceeded that.\n", line);
 			break;
 		case 5 :
-			printf("Line %d: Not a valid note duration.\n\nThe available values here are: 128,64,64.,32,32.,16,16.,8,8.,4,4.,2,2.,1\n", line);
+			printf("Line %d: Not a valid note duration.\n\nThe available values here are: 128,64,64.,32,32.,16,16.,8,8.,4,4.,2,2.,1,0\n", line);
 			break;
 		case 6 :
 			printf("Line %d: Invalid octave value; yours has gone above 'o6'.\n\nThis is easily missed with the '>' command. Check to see where you've incremented over the six octave limit.\n", line);
@@ -199,12 +206,14 @@ void error_message(char number, int line)
 		case 24 :
 			printf("Please enter a valid number of channels, 0 to 32.\n");
 			break;
+		case 25 :
+			printf("Line %d: Invalid panning amount; exceeded maximum/minimum value.\n\nYou cannot pan more than 100(%%) positively or negatively.\n", line);
+			break;
 		}
 		printf(ANSI_COLOR_RESET);
 
 	printf("\nTerminating due to error. Really sorry! μMML Desktop Compiler end.\n\n");
 
-	// Just in case I port this to DOS.
 	free(source_data);
 	free(output);
 
@@ -219,8 +228,8 @@ void save_output_data(unsigned char input)
 
 void write_file(void)
 {
-	unsigned char data;
-	unsigned char line = 0;
+	uint8_t data;
+	uint8_t line = 0;
 
 	// target: .mmmldata file
 	if (build_target == 0)
@@ -393,7 +402,7 @@ void read_file(char *file_name)
 			// get size of file
 			bufsize = ftell(input_file);
 
-			printf("Input file size: %ld bytes.\n\n", bufsize);
+			printf("Input file size: %u bytes.\n\n", bufsize);
 
 			if (bufsize == -1)
 				error_message(0,0);
@@ -431,6 +440,10 @@ void print_duration(int number)
 	previousDuration = number;
 	switch(number)
 	{
+		case 0:    //durationless note
+			temp_nibble = temp_nibble | 0x0F;
+			save_output_data(temp_nibble);
+			break;
 		case 1:    //whole note
 			temp_nibble = temp_nibble | 0x00;
 			save_output_data(temp_nibble);
@@ -958,6 +971,61 @@ int compiler_core()
 				break;
 
 
+			/* panning command */
+			case 'p' :
+				if(command != 5)
+				{
+					if(command == 0)
+					{
+						save_output_data(0xF7);
+						next_byte();
+
+						panning_temp_string = (char*)malloc(sizeof(char) * (4));
+
+						for(unsigned char p = 0; p < 4; p++)
+							panning_temp_string[p] = '\0';
+
+						for(unsigned char n = 0; n < 4; n++)
+						{
+							if(isdigit(source_data[i+1]) || source_data[i+1] == '-')
+							{
+								i++;
+								panning_temp_string[n] = source_data[i];
+							}
+							else
+							{
+								if(n == 0)
+									error_message(0,line);
+
+								if(n > 3)
+									error_message(0,line);
+
+								if(n > 0 && n <= 3)
+								{
+									panning_temp_string[n+1] = '\0'; // null terminate string
+
+									panning_value = atoi(panning_temp_string);
+
+									if(panning_value > 100)
+										error_message(25,line);
+
+									else if(transpose_value < -100)
+										error_message(25,line);
+
+									save_output_data(panning_value);
+									free(panning_temp_string);
+								}
+								break;
+							}
+						}
+						next_byte();
+					}
+					else
+						error_message(3,line);
+				}
+				break;
+
+
 			/* instrument command */
 			case 'i' :
 				if(command != 5)
@@ -1436,7 +1504,7 @@ int compiler_core()
 							error_message(4,line);
 							break;
 						case 1:
-							error_message(5,line);
+							print_duration(0);
 							break;
 						case 2:
 							error_message(11,line);
@@ -1451,7 +1519,7 @@ int compiler_core()
 				break;
 			break;
  
-				// ugh, that whole section was terrible
+			// ugh, that whole section was terrible
 		}
 
 		/*
@@ -1472,15 +1540,16 @@ int compiler_core()
 		 * to completely refactor the code. This works,
 		 * it's inelegant, but I'm happy to leave it there.
 		 */
-		if(command == 1)
+		if (command == 1)
 		{
-			if(   source_data[i+1] == 'r' || source_data[i+1] == 'a' || source_data[i+1] == 'b'
+			if (  source_data[i+1] == 'r' || source_data[i+1] == 'a' || source_data[i+1] == 'b'
 			   || source_data[i+1] == 'c' || source_data[i+1] == 'd' || source_data[i+1] == 'e'
 			   || source_data[i+1] == 'f' || source_data[i+1] == 'g' || source_data[i+1] == 'o'
 			   || source_data[i+1] == '@' || source_data[i+1] == 'm' || source_data[i+1] == 't'
 			   || source_data[i+1] == 'v' || source_data[i+1] == '[' || source_data[i+1] == ']'
 			   || source_data[i+1] == '%' || source_data[i+1] == '<' || source_data[i+1] == '>'
-			   || source_data[i+1] == 'K' || source_data[i+1] == 'i' || source_data[i+1] == '\n' )
+			   || source_data[i+1] == 'K' || source_data[i+1] == '&' || source_data[i+1] == 'i'
+			   || source_data[i+1] == 'p' || source_data[i+1] == '\n' )
 			{
 				print_duration(previousDuration);
 				next_byte();
@@ -1489,10 +1558,10 @@ int compiler_core()
 	}
 
 	/* End of file */
-	if(channel < (total_channels - 1))
+	if (channel < (total_channels - 1))
 		error_message(14, line);
 
-	if(highest_macro > (channel - total_channels))
+	if (highest_macro > (channel - total_channels))
 		error_message(13, macro_line);
 
 	/* End final channel/macro */
@@ -1501,7 +1570,7 @@ int compiler_core()
 
 	unsigned int v = 0;
 
-	for(unsigned char p = 0; p < channel; p++)
+	for (unsigned char p = 0; p < channel; p++)
 	{
 		header_data[v++] = ((data_index[p] + (channel * 2)) & 0xFF00) >> 8;
 		header_data[v++] =  (data_index[p] + (channel * 2)) & 0x00FF;
@@ -1579,7 +1648,6 @@ int main(int argc, char *argv[])
 
 	printf("μMML Desktop Compiler end.\n");
 
-	// Just in case I port this to DOS.
 	free(source_data);
 	free(output);
 

@@ -1,0 +1,2381 @@
+%===================================================================%
+% TITLE      : 4000AD (Complete) Game Boy
+% COMPOSER   : Blake 'PROTODOME' Troise
+% PROGRAMMER : Blake 'PROTODOME' Troise
+% DATE       : 5th October 2021
+% NOTES      : 
+%===================================================================%
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL A %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ ; r4
+
+% stutter intro (4/8)
+r2 [5 m1 ]
+
+% Cmin7 arp intro (3/8), drum solo (4/4)
+[51 m4 ]
+
+% C#min7 arp intro (7/8)
+[17 m9 ]
+r8.
+
+% Cmin7 bass groove (4/4), F#13 bass groove (4/4)
+[21 m4 ] r8 [14 m9 ]
+
+% transition A (4/4)
+o4 v5 r64c#32.<<r64c#32.>r64c#32.
+v6 o3 b16a16f+16e32f+32c+16f+16c32e32<b16a16f64f+32.>
+[2 e64c+64<b64> ]    v4 [2 e64c+64<b64> ]
+v6 [2 f64d64c64 ]    v4 [2 f64d64c64 ]
+v6 [2 f+64d+64c+64 ] v4 [2 f+64d+64c+64 ]
+v6 [2 g64e64d64 ]    v4 [2 g64e64d64 ]
+v6 [2 g+64f64d+64 ]  v4 [2 g+64f64d+64 ]
+v6 [2 a64f+64e64 ]   v4 a64f+64
+[4 m1 ]
+
+% solo A (4/4)
+r8v6>a+64>d64c8&c32 [3 c+64c64<b64>c64 ] d+64
+f+64g64d+64c64<a+64>c64<g64a+64g64f64f+64g64d+64c64<a+64g64f64g64d+64
+f64d+64f64a64>c32f32a+32>d32
+f32d+32c32<a+32>d+32c32<a+32g32>c32<a+32g32f32a+32g32f32d+32g32f32d+32
+c32f32d+32c32<a+32>d+32c32<a+32g32>c32<a+32g32d+32
+c8.&c32 [4 c+64c64<b64>c64 ] v4 <b64
+a+64a64g+64g64f+64f64e64r8r32 v6 d+16f16g16a+16
+>d+16 v4 d+16 v6 c16g32g+32g16 v4 g16 v6 a+16 v4 a+16 v6 g16>d8 v4 d16 v6 d+16e32
+f32c16<g16
+f8 v4 f16 v6 g8.&g32 [4 g+64g64f+64g64 ]
+r32a+16b32r32>c16d+32.r64f16
+[4 f+64g32.>c32r32< ] f32f+64
+g32.>c32<f32f+64g32.>c32 [4 <f64f+64g64>c64 ]
+d+32c32<a+32>c32<g32f+32f32d+32f32d+32c32d+32f+32d+32c16d+32f32d+16g16
+d+16f32f+32d+32c32<a+16.>c32
+v4 <b64a+64a64g+64g64f+64f64e64r2r8 v6 g+64a64a+64b64>c8.
+g+16.a64a+8a64g+8.&g+32. [2 a64g+64g64g+64 ] a64>c+16r8.<b16r8
+a+16g+16a+16f+16d+16c+32d+32<b16>c+16r8<f+16r2
+r16b16r16
+>d+16e16f+16a+16g+16c+16d+16f+16>d+8&
+d+32 v4 d+16. v6 f32f+8
+r32c+8. v4 c+16.r8r32. v6 <f32.f+32a+32>c+16
+f32.r64f+16r64f16d+32.c+32.r32c32.<b32.r32>d+32.<a+16r64g+32r64b32>c+16.
+<a+16f+16g+32a32a+16
+g+16f+16d+16g+16f+16d+16c+32r32f+16f64 v4 e64d+64d64c+64c64r2
+r32
+v6 <c+16d+16f32r32f+16g+16a+16b16>c32r32c+16d+16f+16g+32r32a+16>c+16
+
+% transition B (7/4)
+m21
+
+% four-to-the-floor A (4/4)
+r64 [3 m27 m28 ] m27
+
+% transition C (4/4)
+o4 v5 [3 e64<g64b64>c64 ] e64<g64b64r8> [4 c+64f64<g+64>c64 ] r8 [4 d64f+64<a64>c+64 ] r8 [4 d+64g64<a+64>d64 ] r16
+v6 >d+64<f+64d+64<b64>g+64b64>d+64<f+64r16>e64<g64e64c64a64>c64e64<g64r16>f64<g+64f64c+64b64>c+64f64<g+64f64c+64b64>c+64
+
+% solo B (4/4)
+o4 r64 [2 m29 r1 r1 ]
+v6 o5 r32.f+64g32.c16<a+16a16f+64g32.f16g16d+32.d64c16<a+16>c32<a+32g16
+e64f32.d+16c16
+a32a+32>c16<g32r32>a64<a32.>f64<f32.>f+64<f+32.>g64<g32.>d+64<d+32.>c64
+<c32.>d64<d32.a+64<a+32.>g64<g32.>d+64<d+32.>e64<e32.>f64<f32.>d+64<d+32.
+c16r2r8>>d+16f16g16a+16b32>c16
+v4 <b64a+64r8 v6 >f+16r8f+32g32a+32g32a+32f+32f32d+32c16f16d+16c16<a+16
+b64>c32.
+v5 <b64a+64r8.r32 v6 <c32f32d32g32d+32a+32f32>c32<f+32>d32<g32>d+32<a+32
+>f32g32a32a+32>c32d32d+32f32g32a+32a32
+f32d+32f32g32c32<a+32>d32d+32c32<a+32a32g+32g32f+32g32f32d+32d32c32<a+32
+>d32c32<g32a+32a32f32f+32g32d+32d32<a+32>d+32
+d8&d32d+32e32f4&f32 [4 f+64f64e64f64 ] d+16d16c16f16
+d+16d16r16c8c+64c64<b64>c64d16d+16r16a+32g32a32a+32>c32c+32d16d+16f16
+g16
+g+32a+32g+32a+32g+4&g+32a32a+8.&a+32a32g+32g32r8>e64f64f+16.
+e8<b16>d+16<g+16a+32b32f+16g+16d+16f+16c+16d+16<b16a+16f+16d+16
+<b8.g+32b32>c+8.<a+32>d+32e8&e32b32f+32g32g+8>d32d+32g+32f+32
+<b16g16f+16e16d+16f+16d16c+16<b16>f+16b16>d+16f+16a+32b32>d+16f+16
+r16d+32d32c+16r16<b16r16>g32g+32e32d+32d32c+32d+32<b32>c+32<g+32f+32
+d+32<b32>c+32<g+32a+32>d+32f+32g+32a+32
+b16>c+16d+32r32f+16c+16<b16>c+16<g+16b16f32f+8&f+32>c+32d+8.&d+32
+d64c+64c64<b64r16<c+16d+16f32r32f+16g+16a+16b16>c32r32c+16d+16f+16g+32
+r32a+16>c+16
+
+% transition B (7/4)
+m21
+
+% four-to-the-floor A (4/4)
+r64 [3 m27 m28 ] m27
+r2.r8.r32.
+
+% four-to-the-floor B (4/4)
+[3 m33 m34 ] m33 r1
+
+% bass solo (4/4)
+[8 m33 m34 ]
+
+% stutter transition (4/8)
+[4 m1 ] o4 v3 [16 r64 c32. ]
+
+% movement II intro (4/4)
+o4 [80 v3 e32 v2 e32 v3 c32 v2 c32 v3 d32 v2 d32< v3 g16 ]
+
+% movement II main (4/4)
+[2 [2 [2 r64 m45 r4.r32. ] [2 r64 m46 r4.r32. ] ] m42 r64 m46 r4.r32. m42 r64 m46 r4.r32. m43 m44 ]
+
+% movement II solo (4/4)
+o5 v6 r2f64f+64g64a64g8.[2 g+64g64f+64g64 ] f+16f16
+e16<b16>c16d32e32<a16f16g16g+16a16>c16<g16f16e32f32c16d16e16
+c32d8&d32 v5 d8. v6 g16r16g8r16 v4 g8r16 v3 g8
+r2 v6 e32g32a32a+32b16g16e16r16a+16f+16
+r4>c32<a32f32c32d16a16f16>c16<a16>d16d+16e16c16<a16
+f32g16. v5 g8 v6 f8 v5 f8 v6 d32e8&e32r16g8 v4 g8
+v6 d8.e16r8 v5 e16r2r16
+v6 a32g32f32d32c32<a+32g32e32f32d32<a+32>c32d32e32f32d32f32g32a+32>d32
+f32g32a+32a32g+32g32>c32<a+32b32>c32d32e32
+f16e64d64c64<b64<f16a16>e16c16<a16>c16g32a32e16c16g16b32>c32d16e16f16
+e8c16<a16f32f+32g32e32d32c32<b32>c32<a32f32g32e32f32f+32g32a32b32>c32
+d32e32f32g32a32a+32
+b16>c16d16f32g16.c16<b16>c16<a16b16g+16a16b4.
+>c8.c+64c64<b64>c64<g16d16<b32>c+16.<a8>d8e8
+f4e8c16 v5 c16 v4 c16r16 v6 <a16 v5 a16 v4 a16r16 v6 >c4
+v5 c8 v4 c8 v3 c8 v6 d8 v5 d8 v4 d8 v3 d8
+
+% transition D
+m51
+o3 v6 [4 f+64a+64d+64 ] r16
+[4 g64b64e64 ] r16
+[4 >c64<f64g+64 ]r16
+[4 f+64a64>c+64< ] r16 o2
+[3 a+64>d64<g64 ] r32.
+[3 b64>d+64<g+64 ] r32.
+[3 >c64e64<a64 ] r32.
+[3 >c+64f64<a+64 ] r32.
+[3 >d64f+64<b64 ] r32.>
+[3 d+64g64c64 ] r32.
+[18 e64g+64c+64 ] e64g+64
+r8 [19 f64a64d64 ] r8.r32.
+
+% solo C (4/4)
+o3 v6 >a+64b64>c32c+32d32c32<a+32>c4&c16c+64c64<b64>c64c+64c64<b64>c64d+32
+[5 c32d+32 ] [4 c32f32 ] [3 c32f+32 ] c32g32c32d+32f32d+32c32<a+32
+>c32<g32a+32g32f32f+32f32d+32c32d+32<a+32
+b32>c32d+32f32f+32g32a+32g32a+32f+32f32d+32c16.f32d+16.c32<a+16.r32a16.
+r32g16c32d+16.
+[2 e64d+64d64d+64 ] f8& [2 f64f+64f64e64 ] f+16g16a+16
+>c16d+32f32g32a32a+16a16g+16
+g4 v5 g8 v4 g16. v6 g+32a4 v5 a8 v4 a8
+v6 a+16>c16d16d+16f16g16a16g+16g16e16f16d32d+32c32<b32a+16a16f16
+g8.&g32d64<a64g8.&g32e64<b64g8.&g32f64c64<g4
+r8>g16a16a+16>c16d16d+16f32g16a16a+32>c32d32d+16f16g16g+32a32
+a+2.b8. v5 a+8
+r16b8r16 v4 a+8r16b8r16 v3 a+8r16b8
+r16 v2 a+8r16b8r8 v6 g+16a+16f+16d+16c+16f+16<b16f+16
+a+4 v5 a+4 v3 a+8 v6 >>d+16f+16d+32e32d+32d32c+16<b16
+>c+2&c+8 v5 c+4.
+v4 c+4. v3 c+4. v2 c+4
+r1
+
+% main theme reprise (4/4, 7/8)
+[2 m42 v4 r64 [3 o4c32f32g+32>c32e32g32 ] v5 o4c32f32 v6 g+32>c32e32g64 ] m43
+
+% final stretch (4/4)
+m51 m54
+m51 o5 v6 d+16d16<a+16g16f16d+16d16<a+16g16f16d+16d16<a+16g16f16d+16
+m51 m54
+m51 o5 e16d16<a16g16f16e16d16<a16g16f16e16d16<a16g16f16e16
+m51 m54
+m51
+
+% ending stutter (4/8)
+[4 m1 ]
+o4 v5 c1 c1 v4 c1 t63 v3 c1 t69 v2 c1 t74 c1 c1
+
+%================================ BAROQUE, PAPER, SCISSORS ================================%
+
+; r4
+
+% paganini-esque introduction
+v4 m79 r8
+t45
+
+% fade-in
+[4 o3v2c32r[3v1cr]v2crv1cr[3v2cr][2v1crv1crv2cr]v2cr ]
+v3c32rv3cr[9v2cr]v3crv4crv5crv6crv7cr
+
+% proper introduction
+m56 m56
+
+% section A (arp)
+[2 
+  [4 m56 ] 
+  [3 o3v4d+32v2d+v4c+v2c+v4g+v2g+v4<g+v2g+v4>d+v2d+v4fv2fv4g+v2g+v4<g+v2g+ ]
+  o3v4d+32v2d+v4c+v2c+v4g+v2g+v4<g+v2g+ m56
+]
+m56
+
+% section B1
+m68 m68
+m69 r64 % solo echo
+m68 m68
+
+% section B2
+[2
+  v7o5c64<b64g64e64c64<b64g64e64c64r32.>e64c64<b64g64r8>e64c64<b64g64
+  v5[6o4e64c64<b64g64]r16
+
+  v7o4e64d64<b64g64r8>e64d64<b64g64r8
+  >e64d64<b64g64v5[3o4e64d64<b64g64]
+  v7o5c32<b32g32e32d32c32<b32a32
+
+  v7>f64d+64c64<g64r8>f64d+64c64<g64r8>f64d+64c64<g64
+  v5[6o4f64d+64c64<g64]r16
+
+  v7o4g64d+64c64<a+64r8>g64d+64c64<a+64r8>f64d64c64<g64
+  v5[5o4f64d64c64<g64]
+  v8[2o4f64d64<b64g64]
+]
+
+v1[2o4b64d+<bg+v2] % .'.'.
+v3[2o4b64d+<bg+v4] % blblb
+v5[2o4b64d+<bg+v6] % bLbLb
+v7[2o4b64d+<bg+v8] % BLBLB
+
+% section B3
+[2 % wow, this 4 bar segment wasn't worth the memory cost
+  v7[2m71r16v5]
+  v3[2m71r16v2] m71
+  v7[2m72r16v5]
+  v3[2m72r16v2] m72
+  v7[2m73r16v5]
+  v3[2m73r16v2] m73
+  v7[2m74r16v5]
+  v3m74
+  [2v7o4[2f64e64c64g64]r16v6]
+]
+
+% ending
+o3g32g+32f16o5c16<g+16<b16g16>d64>d32.b64<b32.>c32r32<g32r32d+16<g16
+v8[2m71r16v7]v6[2m71r16v5]v4[2m71r16v3]v2[2m71r16v1]o1c16c2
+
+%================================ CAMBRIAN EXPLOSION ================================%
+
+; r4 t53 K-4 % set tempo
+
+% intro / theme a (4/4)
+[44 m80][4 m87]
+
+% theme a fill #1 (3/4)
+m92
+
+% theme a solo #1 (4/4)
+v8o5d64v7<d4&d32.v5d4&d16v4d4&d16v3d8
+v6>c64c+dd+e8f64ed+eg16rcv3<bv6a+aga+aa+>c
+rer32c64d16r64c16r32v5<a32r16v6g16r8.>c32r16.<<a16a+32r64>d32r64f+32
+a16g+32v5g32f+16a16v6g16d16f32r32d+16e32r32g16a+32rgr>c16r32.e16r32.g16
+r16.g+16a16g32rerc16c+64d32.<a+16>c32<a+32a16ga+gfg64a32.
+g16fdcg64a64g32c16d32d+dc<a+64r32.>c64d32.c32.r64<a16g32r32>d32.r64c32.r16.
+r64v8>c+32v6d16d+64d64d+64d64<a+32a32.r32.g+16r64g32.>c32r32<a32r32.f32r64d16c32.r32<b32.a32r64g32.f32r64d+32r64
+c32r64d32r64e32b>eaef+bf+ab>df+fegaa+ba+bf+eaf+g+gev5fc+
+
+% theme a reprise (4/4)
+<b32>c16v3o5c32v5<av3fv5>cv3<av5a+v3>cv5<av3a+v5>cv3<av5>ev3c
+[7 m80][4 m87]
+
+% theme a fill #2 (3/4)
+m92 m95
+
+% theme b (5/4)
+[3 m98 ] m105
+
+% theme b fill (2/4)
+m106
+
+% theme a solo #2 (4/4)
+[4 o5 v4c+32v2fv4<f+v2>c+v4<a+v2f+v4>c+v2<a+v4bv2>c+v4<a+v2bv4>c+v2<a+v4>fv2c+ ]
+
+o4v7r16c+64v6<c+32r64v7>f+64v6<f+32.g+16v7>a+64v6<a+32.v7>b64v6<b32.
+>c+16d+32r32v7>f64v6<f32.f+16g+32r32a64a+32.b16>c16c+32.r64c32r32
+<b16f+64g+32.f+16d+16f32f+32c+32d32d+16<b16>c+16c32<a+32a32g+16.f16f+16g+32.b32.>d+32
+f16.a64a+32.r64g16r32.a16a+64a64f16.&f64r64f64r64g16.v4g8v3g16.v6f16r64g16&g64
+c4v5c4v4c4v3c4
+
+m80 m80 o5 v5c32v3ev5<fv3>cv5<av3fv5>cv3<a
+
+o4v6r64a32.r64a+32.>c16d32r32.e32.f16d+32e32f32f+32g16f16<b16>c16d16
+d+16<g+32.r64b32a+32.
+b32r64a16r64g+32.>c+32r32<a+32r32.f+32r64d+16c+32.r32c32.<a+32r64g+32.
+f+32r64e32r64c+32d+32f32g+32>c32f32a+32g+32
+g16f+16d+16<b16g+16f+16f32.r64v5a+16d+16d16c+16r4.
+r16v6>d+32.
+r64g+16f+16d+32r32c+16<a+32r32>d+16<a+32.r64>d+64f+16<a+32.>c+16<a+32
+a32f+16v5g+16
+v6f+32r32d+16c+16d+32r32f16f+16v7g+16a16a+16v8>b64v7<b64v4b32v7>d32
+v4d32v7e32v4e32
+
+% theme a fill #2 (3/4)
+m92 m95
+
+% theme b (5/4)
+[3 m98 ] m105
+
+% theme b fill #2 (6/4)
+m106 m113
+
+% section c (6/4)
+m118
+[4 m80 ]
+m118
+r1
+[6 m80 ]
+
+% section d #1 (6/4)(4/4)
+o4 v5 [32 f64dcv4 ] v5 [32 gedv4 ] v5 [32 fdcv4 ]
+v5 [11 f+dcv4 ] v5 [10 gdcv4 ] g
+
+m121 m122 m121
+o3v8b64v7<b32.>c64r32.v8>e64v7<e32.g+16v8>f+64v7<f+32.g+64r32.b32>c16.<f32g8&g32v6g8v5g8v4g16
+m121 m122 m121
+o3v8b64v7<b32.>c64r32.v8>e64v7<e32.g+16v8>f+64v7<f+32.g+64r32.b32>c16.<f32g8&g32v6g16
+v7a32r64v5a64v7b32r64v5b64v7>c32r64v5c64v7d32r64v5d64
+
+% section d #2 (6/4)(4/4)
+o4 v7d32e8.&e32v5e4v4e8.v7<e16v7g16>c16g64r32.e32f8
+v5f16.v3f16v7e16d16c32v4c32v7d32v4d32v7e32v4e32v7<b32>c16.<g+64a64g+8&g+32v5g+8.
+v4g+8.v3g+8.v3g+8.v1g+16v7>e64r32.v7d16c16<b16>c16
+<f32g8v5g16.v7a8v5a8v7b16r64v5b32.v7e16r64v5e32.v7g16v5g32v7b16v5b32v7>d16
+c+16d16c+64r32.<a+16a64a+64a32g16f16e32r32c+32r64v6g32r64>c+32r64e32
+f64e64v7d+64c+32<a+32v7b32a32g32e32d32d+32f32
+e16v6e16d+16e16v4e16v7>>f64<f64v4f32v7>g64v7<g64v4g32v7>b64c64v4c32
+r16v8<c64v7<c32r64v8>f64v7<f32.g16v8>a64v7<a32.v8>b64v7<b32.>c16d32r32
+v8>e64v7<e32.f16g32r32b64>c32.<g16f16<b16>c16c+32d8&d32v6d8.v5d8.
+v4d8.v3d8.v2d8.v1d8v7d32e16.v5e8
+
+% section e (7/8)
+t53 o4 v6c8.v5c8.v4c8.v3c8.v2c8 [7 r2.r8 ]
+
+o3r2.r16v7>d+64v6<d+32r64v7>g+64v6<g+32.a+16
+v7>>c64v6<c32.v7>c+64v6<c+32.d+16f32r32v7>g64v6<g32.g+16a+32r32
+>d64d+32.<a+16g+16d16d+16e32f16.e32d+32d16
+c+8r16d+16c8<g+32r8r32g+64r8.r32.g+64r16.r64e64r64f32
+f+32g+32a+32>c+32r64d+32r64c+16c16d+32f32<a+16g+16a16r64>c32.<g+16d+16
+r64g32.r16f16r8.
+>d+16r64c32.d32d+64d64r64<a+32.r64v5f32.r64d+16&d+64r32v6a+16
+f16d+16<a+16b32>c8c+32
+c32<b64>c64c+64c64<b64>c64<g+16>c16r8.r32b64>c64c+16c16<b16>d+16<a+16
+g+16b16>c32d32
+r64d+32r64e32v7g+32b32.r32>d+32.r64e32.r64d+32.r64c+32.r64<b32.
+r64v6a+32.a32.r32f+32.r64g+16f+64r32a64a+64b32g+16>c+16
+c32<b32a+32a32>c16<g+16g16a+16f16e16d+16d16d+16f16d16<a+16>c8&c32
+v5c8&c32v4c16v6d+8&d+32v5d+8&d+32v4d+8.r8.v6>d+16
+d32c+32c32r32d+32r32<a+16f16<a+16r8.r64v5>c16r64v6f32g+32.r32v8>c32.
+r64c+32.r64v7d+32.r64v6<a+32.
+r64v7g+32.r64v6>c32.<f32.r32v7a+32.r64f16d+64r32v3f+64v5g64v7g+32
+r64v6>c32.r64<a+32.r8a+64r8.r32.a+64r16.
+r64a+64r16v7f16
+d+64r32v3f+64v5g64v7g+32r64v6>c32r32<a+32.r16g+16a+64r32.>c16
+<a+16g16d+16c16c+32d32
+f16c16c+32.e32g+32.a32b8a+64b64>c64<b64a+64b64a+32.b32a32.g+32f+32e32
+c+32<b32g+32f+32e32f+32g+32b32>d+32
+e32g+32a+32b32r64g+32.r64e32.r64c+16f+32.e16c+32.r64<b32.g+32.>c+32d32.
+<b64r64>c32.d32.e32.f32f+32g32a32b32
+
+% theme b (5/4)
+[3 m98 ] m105
+
+% theme b fill #3 (2/4)
+m106 m113
+o4 v7d+64g+a+v6>fd+<a+v5d+g+a+v4>fd+<a+d+g+a+>f
+v6<<cc+dd+eff+gg+aa+b>cc+dv7d+
+
+% ending
+o4 v7[4e32r]e r16.
+[4e32r]e r4r16.
+[4e32r]e r16.
+[4e32r]e r8.r32
+a16v6a32v2a32v1a32
+
+%================================ GOOSE COMMUNICATIONS ================================%
+
+; K-1 o4 r4
+
+% introduction (3/4)
+[14 r2. ] r2
+
+% theme A1 (3/4)
+m129 m130 m129 m131
+
+% theme A2 (3/4)
+m132 r1r4
+
+% theme A1 (3/4)
+m129 m130 m129 m131
+
+% theme A2 (3/4)
+m132 r4
+
+% theme B1 (4/4)
+m142 o3 v6 c+8r16 v3 c+16 v6 e8r16 v3 e16 v6 f+8r16 v3 f+16 v6 e8r16
+v3 e16 v6 e8. v5 e8. v6 f+16e16d+8. v5 d+16
+m142 m145
+
+v7 [2 o2 a64>c+64e64a64>c+64e64a64>c+32<a64e64c+64<a64e64c+64<a64 ]
+[2 o5c+64<b64a64f+64e64c+64<b64a64f+64e64c+64<b64 ]
+>a64b64>c+64e64f+64g+64b64>c+64
+
+% theme B2 (4/4)
+m148
+[10 o3 v5 d64g+64 v7 >c+64 ]
+[11 v5 <d64g+64 v7 >e64 ] r64<
+[5 v5 c+64a64 v7 b64 ]
+[5 o3 v5 c+64a64 v7 >e64 ] <
+[11 v5 e64c+64 v7 a64 ] r64
+[10 v5 c64e64 v7 a64 ]
+[6 v5 o3 c64e64 v7 >e64 ]
+[5 o3 v5 c64e64 v7 >f+64 ] r64
+[5 o3 v5 g+64<b64 v7 >>g+64 ]
+[5 o3 v5 g+64<b64 v7 >>e64 ] <
+[6 v5 g+64<b64 v7 >b64 ]
+[5 v5 e64<b64 v7 >g+64 ] r64
+[21 v5c+64e64 v7 g+64 ] r64
+[10 v5 d+64<b64 v7 >f+64 ]
+[11 v5 d+64<b64 v7 >g64 ] v5 r64
+m148
+[10 v5 o3 d64g+64 v7 >e64 ]
+[11 v5 <d64g+64 v7 >f+64 ] r64
+[5 v5 <c+64a64 v7 >f+64 ]
+[5 v5 <c+64a64 v7 >g+64 ]
+[11 v5 o3 g+64c+64 v7 >e64 ] r64
+[11 v5 o3 c64g+64 v7 >e64 ]
+[10 v5<c64a64 v7 >e64 ] r64
+[5 v5 <g+64<b64 v7 >>f+64 ]
+[5 v5 <g+64<b64 v7 >>e64 ] <
+[6 v5 g+64<b64 v7 >b64 ]
+[5 v5 e64<b64 v7 >g+64 ] r64
+m145
+
+% theme C (4/4)
+v6 >f+4g32g+32 v5 g+16r8 v6 e16 v5 e16 v6 <b16 v5 b16 v4 b16 v3 b16
+v2 b16 v1 b16 v6 >g+32e32c+32<b32a32r16. v4 >g+32e32c+32<b32a32r16.
+v2 >g+32e32c+32<b32a32r16. v6 b16r8b16>f+4f32g32 v5 g16r8 v6 f+16 v5
+f+16 v6 e16 v5 e16 v4 e16 v3 e16 v2 e16 v1 e16 v6 g32e32c32<b32a32
+r16. v4 >g32e32c32<b32a32r16. v2 >g32e32c32<b32a32r4r16. v6 >a+4b32>
+c+32 v5 c+16r8 v6 <f+16 v5 f+16 v6 c+16 v5 c+16 v4 c+16 v3 c+16r8 v6
+f+32d+32c+32<b32a+32r16. v4 >f+32d+32c+32<b32a+32r16. v2 >f+32d+32
+c+32<b32a+32r4r16. v6 >g4g+32a32 v5 a16r8 v6 f16 v5 f16 v6 c16 v5
+c16 v4 c16 v3 c16 v2 c16 v1 c16 v6 f32d32c32<a+32a32r16. v4 >f32d32
+c32<a+32a32r16. v2 >f32d32c32<a+32a32r16. v6 b16r8b16>f+4g32g+32 v5
+g+16r8 v6 e16 v5 e16 v6 <b16 v5 b16 v6 >c+16 v5 c+16 v6 e16 v5 e16 v6
+a16r16g+32a32g+16f+8a8f+32g+16.r16 v3 g+16 v6 d+32e16.r16 v3 e16 v6 <
+b4 v5 b4 v4 b4 v3 b4 v6 >>b4 v5 b4 v4 b4 v3 b4
+
+% ending melody (3/4)
+[5 r1 ] r2.
+o2 v6 b16r8b16>
+[2 e4 v4 e4 v3 e4 v2 e4. v4 e64 v6 e32. v4 d+64 v6 d+32. v4 e64 v6
+e32. v4 <b64 v6 b32. v4 >e64 v6 e32. v4 g+64 v6 g+32. v3 f+32 v4 f+32
+v5 f+32 v6 f+8&f+32 v4 f+4 v6 g+8 v5 g+8 v6 e4 v4 e4 v6 d+8 v5 d+8 ]
+
+% C#maj13, Amaj13 (4/4)
+v4 o5 [128 e64<a64f64> ] [86 d64<a64e64> ] r64
+
+% Gmaj13#11/A, Amaj13#11, A#maj13#11/A
+v5 o5 [128 f64c+64<a+64> ]
+[64 g64c+64<a+64> ]
+[64 g+64d64<a64> ]
+
+% Dmaj9, Fmaj9 (6/8)
+[3 [16 c+32<g+32f32> ]
+[16 e32<b32g+32> ] ]
+
+[16 c+32<g+32f32> ]
+[8 e32<b32g+32> ]
+r2 r8. r64
+
+% theme E
+m156 m157 m157
+m156 m157
+v4 o4 [8 c+32g+32d+32 ]
+
+m158
+v6 f+16 v8 g+32 v7 g+8&g+32 v5 g+8
+f+16 v7 g+32 v6 g+8&g+32 v4 g+8
+f+16 v6 g+32 v5 g+8&g+32 v3 g+8
+f+16 v5 g+32 v4 g+8&g+32 v2 g+8
+r4
+
+m158
+o4 v7 f+32g8.&g32 v5 g8 v7 a64b16&b64r32 v7 g16a16g16f+16g16d16 v6 g16b16
+v8 a32 v7 a8.&a32 v5 a4 v7 <c+64e64g+64b64>c+64e64f+64g64g+64a32.g+16a16
+e16b64>c+32.f+16
+
+% true ending
+m159 r1 r2.
+r16 o5 v1 e32 v2 e32 v3 e32 v4 e32 v5 e32 v6 e32 m159
+r4
+
+K0
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL B %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ ; r4
+
+% stutter intro (4/8)
+[6 m2 ]
+
+% Cmin7 arp intro (3/8), drum solo (4/4)
+[51 m5 ]
+
+% C#min7 arp intro (7/8)
+[17 m10 ]
+m11
+
+% Cmin7 bass groove (4/4), F#13 bass groove (4/4)
+[21 m5 ] r8 [14 m10 ]
+
+% transition B (4/4)
+o4 v4 c#16e16>c#16
+o3 r2r8 v5 [2 e32<f+32b32> ] [2 f32<g32>c32 ]
+[2 f+32<g+32>c+32 ] [2 g32<a32>d32 ] [2 g+32<a+32>d+32 ]
+a32<b32>e32a32
+[4 m2 ]
+
+% solo A (4/4)
+[21 m5 ] r8 [16 m10 ]
+
+% transition B (7/4)
+m22
+
+% four-to-the-floor A (4/4)
+[3 m27 m28 ] m27
+
+% transition C (4/4)
+v6 o3 e64g64>c64e64g64b64>e64g32e64<b64g64e64c64<g64e64r8f64g+64>c+64f64
+g+64>c64f64g+32f64c64<g+64f64c+64<g+64f64r8f+64a64>d64f+64a64>c+64f+64
+a32f+64c+64<a64f+64d64<a64f+64
+r8g64a+64>d+64g64a+64>d64g64a+32g64d64<a+64g64d+64<a+64g64r16>f+16>d+16
+r16<g16>e16r16<b32>d+32<g32b32>d+32<g32
+
+% solo B (4/4)
+[8 o3 m29 ]
+[3 m30 ] m31
+
+% transition B (7/4)
+m22
+
+% four-to-the-floor A (4/4)
+[3 m27 m28 ] m27
+r1
+
+% four-to-the-floor B (4/4)
+[7 m35 ] r1
+
+% bass solo (4/4)
+[16 m35 ]
+
+% stutter transition (4/8)
+[4 m2 ] o3 [16 v3 f32>f64< v2 f64 ]
+
+% movement II intro (4/4)
+[5 [42 v3 o4 e64<d64g64 ] r32 [42 v3 o4 f64<d64g+64 ] r32 ]
+
+% movement II main (4/4)
+[2 [4 [2 [3 o4 v6 d64<g64e64 v5 >d64<g64e64 v4 >d64<g64e64 v3 >d64<g64e64 ] r16 m41 ] [2 [3 o4 v6 d64<g+64f64 v5 >d64<g+64f64 v4 >d64<g+64f64 v3 >d64<g+64f64 ] r16 m41 ] ]
+[2 [3 o4 v6 d64<f+64a64 v5 >d64<f+64a64 v4 >d64<f+64a64 v3 >d64<f+64a64 ] r16 m41 ] [2 o4 v6 c64<d64g+64 ] o4 v5 c64<d64g+64 v4 [39 o4 c64<d64g+64 ] r32 ]
+
+% movement II solo (4/4)
+m48 o3
+[2 m49 r4 ]
+m50 r4
+[2 v6 b64f64d64 v5 b64f64d64 v4 b64f64d64 v3 [5 b64f64d64 ] ] r4
+m49 r4
+o4 v6 c64<a+64g64> v5 [19 c64<a+64g64> ] r16
+m48
+m49 o3
+o4 v6 c64<g64e64> v5 [14 c64<g64e64> ] r32.
+v6 c+64<g64e64> v5 [9 c+64<g64e64> ] r32
+o3 m50 r8
+v5 f4. v4 f8 v3 f8
+v5 f4 v4 f8 v3 f8
+
+% transition D
+[5 m52 ] r16
+o3 v6c+8.r16d8.r16d+8.r16e8.<a+64b64>c64c+64
+d32g32a+32>d32r16<d+32g+32b32>d+32r16<e32a32>c32e32r16<f32a+32>c+32f32
+r16<f+32b32>d32f+32r16<g32>c32d+32g32r16
+[5 <c+32e32g+32>c+32e32g+32 ] r16
+[5 <d32f32a32>d32f32a32 ] r8.
+
+% solo C (4/4)
+[4 o3 m29 ]
+[3 m30 ] m31
+
+% main theme reprise (4/4, 7/4)
+[2 [11 o4 v4 c64 v5 c64 v4 e64 v5 e64 v4 g64 v5 g64> v4 c64 v5 c64 v4 e64 v5 e64 v4 g64 v5 g64 ]
+[9 o4 c32f32g+32>c32e32g32 ] ]
+[21 o4 d64f+64a64>c64f+64a64 ] r32
+
+% final stretch (4/4)
+[11 m52 ]
+[10 o4 v6 f128< v5 f64.> v6 g128< v5 g64.> v6 a+128< v5 a+64. o5 v6 f128< v5 f64.> v6 g128< v5 g64.> v6 a+128< v5 a+64. ]
+[11 m52 ]
+[10 o4 v6 f128< v5 f64.> v6 g128< v5 g64.> v6 a128< v5 a64. o5 v6 f128< v5 f64.> v6 g128< v5 g64.> v6 a128< v5 a64. ]
+[11 m52 ] o3 d+32f32
+[21 o3 f64a64>d64 ] o3 f64
+
+% ending stutter
+[4 m2 ] o3
+v4 [32 d32>e64<e64 ]
+v3 [16 d32>e64<e64 ]
+v2 [16 d32>e64<e64 ]
+v1 [32 d32>e64<e64 ]
+r1
+
+%================================ BAROQUE, PAPER, SCISSORS ================================%
+
+; r4
+
+% paganini-esque introduction
+r16 v3 m79 r16
+
+% fade-in
+r1r
+[2 v2o4d32[2v1o3fv2gv1>dv2cv1<gv2fv1>cv2d]v1<fv2gv1>dv2gv1<gv2>fv1gv2ev1fv2cv1ev2<gv1>cv2<fv1g ]
+v2o4d32v1<fv2gv1>dv3cv2<gv3fv2>cv4dv2<fv4gv2>dv4cv2<gv4fv2>cv4dv2<fv4gv2>dv4gv2<gv4>fv2gv4ev2f
+v4cv2ev5<gv3>cv5<fv3g
+
+% proper introduction
+m57
+
+% section A (bass)
+[2
+  [3 m57 ]
+  [4 o1v5a+16v3a+16 [2 v4o4c16v2c16v4<d16v2d16v5<<a+32v3a+32 ] v4o4c16<c16 ]
+  m57
+  [2 o2v5c+16v3c+16 [2 v4o4c+16v2c+16v4<d+16v2d+16v5<c+32v3c+32 ] v4>>c+16<c+16 ]
+]
+
+[2 m57 ]
+
+% section B1
+m67 m67
+r64 m69 % solo
+m67 m67
+
+% section B2
+[2 m59 v6 [2 o3 f64g>dfg>dfg32f64d<gfd<gf ] ]
+r2
+
+% section B3
+[2 % another massive waste of space
+  v8[2m75r16v6]
+  v4[2m75r16v3]
+  v1m75
+  v8[2m76r16v6]
+  v4[2m76r16v3]
+  v1m76
+  v8[2m77r16v6]
+  v4[2m77r16v3]
+  v1m77
+  v8[2m78r16v6]
+  v4m78
+  v8[2o3e64f64a64>c64e64g64>c64f64r16v7]
+]
+
+% ending
+r2.v8[2m75r16v7]v6[2m75r16v5]v4[2m75r16v3]v2[2m75r16v1]r16r2
+
+%================================ CAMBRIAN EXPLOSION ================================%
+
+; r4 K-4
+
+% intro (4/4)
+r1 r1
+[4[3 m81 ] m82]
+
+% theme a (4/4)
+m88 m89 m88 m90
+
+% theme a fill #1 (3/4)
+m93
+
+% theme a solo #1 (4/4)
+[2[3 m81 ] m82]
+
+% theme a reprise (4/4)
+m88 m89 m88 m90
+
+% theme a fill #2 (3/4)
+m93 m96
+
+% theme b (5/4)
+m101
+
+% theme b fill (2/4)
+m103
+
+% theme a solo #2 (4/4)
+[3 m108 ]
+m109 [5 o3g+64>c+f ] f+
+
+[3 m81 ] m82
+
+[3 m108 ]
+m109 o3f64 [5 o3g>ce ]
+
+% theme a fill #3 (3/4)
+m93 m96
+
+% theme b (5/4)
+m101
+
+% theme b fill #2 (6/4)
+m103 m111
+
+% section c (6/4)
+m117 m81 m81 m117
+r1
+[3 m81 ]
+
+% section d #1 (6/4)(4/4)
+[3
+  m119
+  o3 v7 f+64ga>dc<a
+  v6 [2 f+ga>dc<a ]
+  v5 [2 f+ga>dc<a ]
+  v4 [2 f+ga>dc<a ]
+  v3 [6 f+ga>dc<a ]
+  v4 f+ga>dc<a
+  v5 f+ga>dc<a
+  v6 f+ga>dc<a
+  m119
+  o3 v7 [2 b64f+g+>ec<g+ v6]
+  v5 [2 bf+g+>ec<g+ ]
+  v4 bf+g+>ec<g+ bf+
+  v7 [2 g>ec<gbf+ v6]
+  v5 [2 g>ec<gbf+ v4]
+  v3 g>ec<gbf+ g>e
+]
+
+% section d #2 (6/4)(4/4)
+m123
+
+o4 v6 [2 d64<fg+>er8 ]
+d64<fg+>er8.
+d64<fg+>er16
+d64<fg+>er8
+d64<fg+>er4
+d64<fg+>e
+o4 c<a>d<fg+>e
+o4 v5c<a>d<fg+>e
+
+o4 v6 [2 d<eg>er8 ]
+d64<eg>er4r16
+o4 d64<eg>e<bg
+o4 v5d<eg>e<bg
+o4 v4d<eg>e
+
+o4 v6 [2 c+64<ga>er8 ]
+c+64<ga>er4r16
+o4 c+64<ga>e<bg
+o4 v5c+<ga>e<bg
+o4 v4c+<ga>e
+
+m123 m123
+
+% section e (7/8)
+[2
+  m125 m126 m125
+  o2 v7 [2 a64>c+eg+f+e< v6 ]
+  v5 [2 a64>c+eg+f+e< v4 ]
+  v3 [12 a64>c+eg+f+e< ]
+  v4 [2 a64>c+eg+f+e< v5 ]
+  v6 a64>c+eg+
+]
+m125 m126 m125
+
+v7 [2 o2 a64>c+eg+f+e v6 ]
+v5 [2 o2 a64>c+eg+f+e v4 ]
+v4 [2 o2 a64>c+eg+f+e v5 ]
+v6 [2 o2 a64>c+eg+f+e v7 ]
+
+v7 [2 o2 b>d+f+a+g+f+ v6 ]
+v5 [2 o2 b>d+f+a+g+f+ v4 ]
+v3 o2 b>d+f+a+g+f+ b>d+
+
+v7 [2 o3 cfgbag v6 ]
+v5 o3 cfgbag
+v6 o3 cfgbag
+v7 o3 cfgbag v8 b>d+
+
+% theme b (5/4)
+m101
+
+% theme b fill #3 (2/4)
+m103 m111
+o4 v7a+16g32r32f16d+64r32.c+16f32r32a+16>d+16
+
+% ending
+o3 v7 [4g64b64r32]g64b64r16.
+[4g64b64r32]g64b64r4r16.
+[4g64b64r32]g64b64r16.
+[4g64b64r32]g64b64r8.r32
+>e64<b64>e64<b64v4>e64<b64v2>e64<b64v1>e64<b64
+
+%================================ GOOSE COMMUNICATIONS ================================%
+
+; K-1 o3 r4
+
+% introduction & theme A (3/4)
+[40 m128 ] m164
+
+% theme A1 (3/4)
+[2 m136
+o4 v5 [3e64<f+64a64>]
+v4 >a32. v3 e64 v2 e32. v5 b64 v4 b32. v3 a64 v2 a32.<
+v5 [3e64<f+64a64>]
+v4 a32. v3 >e64 v2 e32. v5 <b64 v4 b32. v3 a64 v2 a32. v5 >e64 v4
+e32. v3 <b64 v2 b32.
+v5 [3e64<f+64a64>]
+v4 >b32. v3 a64 v2 a32.<
+v5 [3e64<f+64a64>] v4 a32. v3 >e64 v2 e32. v5 <b64 v4 b32. v3 a64
+v2 a32.
+
+v5 [3 o3 e64a64>c+64]
+o5 v4 a32. v3 e64 v2 e32. v5 b64 v4 b32. v3 a64 v2 a32.
+v5 [3 o3 e64a64>c+64]
+v4 a32. v3 >e64 v2 e32. v5 <b64 v4 b32. v3 a64 v2 a32. v5 >e64 v4
+e32. v3 <b64 v2 b32.
+v5 [3e64<a64c+64>]
+v4 >b32. v3 a64 v2 a32.<
+v5 [3e64<a64c+64>] v4 a32. v3 >e64 v2 e32. v5 <b64 v4 b32. v3 a64
+v2 a32.
+m136 ]
+
+% theme A2 (3/4)
+r8 [2 o3 v6 a64>c+64<a64>c+64r16 v3 <a64>c+64<a64>c+64r8. ]
+[2 v6 <a64>c64<a64>c64r16 v3 <a64>c64<a64>c64r8. ]
+[2 o3 v6 g+64b64g+64b64r16 v3 g+64b64g+64b64r8. ]
+[2 o3 v6 a+64>c+64<a+64>c+64r16 v3 <a+64>c+64<a+64>c+64r8. ]
+[3 v6 <b64>e64<b64>e64r16 v3 <b64>e64<b64>e64r8. ]
+v6 <b64>e64<b64>e64r16 v3 <b64>e64<b64>e64r16
+m139 r4
+
+% theme B1 (4/4)
+[18 m128 ] m146
+o2 v5 a8r16 v2 a16 v5 b8r16 v2 b16 v5 >c8r16 v2 c16 v5 c+8r16 v2 c+16
+m139 r4
+
+% theme B2 (4/4)
+[18 m128 ]
+o3 v7 b64a64g64f64d+64c+64<b64a64g+8a16r16b8
+v5 o2 a+8r16 v2 a+16 v5 >c+8r16 v2 c+16 v5 <a8r16 v2 a16 v5 b8r16 v2
+b16 v6 g+32a+32g+8. v5 g+4 v4 g+4 v3 g+4
+
+% theme C (4/4)
+v6 m149 o3
+[2 [3 <b64>g64e64 ] r8.r32. [3 <b64>g64e64 ] r4.r16.r64 ]
+[2 [3 f+64d+64a+64 ] r8.r32. [3 f+64d+64a+64 ] r4.r16.r64 ]
+[2 [3 a64f64d64 ] r8.r32. [3 a64f64d64 ] r4.r16.r64 ]
+m149
+
+v6 o5 a16r16g+32a32g+16f+8a8f+32g+16.r16 v3 g+16 v6 d+32e16.r16 v3
+e16
+o4 a64 v5 a32. v4 >e64 v3 e32. v6 <b64 v5 b32. v4 a64 v3 a32.
+
+% ending melody (3/4)
+[17 m128 ]
+
+% C#maj13, Amaj13 (4/4)
+[16 v5 o4 e64>e64 v3 <<d64>d64 v5 <a64>a64 v3 e64>e64 v5 <c64>c64 v3
+<<a64>a64 v5 <f64>f64 v3 c64>c64 v5 <<g64>g64 v3 <f64>f64 v5 <d64>d64
+v3 <g64>g64 ]
+
+[10 v5 o4 e64>e64 v4 <<d64>d64 v5 <b64>b64 v4 e64>e64 v5 <c+64>c+64
+v4 <<b64>b64 v5 <f+64>f+64 v4 c+64>c+64 v5 <<a64>a64 v4 <f+64>f+64 v5
+< d64>d64v4<a64>a64 ]
+v5 o4 e64>e64 v4 <<d64>d64 v5 <b64>b64 v4 e64>e64 v5 <c+64>c+64 v4
+<<b64>b64 v5 <f+64>f+64 v4 c+64>c+64 v5 <<a64>a64 v4 <f+64>f+64
+
+% Gmaj13#11/A, Amaj13#11, A#maj13#11/A
+[16 v6 o4 f32 v4 <f+32 v6 a+32 v4 >f32 v6 c+32 v4 <a+32 v6 g+32 v4 >
+c+32 v6 <d+32 v4 g+32 v6 f+32 v4 d+32 ]
+[8 v6 o4 g32 v4 <f32 v6 a+32 v4 >g32 v6 c32 v4 <a+32 v6 g+32 v4 >c32
+v6 <d+32 v4 g+32 v6 f32 v4 d+32 ]
+[8 v6 o4 g+32 v4 <b32 v6 f+32 v4 >g+32 v6 e32 v4 <f+32 v6 >c+32 v4
+e32 v6 <a32 v4 >c+32 v6 <b32 v4 a32 ]
+
+% Dmaj9, Fmaj9 (6/8)
+[3 m150 m151 m151 ]
+m150 m151
+r2 r8.
+
+% theme E
+[2 [3 o5 v6 c+32 v4 <<a+32 v6 >f32 v4 >c+32 v6 <g+32 v4 f32 v6 <f+32 v4 >g+32 v6 <a+32 v4 f+32 ]
+v6 >c+32g+32
+m161
+[3 o5 v6 d32 v4 <<b32 v6 >f+32 v4 >d32 v6 <a32 v4 f+32 v6 <g32 v4 >a32 v6 <b32 v4 g32 ]
+v6 >d32a32
+[3 o5 v6 e32 v4 <c+32 v6 g+32 v4 >e32 v6 <b32 v4 g+32 v6 <a32 v4 >b32 v6 c+32 v4 <a32 ]
+v6 >e32b32
+
+[2 [3 v6 o5 g+32 v4 <a+32 v6 >c+32 v4 g+32 v6 d+32 v4 c+32 v6 <c32 v4 >d+32 v6 <a+32 v4 c32 ]
+v6 d+32>g32 ] ]
+
+m160 m161 m162 m160 m160
+m160 m161 m162
+
+[3 v6 o5 g32 v4 <f+32 v6 b32 v4 >g32 v6 d32 v4 <b32 v6 d32 v4 >d32 v6 <f+32 v4 d32 ] v6 g32>d32
+v6 o3 [2 c+64e64g+64b64>c+64e64a64>c+32<a64e64c+64<b64g+64e64c+64 ]
+[2 o5 f+64<a64e64c+64<b64g+64e64c+64 v5 ] o4 v6 f+16c+16g+64a32.>c+16
+
+% true ending
+v5 <g+2 v4 g+4. v5>c64<<c64>c+64>c+64<<d64>d64>d+64<<d+64
+v6 m163
+[5 o4 g+64<g+64<b64>>e64<e64b64 ]
+g+64<g+64
+[5 o3 d64>g64<g64>d64b64<b64 ]
+d64>g64
+m163
+[5 o5 c64<c64<d+64>g+64<g+64>d+64 ]
+c64<c64
+[5 o3 c+64>f+64<f+64>c+64a+64<a+64 ]
+c+64>f+64
+[5 o3 a64>e64>c+64<c+64<e64>a64 ]
+a64>e64
+[5 o5 d+64<d+64<f+64>>c64<c64f+64 ]
+d+64<d+64
+[3 m128 ] m164
+r4
+
+K0
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL C %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ ; r4
+
+% stutter intro (4/8)
+r1 [8 m3 ]
+
+% Cmin7 arp intro (3/8), drum solo (4/4)
+[51 o3 v3 g32> v4 g32< v3 d+32> v4 d+32< v3 f32> v4 f32< v3 c32> v4 c32 v3 c32> v4 c32<< v3 a+32> v4 a+32 ]
+
+% C#min7 arp intro (7/8)
+[17 o3 v3 e32> v4 e32< v3 f+32> v4 f+32< v3 c+32> v4 c+32< v3 e32> v4 e32 v3 c+32> v4 c+32<< v3 b32> v4 b32 v3 g+32> v4 g+32 ]
+m12
+
+% Cmin7 bass groove (4/4)
+m14 m15 m14 m16
+
+% F#13 bass groove (4/4)
+m17 m18 m17 m19 m17 m18
+
+% transition A (4/4)
+v7 o1 f+16>>f+32r32<<f+16r2.f+8
+>f+32r32<g8>g16<g+8>g+32r32<a16>a32r32<a32r32a+32.r64d32.r64>c+32r32<b16d+16
+>c4 v5 c8 v4 c8 v3 c8 v2 c8 [5 m3 ]
+
+% solo A (4/4)
+m14 m15 m14 m16
+m17 m18 m17 m19 m17 m18 m17
+
+% transition B (7/4)
+m23
+
+% four-to-the-floor A (4/4)
+[14 m26 ]
+
+% transition C (4/4)
+v7 o1 c8.>c16r16<c32r32c+8.>c+16<f+16g32r32d8.>d16<
+g32a32g32f32d+8.a+16r16e8>c32r32<f8>d+32e32<g16.>g+64g64f+64g64g+64g64
+
+% solo B (4/4)
+[3 m14 m15 ] m14 m16
+m17 m18 m17 m19 m17 m18 m17
+
+% transition B (7/4)
+m23
+
+% four-to-the-floor A (4/4)
+[14 m26 ]
+m32
+
+% four-to-the-floor B (4/4)
+[3 m26 m36 ]
+o1 v7 c16>c32r32<c16f32r32a+32r32>c16<f16>d+16e16c32r32<g16f32r32>d+32r32c16e16>c16
+[3 m26 m36 ]
+r1
+
+% bass solo (4/4)
+m37
+v7 o1 c16.r32e16r16f16>d+32r32<f+8g32r32g32r32a16>f+16<a+8b16a+64a64g+64g64
+f+64f64e64d+64>g64r32.c16<c16r16c16>c64r32.<c16>c64r32.
+a+32r32<a16>g32a32<a+32r32>d+16<d+16f32g32
+m37
+v7 o1 c16r16c16>g32r16.c16g64r32.<c16>a16r16<c16>a+16r16c16>c16<<c16
+>a32g32f32f+32g16f+16g16f+16g16a32r32<a16>g32r32a16<a+16>>d+32r32<a+16
+<b16>b16
+<c16r8a+64>c32.r16<a+64>c32.<a32r32a+16r16a+32r32>c16<a+32r32d+16e16
+a+32r32d+16
+r8c16>c16r16c16f+16g16>c32r32d+16e16<a+16c32r32d+32f32r16<a+16
+c8>c32r32<e8>e32r32<f16>f16f+32r32<f+16>a16g16<g16>a+16<a+16b16
+c16r64>g64g+64a64a+32>c32<a+32g32f16g16c16<a+16>d16d+32.r64e32.r64c16
+<a32a+16f+32g32.r64d+16
+a+32.r64a+32.r64a32.r16r64a+32.r16r64a32r32a+16>c32.r64<a+32r32>c16<a+32
+r32d+16e16a+32r32d+16
+a+16c32r32a+16>d+32r32>c32r32<<a+32r16.g16r16a+32r32>c32.r64<f16g+16
+a16e16d+16
+e32.r64f32.r64f+32.r64g32.r16r64a32.r64a+32.r64>g32r16.<b32.r64>c32.
+r16r64<a+16>d16d+16e16
+r16<c16>f16r16<c32r32>f+16r16g16<g32r32>g+16<g+32r32>a16<a+16>a+16<b32
+r32>b16>
+
+% stutter transition (4/8)
+v7 c8. v5 c8. v4 c8. v3 c8. v2 c4
+[6 m3 ] v3 [8 o4c64e64<d64g64 ]
+
+% movement II intro (4/4)
+v2 [128 o2c64>c64<c64>c64 ]
+v4 b32>c2&c8.&c32 [4 c+64c64<b64>c64 ]
+d2d+32e8.&e32c4
+<f64f+64g2&g8.&g32 [4 g+64g64f+64g64 ]
+e32f2&f8.&f32c4
+v3 <<c2. v2 c2.
+v4 >>c4c+32d8.&d32
+v3 <c2. v2 c2.
+v4 >c4c+32d8.&d32
+e2 [4 f64e64d+64e64 ] g4
+>c4<f16g8.>f32g8.&g32>d32e8.&e32
+<a64g64f2&f8.&f32 [4 f+64f64e64f64 ]
+v2 f2 v6 <<g32g+32g16c+32d32c16<f32.r64g16d16e32r32
+
+% movement II main (4/4)
+[2 [18 m40 ] r8 [5 m41 ] ]
+
+% movement II solo (4/4)
+m47 m47
+v7 o1 e16r4r16e16r4e16r16>c64r32.<e16>c64r32.
+<e16r4r16e16r16b16>c16d16<g16e16a+16d+8
+d16r4r16d16r8.>c64r16.r64c16<f16d16c16
+g8r16>g64r8r32.<g16r16>f16g32r32<g8>f16<f16>d32r32f16
+<c8r16>c16r8<c16r8.>c8<b16r16a+4.
+g8 v5 g8 v6 a+8 v5 a+8 v6 >c8 v5 c8
+m47 m47
+v7 o1 e16r8e16r8b16r8.>e8<a4
+v5 a4 v6 e8 v5 e8 v6 >g+16 v5 a8. v4 a8 v3 a8
+v6 d8 v5 d8r8 v6 d16r4.r16<g8
+v5 g4 v4 g4 v5 >>g32 v6 g+16. v5 g+8 v4 g+8 v3 g+8
+
+% transition D
+o1 v7 c#1
+g+8>g+16r16<a8>a16f+16g+16a+32r32<a+16a16b8.a64f+64d+64c+64
+c8r16c+8r16d8r16d+8r16e8r16f8
+r16f+2&f+8>a+32r32b16e16<b16
+>f16g16<g2.&g8r4
+
+% solo C (4/4)
+m14 m15 m14 m16
+m17 m18 m17 m19 m17 m18 m17
+
+% main theme reprise (4/4, 7/4)
+[2 r1r2.
+o5 v6 g32<g32<g32<g32<g32f+64f64e64d+64d64c+64
+>c64<c32.r8>c64<c32.r8>c64<c32.r16>>c64<c32.r8c64<c32.r8>c64<c32.r8
+>c64<c32.r8>c64<c32.r16>>g+64<g+16.&g+64>c64<c32.r16f64<f16.&f64 ]
+m40 m40
+
+% final stretch (4/4)
+m53
+d1 [8 d16 r16 ]
+m53
+a1 [8 a16 r16 ]
+m53
+v6 o1 g8. v5 g2&g32a64>e64g4
+
+% ending stutter
+v4 g8 v3 g8 v2 g4
+[6 m3 ] o3
+v4 [32 g32>g32< ]
+v3 [16 g32>g32< ]
+v2 [16 g32>g32< ]
+v1 [16 g32>g32< ]
+r1r1
+
+%================================ BAROQUE, PAPER, SCISSORS ================================%
+
+; r4
+
+% paganini-esque introduction
+r8 v2 m79
+
+% fade-in
+r1rr
+v2 [3 o3 d16 c g <g >d e g <g ]
+
+% proper introduction
+[15 m55 ]
+
+% section A1 (melody)
+[2 m59 m55 ] m60 m59 m55 m58
+m55 m55 o3v4d32v2dv4cv2cv4gv2gv4<gv2g
+
+v7 [2 m61 m62 v6 ] v5 m61 m62 v4 m61 % arp
+
+% section A2 (melody)
+[2 m59 m55 ] m60 m59 m55
+o3v6c8.v4c8.v2c8v6f8v2f16v6g+8v2g+16v6a+8.
+v4a+8.v2a+8v6g+8.a64a+b>cc+dd+eff+gg+
+
+v6[18 o3c64e64g64>f+64d64<b64  ] c64e64g64>f+64
+  [18 o4d64c64<d+64f64g+64>g64 ] d64c64<d+64f64
+  [18 o3a64f+64d64>a64f+64d64  ] f+64d64>a64
+v7[10 o4g64d64<a+64g64d64>a+64 ] g64d64<a+64g64d64
+v8[7  o4b64g64d+64<b64g64d64   ] b64g64d+64<b64g32
+
+% section B1
+[4 m64 ]
+[2
+  o1c8>c64r32.<c16r8>c8<v8[6c32r32]v7g8
+  r8>c64r16.r64g8<v8[6g32r32]v7c+8>c64r32.<c+16
+  r8>c+8<v8[6c+32r32]v7g+8r16>c64r16.r64c64r32.
+  g+16.g64d64<g16a32r32f32r32g16>c16g16
+]
+
+% section B2
+m64 m64
+r2
+
+% section B3
+[2 v7o2c32<c16.r2>c32<c16.r8>g32<g16.r2.>c+32<c+16.r2>c+32<c+16.r8>g+32<g+16.r4.>g32<g16.r4 ]
+
+% ending
+r2.r16v8[2m75r16v7]v6[2m75r16v5]v4[2m75r16v3]v2[2m75r16v1]r2
+
+%================================ CAMBRIAN EXPLOSION ================================%
+
+; r4 K-4
+
+% intro (4/4)
+[6 r1 ]
+[3 o2v7c64v6c16&c64r16.v7c64v6c32r64r2. ]
+o2v7c64v6c16.&c64r16v7c64r16.r64v6<g32.r64>a32.r64a+16g32.r64a64a+64
+a32f16f+16g32.r64v7f64v6f32.<g+16>c+16
+[2[3 m84] m85]
+
+% theme a (4/4)
+[4 m84 ] m86 m86
+
+% theme a fill #1 (3/4)
+m94
+
+% theme a solo #1 (4/4)
+[2[3 m84] m85]
+
+% theme a reprise (4/4)
+[4 m84 ] m86 m86
+
+% theme a fill #2 (3/4)
+m94 m97
+
+% theme b (5/4)
+[4 m99 ]
+
+% theme b fill (2/4)
+m104
+
+% theme a solo #2 (4/4)
+[4 m107 ]
+[3 m84 ] m85
+[3 m107 ] m110
+
+% theme a fill #2 (3/4)
+m94 m97
+
+% theme b (5/4)
+[4 m99 ]
+
+% theme b fill #2 (6/4)
+m104 m112
+
+% section c (6/4)
+m116 m84 m84 m116
+o3v8e64v7e32.d32c+32v6<b32r32a16v7b64v6b32.f+16g+16a32r32v7b64v6b32.
+a+16a16v7>c+64v6c+32.v7<g+64v6g+32.v7f+64v6f+32.v7e64v6e64r32
+v7<b64v6b32.
+[3 m84 ]
+
+% section d #1 (6/4)(4/4)
+[3 [3 o2v6c8.v5c8.v4c8.v3c8.v2c8.v1c2&c16 ] v6o2c8.v5c8.v4c8v3c8.v2c8.v1c8 ]
+
+% section d #2 (6/4)(4/4)
+[2 o1 v7f16r8f16r8f16r8.f16r16f16r8f16
+r8.f64r32.>d16v8g64v7g32.v8e64v7e32.v8f64v7f32. ]
+
+o1 v7e16r8e16r16>g64r32.<e16r16>e64r32.<a+16b32r32e64r32.>d16v8g64v7g32.
+v8e64v7e32.<g+16
+
+o1 v7a16g16g+16a32r16.>a64r32.<a16r16>g64r32.a64r32.c+16<a64r32.>g16
+v8>c+64v7c+32.v8<a64v7a32.v8g64f64d64<b64
+
+o2 v7d16r8d16r8d16r8.d16r16d16r8d16
+r16 d64r16.r64<d64r32.b16v8>e64v7e32.v8c+64v7c+32.v8d64v7d32.
+
+o1 v7g16r8g16r8g16>d16d+64r32.e16<g16r16g16r8g16
+r8.g64r32.>e16v8a64v7a32.v8f+64v7f+32.v8g64v7g32.
+
+% section e (7/8)
+v3 [37 o3g64a+>c ] g
+v3 [37 o3fg+a+ ] f
+v3 [37 o3ga+>c ] g
+[2 
+  o1 v8b64v6b16r32.>b64r32.v8<b64v6b32r8r64v8b64v6b32.r16>b64r16.r64
+  v8<b64v6b32r8r64>b64r8r32.
+  b64r16.r64v8<b64v6b32.r16>b32r32<g32r32>d32r32v8<b64v6b32.r16a16
+  v8b64v6b32.r16
+  m127
+  o1 v8g+64v6g+16r32.>g+64r32.v8<g+64v6g+32r8r64v8g+64v6g+32.r16>g+64
+  r16.r64v8<g+64v6g+32r8r64>g+64r16.r64<g+16
+  >g+64r32.<a+16r16v8g+64v6g+32.r8>c+32r32v8<g+64v6g+32.a+32r32f+32
+  r32v8g+64v6g+32.f+32r32
+  m127
+]
+
+o2 v6c+8.v5c+8.v4c+8.c+32.<d64d+64e64f64f+64g64g+64a64a+64v6b8.b4&b64
+a+64a64g+64v6g8.v5g8.v4g8
+
+% theme b (5/4)
+[4 m99 ]
+
+% theme b fill #3 (2/4)
+m104 m112
+o2 v7a+16g16f16d+16c+16f16a+16v8>d+16
+
+% ending
+o2v7[4a32r32]a32r16.
+[4a32r32]a32r4r16.
+[4a32r32]a32r16.
+[4a32r32]a32r8.r32
+<a16v4a32v2a32v1a32
+
+%================================ GOOSE COMMUNICATIONS ================================%
+
+; K-1 o1 r4
+
+% introduction & theme A (3/4)
+[4 r2. ]
+[2 o3 v4 e4r8 v3 e4r8 v2 e4r8 v1 e4r8 ]
+[31 v4 e16 v3 >e16 v4 <a16 v3 e16 v4 >e16 v3 <a16 v4 e16 v3 >e16 v4
+<a16 v3 e16 v4 >e16 v3 <a16 ]
+r1r2
+
+% theme A1 (3/4)
+[2 [5 m133 ] m134 m133 m133 ]
+
+% theme A2 (3/4)
+m137 m137 m138 m138 m137 m137
+o1 v7 b4 v6 b4 v5 b4 v4 b4 v3 b4 v2 b4r2
+
+% theme B1 (4/4)
+m140 m143
+o2 v7 e16 v6 e16r16 v8 >>e64r32. v6 <b16r16 v7 <e16 v6 >b16>e4 v4 e4
+v7 <<d+16 v6 d+16>>e16d+16e16<b16 v7 <d+16 v6 d+16>>e16f+8. v4 f+4
+v7 <<d16 v6 d16r16 v8 >>e64r32. v6 <b16r16 v7 <d16 v6 d16>>g+4 v4 g+4
+v7 <<c+16 v6 c+16r16>>g16g+16e16 v7 <<c+16 v6 c+16>>a4 v4 a4
+v7 <<c16 v6 c16r16 v8 >>e64r32.<e64r16.r64 v7 <c16 v6 c16 v5 o5 c16
+r16 v6 <b32>c32<b16 v5 a8>c8<a32b16.>e16r16<g+8
+o1 v7 b16 v6 b16 o4 e8 v5 d+64d64c+64c64 v4 <b64a+64a64
+g+64 v8 e64r8.r32.
+
+v6 <f+8r16 v3 f+16 v6 g+8r16 v3 g+16 v6 a8r16 v3 a16 v6 a+8r16 v3
+a+16 v6 b64>c64<b32b2.&b16a+64a64g+64g64d+64d64c+64c64
+<b2.&b8.>c64c+64d64d+64
+
+% theme B2 (4/4)
+m140 m143 m140
+v7 o1 f+16 v6 f+16r4. v7 b16 v6 b16r4.
+v7 e16 v6 e16r2r8 v7 >>b16r8b16
+
+% theme C (4/4)
+v7 o1 a8r16 v8 o4 e64r32.<e64r16.r64 v7 <<a8r8. v8 o4 e64r32.<e64
+r32. v7 <<a32r32>b16a32r32<a8r16 v8 o4 e64r32.<e64r16.r64 v7 <<a8r8
+a32r32 v8 o4 e64r32.<e64 v7 <g+32.a16<a16r16>c8r16 v8 >>e64r32.<e64
+r16.r64 v7 <c8r8. v8 >>e64r32.<e64r32. v7 <g16c32r32<a16>c8r16 v8
+>>e64r32.<e64r16.r64 v7 <c8 v8 e64 v7 e32r64 v8 f64 v7 f32r64 v8 g64
+v7 g32. v8 a64 v7 a32r64 v8 >c64 v7 c32. v8 <a+64 v7 a+32r64 v8 b64
+v7 b32. v8 g64 v7 g32r64c+8r16 v8 >>d+64r32.<e64r16.r64 v7 <c+8r8
+c+32r32 v8 >>d+64r32.<e64r32. v7 <c+32r32>c+16<b32r32c+8r16 v8 >>
+d+64r32.<e64r16.r64 v7 <c+8r8. v8 >>d+64r32.<e64 v7 <<b32.>a+16c+32
+r32d+32r32c8r16 v8 >>d64r32.<e64r16.r64 v7 <c8r8b32r32 v8 >>d64r32.
+<e64 v7 <<b32.>c16>c32r32e32r32<c8r16 v8 >>d64r32.<e64r16.r64 v7
+<c8 v8 >>c+64c64r32<a64g+64r32a64g+64r32>d64r32.<e64r16.r64a64g+64
+g64f+64f64e64r32 v7 <<b8r16 v8 >>b64r32.e64r16.r64 v7 <<b8r8b32r32
+v8 >>b64r32.e64 v7 <g+32.r16g+16a16<b8r16 v8 >>b64r32.e64r16.r64 v7
+<<b8r8>e16 v8 >b64r32.e64 v7 <f+32.r16a32b16.<b8 v6 b8 v5 b8 v4 b8
+
+>>[11 e64c+64a64]
+r64 v4 e64r64 v7 a64r64 v4 a64r64 v7 b64r64 v4 b64r64 v6 e64r64 v4
+e64r64 v6 a64r64 v4 a64r64 v6 b64r64 v4 b64r64 v5 e64r64 v3 e64r64 v5
+a64r64 v3 a64r64 v5 b64 r64 v3 b64r64 v4 e64r64 v2 e64r64 v4 a64r64
+v2 a64r64 v4 b64r64 v2 b64r64 v3 <e16a16b16>d+16
+
+% ending melody (3/4)
+v4 [4 o3 [32 e64g+64b64 ]
+[16 e64a+64>c+64< ]
+[16 e64a64>c64< ] ]
+
+% C#maj13, Amaj13 (4/4)
+o3 v6 d64d+64e4&e32 v5 e4&e16 v4 e4&e16 v3 e4. v2 e4. r4 r16
+[2 v8 o1 g64 v7 g4&g16.&g64r16>g16r8 v3 g16r8 v3 g16 v8 <f64 v7
+f16.&f64 v8 g64 v7 g16.&g64r16>g16r8 v3 g16 v8 <g64 v7 g16.&g64 v3 >
+g16r8 v7 g16r16 v8 <f64 v7 f16.&f64 ]
+
+[2 v8 o1 e64 v7 e4&e16.&e64r16>e16r8 v4 e16 v8 >>e64r32.<e64r32. v3
+<e16 v8 <f64 v7 f16.&f64 v8 e64 v7 e16.&e64r16>e16r8 v4 e16 v8 <e64
+v7 e16.&e64 v3 >e16r16 v8 >>e64r32.<e64 v7 <e32.r16 v8 <f64 v7 f16.&
+f64 ]
+
+% Gmaj13#11/A, Amaj13#11, A#maj13#11/A & Dmaj9, Fmaj9 (6/8)
+[8 v8 o1 c+32 v7 c+4.&c+16.r8 v7 >c+8 v8 >e64r16.r64 v7 <g+8>c+8<g+8
+c+8g+8 v8 <c+32 v7 c+4.&c+16.r8 v7 >c+8 v8 >e64r4r16.r64e64r8.r32.e64
+r16r32. ]
+
+% theme E
+m154 m155
+o1 [8 v7 c+32.r64 v6 c+32.r64 ]
+[7 v7 d+32.r64 v6 d+32.r64 ] v7 d+32.r64 v6 d+64f64g+64a+64
+[8 v7 b32.r64 v6 b32.r64 ]
+[8 v7 a32.r64 v6 a32.r64 ]
+m155
+
+m154 [16 v7 c+32.r64 v6 c+32.r64 ]
+m154
+
+[8 v7 g32.r64 v6 g32.r64 ] t58
+[4 v7 a32.r64 v6 a32.r64 ] t78
+[2 v7 b32.r64 v6 b32.r64 ]
+>f+64b64>e64g+64a16>c+16a16 t58
+
+% true ending
+v5 >e4 v3 e4 v2 e4&e16 r64 v6 <<c64<b64a+64a64g+16.&g+64 t42
+
+v6 o1 g4 v5 g4 v6 f+4 t37 v5 f+4
+v6 a4 v5 a4 v6 t32 g4 v5 g4
+v6 >c4 v5 c4 v6 <a+4 t48 v5 a+4
+v6 >c+4 t58 v5 c+4 v6 t78 <b4 v5 b4
+v6 e2 v4 e2
+v2 e2 v1 e1&e2.
+
+K0
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL D %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@ ; t46 r4
+
+% stutter intro (4/8)
+r1r1r1
+
+% Cmin7 arp intro (3/8)
+[19 r4. ]
+d4.d4.e8e16e16
+e16e32e32d4.d8e8d+64d+16.r64d+16d+32d+32
+d4.d8r4.e32e32e32e32
+d8e16r16e16e64e64e64e64d8d+16d+16c+16d+64d+64d+16.d16d+16d+16
+
+% drum solo Cmin7 (4/4)
+m6 m7 m8
+
+% drum solo C#min7 (7/8)
+d16e16c16d16d+16e16e16d+64d+32.e16d+16d16e16d+16c16d16e16
+c16d16d+16e16e16d+64d+32.e64e64e64e64d+16d16e16d+64d+32.e32e32d16e16c16d16
+c+32c+32e16e16d+64d+32.e16d16d+16e16d+16c16d16d16d64d32.d64d32.d+16e16
+d16d+64d+32.e16d+16d16d+16d+64d+32.d+16d+16d+64d+32.
+m6 m7
+
+% Cmin7 bass groove (4/4), F#13 bass groove (4/4)
+[7 m13 ]
+
+% transition A (4/4)
+d16e16d16e16d+16r2r16e64e64e64e64d16
+e16d+16d16e32e32d+16d16c+16d+16d16e64e64e64e64d+64d+32.d16d+16c16d16d+64d+32.
+d+1r2.
+d16e64e64e64e64d+16e32e32
+
+% solo A (4/4)
+[7 m13 ] m20
+
+% transition B (7/4)
+m24
+
+% four-to-the-floor A (4/4)
+[14 m25 ]
+
+% transition C
+d8e8e8d16e8e16e8d+8e16e8.
+d4d16d+8.d+8.d+8.
+
+% solo B (4/4)
+[11 m13 ] m20
+
+% transition B (7/4)
+m24
+
+% four-to-the-floor A (4/4)
+[14 m25 ]
+r1
+
+% four-to-the-floor B (4/4)
+[14 m25 ]
+t53 d+16e32e32c+16d+64d+32.e16d+16c+16d+16d+16d16d+16e32c+32e16d+64d+32.c16d+16
+
+% bass solo (4/4)
+[8 m13 ]
+
+% stutter transition (4/8)
+t46 r1 r1 r1
+
+% movement II intro (4/4)
+t56 [19 r1 ] m38
+
+% movement II main (4/4)
+[2 [18 m39 ] r1 m38 ]
+
+% movement II solo (4/4)
+t56 [12 m39 ]
+d16r8e32e32d16e16d16r16e16e16d16r8.d+64d+32.r16
+r1
+
+% transition D
+t46 
+m38
+d8e8d8d16d16d16e16e16d+64d+32.d16e32e32d+64d+32.d+16
+[5 d8e16 ] d8
+r16d8r4d8r8d8r8
+d+16d+16d8r4d8r8d8r8
+d16d+32d+32d+64d+32.c16
+
+% solo C (4/4)
+[7 m13 ] m20
+
+% main theme reprise (4/4, 7/4)
+[2 r1 r1 d8.d16e8d8d+64d+16.&r+64e16d16e8d8
+c16d8.d+64d+16.&r+64e8d8d+64d+16.&r+64 ] m13
+
+% final stretch (4/4)
+m6 m7 m8 m6
+t66 d1
+
+% ending stutter (4/8)
+t46
+[9 r1 ]
+
+%================================ BAROQUE, PAPER, SCISSORS ================================%
+
+; r4
+
+% paganini-esque introduction & fade-in & proper introduction & section A1
+[58 r1 ]
+d+64d+32.r16d16d+16e16d+64d+32.d16r16d+16d+16
+
+% section A2
+[4 m63 ]
+d16rerdrerd+rererdreed+64d+32.r16dd+ed+64d+32.d16rd+d+
+m63 m63
+
+% section B1
+[8 m65 m66 ]
+[2[3 d16e16e16d16c+16e16d+64d+32.r16[6 c+64e32. ]] m66 ]
+
+% section B2
+[2
+  m70
+  m65 m66
+]
+d+16c16e32e32c+64c+64c+64c+64d+64d+32.e16c+16d+64d+32.
+
+% section B3
+[4 m70 ]
+
+% ending
+r2.r1r1r16
+
+%================================ CAMBRIAN EXPLOSION ================================%
+
+; r4
+
+% intro / theme a (4/4)
+[6 r1 ]
+d16r8d16r4e16r8.e16r8.
+d16r8d16erc+rerc+rerc+e
+drcderc+rerc+decc+e
+dec+d+ecc+d+64d+32.e16d+de64e32.d16d+d+64d+32.d+64d+32.
+[14 m83 ]
+
+% theme a fill #1 (3/4)
+m91
+
+% theme a solo #1 / theme a reprise (4/4)
+[14 m83 ]
+
+% theme a fill #2 (3/4)
+m91 m91
+
+% theme b (5/4)
+[4 m100 ]
+
+% theme b fill (2/4)
+m102 m102
+
+% theme a solo #2 (4/4)
+[12 m83 ]
+
+% theme a fill #2 (3/4)
+m91 m91
+
+% theme b (5/4)
+[4 m100 ]
+
+% theme b fill #2 (6/4)
+m102 m102 m114
+
+% section c (6/4)
+m115
+d16eed+eeed+ed+ededd+e
+d16eed+eee32ed+64d+32.e16d+dd+64d+64d+32e16dd+32d+d+16
+m115
+r1
+m83 t66 m83 t79 m83
+
+% section d #1 (6/4)(4/4)
+[5 r1 ] r2
+[2 [3 m83 m120] m83 ]
+
+% section d #2 (6/4)(4/4)
+[2 m83 m120 ] m83 m83 [2 m83 m120 ]
+
+% section e (7/8)
+r2.r8
+r8ee16ee8e16e32ed16c+d+64d+32.c16
+[2 m124 ] 
+[2
+  d+64d+32.e16e16d+64d+32.e16d16d+64d+32.e32.e32.e32d+16d16e64e64
+  e64e64d+64d+32.d16c16e16
+  e32e32d16e32e32d+64d+32.d+64d+32.c64c64c64c64c+16d+32d+32c16d+64d+32.
+  d+64d+32.d+16 
+  [3 m124 ]
+]
+d+64d+32.e16ec+edd+64d+32.eee32d+16de16d8c16e
+e32ec+16e32ed+64d+32.d16ec+d+32d+c16d+64d+32.d+64d+32.d+16
+
+% theme b (5/4)
+[4 m100 ]
+
+% theme b fill #3 (2/4)
+m102 m102 m114 m114
+
+% ending (4/4)
+d+16d+d+d+d+rd+d+d+d+d+rdd+32d+32d16d+64d+32.
+d+16d+d+d+d+rd+d+d+d+d+dc+64c+64c+64c+64c16d+8r32
+
+%================================ GOOSE COMMUNICATIONS ================================%
+
+; t43 r4
+
+% introduction & theme A1 / A2 (3/4)
+[30 r1 ] r2.
+
+% theme A & B (3/4)
+[22 m135 ]
+r1r1
+
+% theme B1 (4/4)
+[7 m141 ] m144
+[6 m141 ] m147
+d+64d+16.&r64r2.r8
+e4e4e8d8d+64d+32.d+16d+16e16
+
+% theme B2 (4/4)
+[7 m141 ] m144
+[6 m141 ] m147 m144
+
+% theme C (4/4)
+[7 m141 ] m144 m141 m141
+
+% ending melody (3/4)
+[12 r1 ] r2 t58 r2. t78 r2.
+
+% C#maj13, Amaj13 (4/4)
+t52 [6 r1 ]
+[3 d16c+eeecc+de32ec+16ded+64d+32.c16de ]
+e16e64eeec16c+eded+64d+32.e16cded+64d+16.&r64d+16d+
+
+% Gmaj13#11/A, Amaj13#11, A#maj13#11/A & Dmaj9, Fmaj9 (6/8)
+t30 [7 m152 d+64d+16.r64e8e16ed+64d+16.r64c+8d+ ]
+m152
+t42 d+64d+16.r64e32e32d+16d+16e16d+64d+16.r64c+16d+32d+32d+64d+16.r64
+
+% theme E
+[3 m153 d+64d+32.d+16d16d+64d+32.e16c16d16d+16e32e32d+16d16e16d+64d+32.c16d16d+16 ]
+m153
+
+% nothing else
+[9 r1 ] r4
+
+K0
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-%   MACRO   %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+% macro #01 - channel A: stutter Csus (4/8)
+@ o4 v5 [8 r64 c32. ]
+
+% macro #02 - channel B: stutter Csus (4/8)
+@ o3 [8 v4 f32>f64< v3 f64 ]
+
+% macro #03 - channel C: stutter Csus (2/8)
+@ o3 [4 v3 g32> v4 g32< ]
+
+% macro #04 - channel A: arp Cmin11 (3/8)
+@ o3 v4 f16c16>c16<< v3 a+16> v4 g16d+16
+
+% macro #05 - channel B: arp Cmin11 (3/8)
+@ o4 v6 c32< v3 c32< v4 a+32>> v3 c32< v5 g32< v3 a+32> v5 d+32 v3 g32 v5 f32 v3 d+32 v5 c32 v3 f32
+
+% macro #06 - channel D: kit solo #1 (4/4)
+@ d16e16c16d16d+16e16e16d+64d+32.e16d+16d16e16d+16c16e16d+64d+32.
+  d16d+16e16d+16e16e64e64e64e64c+16e16c+16e16c16d+16e16d16d+16e32e32
+
+% macro #07 - channel D: kit solo #2 (4/4)
+@ e16d16e32e32c16d+16e16d16d16e16e16d16d16e32e32d+64d+32.e16d+32d+32
+  d16e16d16e16d+16e16e16d+16c16d+16d+64d+32.e16e32e32d+64d+32.e16d+64d+64d+64d+64
+
+% macro #08 - channel D: kit solo #3 (4/4)
+@ d16e16c16d16c16d+16d16d+64d+32.e16d+16d16e16d+16c16e16d+64d+32.
+  [4 d32e32 ] d+16d16d+64d+32.c+64c+64c+64c+64 [4 d32e32 ] d+16 [3 c64c64c+64c+64 ]
+  e16d+16e32e32c16d+16e16e32e32d+16c64c64c64c64c+64c+64c+64c+64d16d+64d+64d+64d+64e32e32d+64d+32.e16d+32d+32
+  [2 d64d64d64d64e64e64e64e64 ] d+64d+32.e64e64e64e64e16d+16c16d+16d+16c16d+64d+32.c+64c+64c+64c+64d64d64d64d64d+64d+64d+64d+64
+
+% macro #09 - channel A: arp C#min11 (7/16)
+@ o3 v4 c+16e16>c+16<< v3 b16> v4 g+16e16f+16
+
+% macro #10 - channel B: arp C#min11 (7/16)
+@ o4 v6 c+32< v3 e32< v4 b32>> v3 c+32< v5 g+32< v3 b32> v5 e32 v3 g+32 v5 f+32 v3 e32 v5 c+32 v3 f+32 v5 e32 v3 c+32
+
+% macro #11 - channel B: sweep (3/16)
+@ o3 v6 b64a+64a64g+64g64f+64f64e64d+64d64c+64c64
+
+% macro #12 - channel C: sweep (3/16)
+@ o2 v7 c64<b64a+64a64g+64g64f+64f64e64d+64d64c+64
+
+% macro #13 - channel D: main groove (4/4)
+@ d16e16d16e16d+16e16 [2 e16d+64d+32.e16d+16d16e16d+16e16 ] e16d16e16e16d16e16d+16d16d+16d+16
+
+% macro #14 - channel C: bass groove Cmin7 #1 (4/4)
+@ o1 v7 c16r16c16 [3 r8>c16r16<c16r8c16 ]
+>c32r32d+32r32<c16a+16>c16
+
+% macro #15 - channel C: bass groove Cmin7 #2 (4/4)
+@ o1 v7 c16r16c16 [2 r8>c16r16<c16r8c16 ]
+r8c16r16g16a+32r32a+32r32a16r16a+16>d+16<d+8
+
+% macro #16 - channel C: bass groove Cmin7 #3 (4/4)
+@ o1 v7 c16r16c16 [2 r8>c16r16<c16r8c16 ]
+d+8c16f8c16f+8c16g8a+16>c16
+
+% macro #17 - channel C: bass groove F#13 #1 (4/4)
+@ o1 v7 f+16 o3 f+32r32 o1 f+16r16 o3 f+32r32<f+16r16 [2 o1 f+16 o3 f+32r16. ] <e16f+16<f+16
+
+% macro #18 - channel C: bass groove F#13 #2 (4/4)
+@ o3 v7 r16f+32r32 o1 f+16r16 o3 f+32r32<f+16r16<f+16 o3 f+32r32<e32r32<f+16>f+32r32a32r32<f+16>e16f+16
+
+% macro #19 - channel C: bass groove F#13 #3 (4/4)
+@ o3 v7 r16f+32r32 o1 f+16r16 o3 f+32r32<f+16r16<f+16 o3 f+32r32<e32r32d+16r16e32r32d+16e16f+16
+
+% macro #20 - channel D: main groove ending (4/4)
+@ d16e16d16e16d+16e16e16d+64d+32.e16d+16d16e16d+16e16e16d+64d+32.
+
+% macro #21 - channel A: transition B (7/4)
+@ o5 d32.r64f+32.r64d32.r64c16.&c64r64<a+32.r64>c+32.r64f32.r64c+32.
+  r64<b16.&b64r64a32.r8r64>c32.r64e32.r64
+  c32.r64<a+16.&a+64r64g+32.r64 o3 [8 v2 g128>g128< ] [8 v4 g128>g128< ]
+  [8 v5 g128>g128< ] v7 [6 g128>g128< ] f+128f128e+128d+128
+
+% macro #22 - channel B: transition B (7/4)
+@ o3 v6 [2 f+64d64<b64> ] v4 [2 f+64d64<b64> ]
+  v6 [2 f64d64<a+64> ] v4 [2 f64d64<a+64> ]
+  v6 [2 f64c+64<a+64> ] v4 [2 f64c+64<a+64> ]
+  v6 [2 e64c+64<a64> ] v4 e64c+64<a64>e64c+64<a64r8
+  v6 [2 >e64c64<a64 ] v4 [2 >e64c64<a64 ]
+  v6 [2 >d+64c64<g+64 ] v4 [2 >d+64c64<g+64 ]
+  r64 v3 o4 [8 v2 g128>g128< ] [8 v4 g128>g128< ]
+  [8 v5 g128>g128< ] v7 [6 g128>g128< ] r64
+
+% macro #23 - channel C: transition B (7/4)
+@ o1 v7 [2 g16r16>g32r32< ] f+16r16>f+32r32<f+16r16>>c16<f16f+16<f16r16
+  >f32r32<f16r8r64. o4 [8 v3 g128>g128< ] [8 v4 g128>g128< ]
+  [8 v5 g128>g128< ] v7 [6 g128>g128< ] r128
+
+% macro #24 - channel D: transition B (7/4)
+@ d16e32e32d+16d16e16e16d16e16d+16d16e16d16d+64d+32.d+16d16e16
+  d+16d16e16d+16r4. [16 e128 ]
+
+% macro #25 - channel D: four-to-the-floor kit (4/4)
+@ d16e16c+16e16d+16e16c+16e16
+
+% macro #26 - channel C: four-to-the-floor bass (4/4)
+@ o1 v5 c16> v6 c32r32 v8 <c16f32r32 v5 a+32r32> v6 c16 v8 <f16c16
+
+% macro #27 - channel A + B: arp C7sus4 (4/4)
+@ o3 [4 v2 >c64<g64>f64<a+64 v3 >c64<g64 v4 >f64<a+64 v5 >c64<g64 v6 >f64<a+64 r16 ]
+
+% macro #28 - channel A + B: arp C7 (4/4)
+@ o3 [4 v2 >c64<g64>e64<a+64 v3 >c64<g64 v4 >e64<a+64 v5 >c64<g64 v6 >e64<a+64 r16 ]
+
+% macro #29 - channel A + B: arp Cm/Fmaj/D#maj (4/4)
+@ v6 c64d+64g64 v5 [4 c64d+64g64 ] v3 [3 c64d+64g64 ]
+  v6 c64f64a64 v5 [4 c64f64a64 ] v3 [8 c64f64a64 ] r64
+  v6 g64a+64d+64 v5 [4 g64a+64d+64 ] v3 [3 g64a+64d+64 ]
+  v6 f64a64c64 v5 [4 f64a64c64 ] v3 [8 f64a64c64 ] r64
+
+% macro #30 - channel B: arp F#9/F#maj/F#2sus4 (4/4)
+@ v6 c+64e64g+64 v5 [4 c+64e64g+64 ] v3 [3 c+64e64g+64 ]
+  v6 c+64f+64a+64 v5 [4 c+64f+64a+64 ] v3 [8 c+64f+64a+64 ] r64
+  v6 g+64b64e64 v5 [4 g+64b64e64 ] v3 [3 g+64b64e64 ]
+  v6 f+64a+64c+64 v5 [4 f+64a+64c+64 ] v3 [8 f+64a+64c+64 ] r64
+
+% macro #31 - channel B: arp chromatic rise (4/4)
+@ o3 v6 c+64e64g+64 v5 [4 c+64e64g+64 ] r64
+  v6 d64f64a64 v5 [4 d64f64a64 ] r64
+  v6 d+64f+64a+64 v5 [4 d+64f+64a+64 ] r64
+  v6 e64g64b64 v5 [4 e64g64b64 ] r64
+
+% macro #32 - channel C: bass fill transition (4/4)
+@ o3 v7 c16<c32r32<c16f32>c32a16a+16>d+32r32c16<f+32f32d+16g16<a+16>c32r32<f16>g64a+32.<b32.r64
+
+% macro #33 - channel A: C7 (F) funk Chord (4/4)
+@ o4 [2 v4 f64r32.f64r32. v5 f32r32 ] v4 f64r32.f64r32.f64r32. v5 f32r32 v4 f64r32. v5 f32r32 v4 f64r32.f64r32. v5 f32r32 v4 f64r32.
+
+% macro #34 - channel A: C7 (E) funk Chord (4/4)
+@ o4 [2 v4 e64r32.e64r32. v5 e32r32 ] v4 e64r32.e64r32.e64r32. v5 e32r32 v4 e64r32. v5 e32r32 v4 e64r32.e64r32. v5 e32r32 v4 e64r32.
+
+% macro #35 - channel B: C7 (A#) funk Chord (4/4)
+@ o3 [2 v4 a+64r32.a+64r32. v5 a+32r32 ] v4 a+64r32.a+64r32.a+64r32. v5 a+32r32 v4 a+64r32. v5 a+32r32 v4 a+64r32.a+64r32. v5 a+32r32 v4 a+64r32.
+
+% macro #36 - channel C: C7 (C) funk Chord (4/4)
+@ o4 [2 v4 c64r32.c64r32. v5 c32r32 ] [4 v4 c64r64 ]
+
+% macro #37 - channel C: bass solo lick (4/4)
+@ o1 v7 c16r8.c16r16>c16<c16r16>d+16<c16g16a+16>c16<c32r32>>c32r32
+<d+16e16<c16r16>a+64r32.c16a+64r32.<c16>d+32r32a+16<c16>c32r32d+32r32<c16a+16>c16
+
+% macro #38 - channel D: short fill (4/4)
+@ e4e4e8d16c16d+16e16e32e32d+16
+
+% macro #39 - channel D: chill groove (4/4)
+@ d16e16c+16d16e16e16d16c+16e16e16e16e16d+16e16e16e16
+
+% macro #40 - channel C: movement II bass pedal (4/4)
+@ o2 v7 c64<c16.r16r64>c64<c32r8r64>c64<c32r8r64>c64<c32r16r64>>c64<c32r16r64c64<c32r64>b64<b32.>>c64<c32.
+
+% macro #41 - channel B + C: movement II arp C2 (4/4)
+@ o4 v5 e32 v3 e32 v5 c32 v3 c32 v5 d32 v3 d32 v5 <g32 v3 g32 v5 >e32 v3 e32 v5 c32 v3 c32
+
+% macro #42 - channel A: main melody #1 (4/4)
+@ o3 v6 g+64g8.&g32.v4 g8 v3 g8 v6 f64e8.&e32. v4 e8 v3 e8
+  v6 >c+64c8.&c32. v4 c8 v3 c8 v6 d+64d8.&d32. v4 d8 v3 d8
+  v6 <f32f+64g32.f+64f8&f64 v4 f4 v3 f4 v2 f4
+
+% macro #43 - channel A: main melody #2 (4/4)
+@ o3 v6 a+64a8.&a32. v4 a8 v3 a8 v6 g64f+8.&f+32. v4 f+8 v3 f+8
+  v6 >f64e8.&e32. v4 e8 v3 e8 v6 d+64d8.&d64e64g64a4
+
+% macro #44 - channel A: main melody #3 (4/4)
+@ o3 v6 f32f+64g32.f+64f8&f64 v4 f4 v3 f4 v2 f4
+  o1 v3 g4 v4 g4 v5 g4 v6 g4
+
+% macro #45 - channel A: movement II arp C2 (3/16)
+@ [3 o5 v6 d64<g64e64 v4 >d64<g64e64 v3 >d64<g64e64 v2 >d64<g64e64 ]
+
+% macro #46 - channel A: movement II arp Fmin6 (3/16)
+@ [3 o5 v6 d64<g+64f64 v4 d64<g+64f64 v3 d64<g+64f64 v2 d64<g+64f64 ]
+
+% macro #47 - channel C: bass Fmaj (4/4)
+@ o1 v7 f16r4r16f16r4.f16>d64r32.c16
+
+% macro #48 - channel B: chord #1 (4/4)
+@ o3 [2 [2 v6 >e64<a64f64 v5 >e64<a64f64 v4 >e64<a64f64 v3 [5 >e64<a64f64 ] ] r4 ]
+
+% macro #49 - channel B: chord #2 (4/4)
+@ o3 [2 v6 b64g64e64 v5 b64g64e64 v4 b64g64e64 v3 [5 b64g64e64 ] ]
+
+% macro #50 - channel B: chord #3 (4/4)
+@ o3 [2 v6 a64f64d64 v5 a64f64d64 v4 a64f64d64 v3 [5 a64f64d64 ] ]
+
+% macro #51 - channel A: main melody #4 (4/4)
+@ o3 v6 a+64b64>c4.&c16. [8 c+64c64<b64>c64 ]
+
+% macro #52 - channel B: arp c#maj9 (3/16)
+@ o4 v6d+128<v5d+64.>v6f128<v5f64.>v6g+128<v5g+64.o5 v6d+128<v5d+64.>v6f128<v5f64.>v6g+128<v5g+64.
+
+% macro #53 - channel C: bass C#maj9 (4/4)
+@ o1 v7 c#4 v5 c#2. v6 [8 c#16 r16 ]
+
+% macro #54 - channel A: C#Maj9 Run (4/4)
+@ o5 v6 c+16c16<g+16f16d+16c+16c16<g+16f16d+16c+16c16<g+16f16d+16c+16
+
+%================================ BAROQUE, PAPER, SCISSORS ================================%
+
+% m55: C arp #1
+@ o3v4d32v2dv4cv2cv4gv2gv4<gv2gv4>dv2dv4ev2ev4gv2gv4<gv2g
+
+% m56: A arp #1
+@ [7 o3v4c32v2cv4gv2gv4<gv2gv4>dv2dv4ev2ev4gv2gv4<gv2gv4>dv2d ]
+
+% m57: B bass #1
+@ [3 o2v5c16v3c16 [2 v4o4c16v2c16v4<d16v2d16v5<c32v3c32 ] v4>>c16<c16 ]
+  o2v5c16v3c16v5>>c16v3c16v5<d16v3d16v5<c32v3c32v5>>c16v3c16v5<<g16v3b64v5>c32.<c16>d32e32<<b32v3b32
+
+% m58: C tune #3
+@ o4v6c64<c8&c32.v4c8.v2c8v6>f64<f16.&f64v2f16v6>g+64<g+16.&g+64v2g+16v6>a+64<a+8&
+  a+32.v4a+8.v2a+8v6>g+64<g+8&g+32.v4g+8.v6>g64<g8.&g32.v4g4
+
+% m59: C (& B) tune #1
+@ o4v6c64<c8&c32.v4c8.v2c8v6>e64<e16.&e64v2e16v6>g64<g16.&g64v2g16v6>b64<b8&
+  b32.v4b8.v2b8v6>c32>d64<d8&d64v4d8.v6>c64<c8.&c32.
+  v5c4v4c4v3c2
+
+% m60: C tune #2
+@ o4v6c64<c8&c32.v4c8.v2c8v6>f64<f16.&f64v2f16v6>g64<g16.&g64v2g16v6>>c64<c8&
+  c32.v4c8.v2c8v6>d64<d8&d32.v2d8.v6e32>f64<f8.&f64
+  v2f8v6d32>e64<e8.&e64v2e8v6>c64<c8.&c32.v4c4v3c4v2c4
+
+% m61: C arp #2a
+@ [2o5g64edc<gedc]
+
+% m62: C arp #2b
+@ [2o4g64edc<gedc]
+
+% m63: D kit #1
+@ d16recd+rererced+rerdrecd+rerecred+eed
+  r8e16cd+rereeced+redd+d+64d+32.e16cd+ed+d+
+
+% m64: C bass #1
+@ v7o1c8>c64r32.<c16r8>c8r16c64r32.<c8>c16.<b64a64g8
+  r8>c64r16.r64g8r16c64r32.<g8>f32g16.<c+8>c64r32.<c+16
+  r8>c+8r16c64r32.<c+16>g+16<c+16d64e64f64g64g+8r16>c64r16.r64c64r32.
+  g+16.g64d64<g16a32r32f32r32g16>c16g16
+
+% m65: D kit #2
+@ d16eedced+64d+32.e16eedede
+
+% m66: D kit #3
+@ d16eedeed+64d+32.e16eeded+64d+32.d16
+
+% m67: B arp #1
+@ [2 v7o3d+64g64>c64d+64g64>c64d+64g32d+64c64<g64d+64c64<g64d+64 ] r4.
+  [2 o2b64>d64g64b64>d64g64b64>d32<b64g64d64<b64g64d64<b64] r4.
+  [2 o3f64g+64>c+64f64g+64>c+64f64g+32f64c+64<g+64f64c+64<g+64f64 ] r4.
+  [2 o3c64d+64g+64>c64d+64g+64>c64d+32c64<g+64d+64c64<g+64d+64c64 ]
+  [2 o5f64e64c64<a64g64f64e64c64<a64g64f64e64 ]
+
+% m68: A arp #2
+@ v8o4c64d+64<g64a+64  v6[7o4c64d+64<g64a+64]
+  v8o5g64a+64r32       v6[5g64a+64r32]
+  v8o3g64b64>d64f64    v6[7o3g64b64>d64f64]
+  v8o5g64b64r32        v6[5g64b64r32]
+  v8o4c+64f64<g+64>c64 v6[7o4c+64f64<g+64>c64]
+  v8o5f64g+64r32       v6[5f64g+64r32]
+  v8o3g+64>c64d+64g64  v6[7o3g+64>c64d+64g64]
+  v8f64e64c64g64       v6[5f64e64c64g64]
+
+% m69: A (& B) solo
+@ v7o4a+64>c32.<g16d+16<g16d+16f16g16>c32r32d+16c16<g16v8d+32r32c16<g16
+  v7b16>g16
+  d16b32.>c64c+64d32.g16b16>d16g16b16g16d16<b32r32f64g32.f16c+16<g+16f16
+  >>c64f32.c+16<g+16f32.r64c+16<g+32r32f16g+32r32c+32.r64f16g+32r32>c16
+  d64d+32.g+16>c16d+16
+  g16f16c16<g16d+64f32.c16<g16f16v8c32d+32g32>c32d+32g32>c32d+32g32d+32
+  c32<g32d+32c32<g32d+32
+  v7c32r32d32r32d+32r32f32r32g32r32b32r32v8<g32b32>d32g32b32>d32g32b32
+  >d32<b32g32d32<b32g32d32<b32v7>g64<g32r64>a64<a32r64
+  >b64<b32r64>>c64<c32r64>d64<d32r64>d+64<d+32r64v8c+32f32g+32>c+32f32
+  g+32>c+32f32g+32f32c+32<g+32f32c+32<g+32f32v7c+16d+16f32r32a+16
+  g+16>c+16f64g32.d+16c32r32<g+16g16d+16c16g16a32>c32d32d+32v8>e64<e32
+  r64>f64<f32r64>g64<g32r64>c32.
+
+% m70: D kit #4
+@ d8.c16e8d8d+64d+16.r64e16d16e8d8
+  c16d16e8d+64d+16.r64e8d16e16d+64d+16.r64
+
+% m71: A arp #3a
+@ [2o4c64d+64<g64a+64]
+
+% m72: A arp #3b
+@ [2o3g64b64>d64f64]
+
+% m73: A arp #3c
+@ [2o4c+64f64<g+64>c64]
+
+% m74: A arp #3d
+@ [2o3g+64>c64d+64g64]
+
+% m75: B arp #1a
+@ o3d+64g64>c64d+64g64>c64d+64g64
+
+% m76: B arp #1b
+@ o2b64>d64g64b64>d64g64b64>d64
+
+% m77: B arp #1c
+@ o3f64g+64>c+64f64g+64>c+64f64g+64
+
+% m78: B arp #1d
+@ o3c64d+64g+64>c64d+64g+64>c64d+64
+
+% m79: paganini-esque solo (intro taken from the movie crossroads)
+@ o2t90c16t70d+g>t60cd+t56g>cd+gd+t55c<gd+c<d+c
+  t80dft70gb>t60dt50fgb>d<bt55gfd<bt60gt70f
+  t70cet65ga+>t56cega+>c<a+gec<a+ge
+  t60cft55g+>cft53g+>cfg+t55fc<g+fc<g+f
+  dfg+b>dfg+b>d<bg+fd<bg+f
+  t50cgd+>c<t55g>d+cgd+>t80c<g>d+t90cgd+t100b
+  t200>c4t40r1
+  % let's gooooo!
+  t60c16t50<g16t48d+16<g16d+16f16t44g16>c+16d16<b16g16d+16d16t40<b16>d16f16
+  d+16g16a+16>d+16g16a+16>d+16g16a+16f16d16<a+16f16d16<a+16f16
+  >>e16c16<g16e16c16<g16e16g16c16f16g+16>c16f16g+16>c16f16
+  a+16f16d16<a+16f16d16<a+16f16<a+16>d+16g16a+16>d+16g16a+16>d+16
+  f16d16<b16g+16f16d16<b16g+16>d+16c16<g16d+16c16<g16d+16g16
+  >g+16f16>>c16<g+16<b16g16>>d16<b16>c16<g16d+16<g16c16r8.
+  >c32d+32g32>c32d+32r16.<<g32b32>d32g32b32>d32r16<<c32d+32g32>c32d+32g32
+  >c32<g32d+32c32<g32d+32c32r16.
+  >>c16<g16d+16c16g16d+16c16<f+16g16<b16>d16f+16g16b16>d16f16
+  c32d+32g32>c32d+32r16.<<g32b32>d32g32b32>d32r16<<c32d+32g32>c32d+32g32
+  >c32<g32d+32c32<g32d+32c32r16.
+  c16e16g16>c16<d16f16a+16>f16<g16a+16>d+16g16<b16>d16g16b16
+  <c32e32g32>c32e32g32>c32e32c32<g32e32c32<g32e32c32e32f32g+32>c32f32g+32
+  >c32f32g+32g32g+32f32c32<g+32f32c32<g+32
+  <a+32>d32f32a+32>d32f32a+32>d32<a+32f32d32<a+32f32d32<a+32>d32d+32g32
+  a+32>d+32g32a+32>d+32g32a+32g32d+32<a+32g32d+32<a+32g32
+  <g+32>c32d+32g+32>c32d+32g+32>c32<g+32d+32c32<g+32d+32c32<g+32>c32d32
+  f+32a32>d32f+32a32>d32f+32a32f+32d32<a32f+32d32<a32f+32
+  g+16f16>>c16<g+16<b16g16>>d16<b16>c16<g16d+16<g16c16r8.
+  >>d+16c16<g16d+16c16g16d+16c16>d16<b16g16d16b16g16d16<b16
+  >>d+16c16<g16d+16c16g16d+16c16>d16<b16g16d+16d16d+32d32d+32d32d+32d32
+  >g16e16c16<g16e16c16<a+16g16>>f16c16<g+16f16c16<g+16f16e16
+  >>f16d16<a+16g+16f16d16<a+16g+16>>d+16<a+16g16d+16<a+16>d+16<g16a+16
+  >>d16c16<b16g+16g16f16d+16d16c16<a+16g+16g16f16f+16g16c16
+  g+16f16>>t50c16<g+16<b16t60g16>>d16<b16>t70c16<g16t80e16<t90g16t200c4
+
+%================================ CAMBRIAN EXPLOSION ================================%
+
+% macro #01 - channel A: arp fmaj (2/4)
+@ o5 v5c32v3ev5<fv3>cv5<av3fv5>cv3<av5a+v3>cv5<av3a+v5>cv3<av5>ev3c
+
+% macro #02 - channel B: chords fmaj (4/4)
+@ o3 v6f64>d<a+fr16v2f64>d<a+fv6f>d<a+fr16v2f64>d<a+fr4r16v6f64>d<a+fr16v2f64>d<a+fr8
+
+% macro #03 - channel B: chords fmaj fill (4/4)
+@ o3 v6f64>d<a+fr16v2f64>d<a+fv6f64>d<a+fr16v2f64>d<a+fr8
+  v5 [5a+64f>d<] a+f [5o3g>ce]
+
+% macro #04 - channel D: chill loop (4/4)
+@ d16eeed+dedeeced+ece
+
+% macro #05 - channel C: bass fmaj/C (4/4)
+@ o2 v7c64v6c16.&c64r16v7c64v6c32.r16v3c64r32.c64r32.v7a+64v6a+32.
+  r16v7a64v6a32.r16v7<a+64v6a+32.r16v7>f64v6f32.v3c64r32.v8c64r32.
+
+% macro #06 - channel C: bass fmaj/C fill (4/4)
+@ o2 v7c64v6c16.&c64>c64r32.v7<c64v6c32.r16v3c64r32.v7c64r32.a+64
+  v6a+32.r16a+64>c32.r16v7<c64v6c32.v7a64v6a32.v7f64v6f32.f+64g32.v7d64v6d32.
+
+% macro #07 - channel C: bass gmaj/D (4/4)
+@ o2 v7d64v6d16.&d64r16v7d64v6d32.r16v3d64r32.d64r32.v7>c64v6c32.r16
+  v7<b64v6b32.r16v7c64v6c32.r16v7g64v6g32.v3d64r32.v8d64r32.
+
+% macro #08 - channel A: arp gmaj (2/4)
+@ o5 v5d32v3f+v5gv3dv5<bv3>gv5dv3<bv5>cv3dv5<bv3>cv5dv3<bv5>f+v3d
+
+% macro #09 - channel B: theme a, tune part #1 (4/4)
+@ o4 r16v7c64v6<c32r64v7>f64v6<f32.g16v7>a64v6<a32.v7>a+64v6<a+32.>c16d32rv7>e64v6<e32.f16g32rb64>c32.<g16f<b>c
+
+% macro #10 - channel B: theme a, tune part #2 (4/4)
+@ o4 v6d32v7>e64v6<e16&e64v3e16v7>f64v6<f32.v3f8v7>c64v6<c8&c32.v4c8.
+  [2o5v7d64v5dv7<a+v5a+v7gv5gv7cv5c]
+
+% macro #11 - channel B: theme a, tune part #3 (4/4)
+@ o4 v6f32g16.v3g16v8>f64v6<f32.v3f8v8>c64v6<c16.&c64v5c8v8>d64v6<d16.&d64
+  [2o4v7a64v4av7gv4gv7dv4dv7<av4a]
+
+  r16v7>d64v6<d32r64v7>g64v6<g32.a16v7>b64v6<b32.v7>>c64v6<c32.
+  d16e32r32v7>f+64v6<f+32.g16a32r32>c+64d32.<a16g16c+16d16
+  
+  e32v7>f+64v6<f+16&f+64v3f+16v7>g64v6<g32.v3g8v7>d64v6<d8&d32.v4d8.
+  r16v8b64v7<b64v4b32v7>dv4dv7ev4e
+
+% macro #12 - channel D: theme a fill (3/4)
+@ d16r8.d+16rdc+d+32d+d+16dd+64d+32.
+
+% macro #13 - channel A: a#maj7, c7 fill (3/4)
+@ o5 v8f64v7<f16.&f64v5f16v8a+64v7<a+32r64v8>>e64v7<e32r64v8>f64
+  v7<f32.d32e16.v5e16v8a+64v7<a+32r64>c32r32d64v8>e64v7<e32
+
+% macro #14 - channel B: a#maj7, c7 fill (3/4)
+@ o3v7d64a64a+64f64 v6 [2d64a64a+64f64]
+  v5e32r32a+32r32>d32r32
+  v7<d64g64a+64e64 v6 [2d64g64a+64e64]
+  v5f32r32g32r32>c16
+
+% macro #15 - channel C: a#maj7, c7 fill (3/4)
+@ o2 v6d8.r8.c8.r16<g8
+
+% macro #16 - channel A: cmaj7, d7 fill (3/4)
+@ o5 v8g64v7<g16.&g64v5g16v8>c64v7<c32r64v8>f+64v7<f+32r64v8>g64
+  v7<g32.e32a16.v5a16v7d32r32f+32r32a32r32
+
+% macro #17 - channel B: cmaj7, d7 fill (3/4)
+@ o3 v7[3e64b64>c64<g64]
+  v5 f+32r32>c32r32e32r32
+  v7[3o3e64a64>d64<f+64]
+  v5 a32r32>d32r32f+32r32
+
+% macro #18 - channel C: a#maj7, c7 fill (3/4)
+@ o2 v6d8.r8.c+8.g32r32<g32r32>c+16
+
+% macro #19 - channel A: f69, g69 arp (5/4)
+@ o3 v7 g64a>cfdc
+  o3 v6 ga>cfdc
+  o3 v5 ga>cfdc
+  o3 v4 ga>cfdc
+  v3 [2 o3 ga>cfdc ]
+  o3 v4 ga>cfdc
+  o3 v5 ga>cfdc
+  o3 v7 ab>dged
+  o3 v6 ab>dged
+  o3 v5 ab>dged
+  v4 [2 o3 ab>dged ] <ab
+
+% macro #20 - channel C: bass riff (5/4)
+@ o2 v8c64v6c16r32.>c64r32.v8<c64v6c32r8r64v8c64v6c32r64>c64r16.r64
+  v8<c64v6c32r16r64b64r32.c64r32.>c64r32.v8<c64v6c32r64g64r32.
+  v8d64v6d32r64v8a64v6a32.v8c64v6c32r64b64r32.
+
+% macro #21 - channel D: five beat (5/4)
+@ d16ec+dd+64d+32.e16dec+de32ec+16d+64d+32.e16ed+ded+64d+32.d+16
+
+% macro #22 - channel B: theme b, tune #1 (5/4)
+@ o4 v7b32>c4.&c32v6c4.v5c4.
+  v4c4.v3c4&c16v6d32r32c8.
+  <b16>c16<a16b8a16r8.g16a16g+16g16d+16
+  e16f+32e32d+16c+16d16c32<a+32a16g+16g4&g16v4g4&
+  g16v3g4&g16r16v7>f32g16g+64g64d16c32<b32a+32a32f+16g16g+16
+
+% macro #23 - channel D: fill #1 (2/4)
+@ d16e16d+32d+32e16d+16e16d+64d+32.d+16
+
+% macro #24 - channel B: tune c2sus4, d#maj9, c#2sus4, emaj9 (2/4)
+@ o3 v6g16>c32rdrgra+16>c32rdr<grg+16f32rd+16c+64r32.<b16>d+32rg+16>c64c+32.
+
+% macro #25 - channel C: bass c2sus4, d#maj9, c#2sus4, emaj9 (2/4)
+@ o1 v7 g16>c16d16g16a+16>c16d16<g16g+16f16d+16c+16<b16>d+16g+16>c+16
+
+% macro #26 - channel A: f69, d69 arp (5/4)
+@ o3 v7 g64a>cfdc
+  o3 v6 ga>cfdc
+  o3 v5 ga>cfdc
+  o3 v4 ga>cfdc
+  o3 v3 ga>cfdc <ab
+  v6>>d32v4<fv6>cv4dv6<gv4>cv6<fv4g
+  o3 v7 e64f+a>d<ba
+  o3 v6 ef+a>d<ba
+  o3 v5 ef+a>d<ba
+  v4 [2 o3 ef+a>d<ba ] <ef+
+
+% macro #27 - channel A: arp c2sus4, d#maj9, c#2sus4, emaj9 (2/4)
+@ o4 v7c64fgv6>dc<gv5cfgv4>dc<gcfg>d
+  v7fd<a+v6d+ga+v5>fd<a+v4d+ga+>fd<a+d+
+  v7c+f+g+v6>d+c+<g+v5c+f+g+v4>d+c+<g+c+f+g+>d+
+  v7f+d+<bv6eg+bv5>f+d+<bv4eg+b>f+d+<be
+
+% macro #28 - channel C: bass f#maj/C# (4/4)
+@ o2 v7c+64v6c+16.&c+64r16v7c+64v6c+32.r16v3c+64r32.c+64r32.v7b64v6b32.
+  r16v7a+64v6a+32.r16v7<b64v6b32.r16v7>f+64v6f+32.v3c+64r32.v8c+64r32.
+
+% macro #29 - channel B: chords f#maj/C# (4/4)
+@ o3 v6f+64>d+64<b64f+64r16v2f+64>d+64<b64f+64v6f+64>d+64<b64f+64r16v2f+64
+  >d+64<b64f+64r4r16v6f+64>d+64<b64f+64r16v2f+64>d+64<b64f+64r8
+
+% macro #30 - channel B: chords f#maj/C# fill (3/4)
+@ o3 v6f+64>d+<bf+r16v3f+64>d+<bf+v6f+64>d+<bf+r16v3f+64>d+<bf+r8
+  [5 v5b64f+>d+< ] b
+
+% macro #31 - channel C: bass f#maj/C# fill (4/4)
+@ o2 v7c+64v6c+16.&c+64r16v7c+64v6c+32.r16v3c+64r32.c+64r32.v7b64v6b32.
+  r16v7a+64v6a+32.r16v7<b64v6b32.v7g16g+aa+
+
+% macro #32 - channel B: tune D2sus4, fmaj9 (2/4)
+@ o4 v7a16f+32r32e16d64r32.c16e32r32a16>d16
+
+% macro #33 - channel C: bass D2sus4, fmaj9 (2/4)
+@ o2 v7a16f+edcea>d
+
+% macro #34 - channel A: arp D2sus4, fmaj9 (2/4)
+@ o4 v7d64gav6>ed<av5dgav4>ed<adga>e
+  v7gec<v6fa>cv5gec<v4fa>cgec<f
+
+% macro #35 - channel D: fill #2 (2/4)
+@ d16c16d+16e16d+16d+16d+64d+32.d+16
+
+% macro #36 - channel D: jam (6/4)
+@ [2 d16eed+eed+eed+dededd+ec+d+32e32e16dd+ee ]
+
+% macro #37 - channel C: bass dmaj9 (6/4)
+@ [2 o1 v7b16r8b16r8b16r8.b16r16b16r8b16r16>f+16c+16e16g+16v8>c+64v7c+32.v8<a64v7a32.v8b64v7b32. ]
+
+% macro #38 - channel B: arp dmaj9 (6/4)
+@ [4 o3 v7 [2 e64a64b64>e64c+64<b64 v6 ] v4 [6 e64a64b64>e64c+64<b64 v3 ]]
+
+% macro #39 - channel A: arp dmaj9 (3/8)
+@ [8 o4 v6c+32v4<d32v6f+32v4>c+32v6<a32v4f+32v6e32v4a32v6<b32v4>e32v6d32v4<b32 ]
+
+% macro #40 - channel B: arp c7sus4 (6/4)
+@ o3 v7 c64fg>c<a+g
+  v6 [2 cfg>c<a+g ]
+  v5 [2 cfg>c<a+g ]
+  v4 [2 cfg>c<a+g ]
+  v3 [6 cfg>c<a+g ]
+  v4 cfg>c<a+g
+  v5 cfg>c<a+g
+  v6 cfg>c<a+g
+
+% macro #41 - channel D: top-up (6/4)
+@ e16de32ec+cd+16d32ce64ee32d+16
+
+% macro #42 - channel A: section d tune #1 (6/4)
+@ o3 v7r8.c16f16>c64r32.<a32a+8v4a+16.v3a+16v7a16g16f32v4f32v7g32v4g32
+  v7a32v4a32v7f32g16.v4g16v7c8v4c8.
+
+% macro #43 - channel A: section d tune #2 (6/4)
+@ o3 r8v7c32.f+32>c32.e32v3e32v7c64d32.<b16>c64r32.<g32r32g64a32.e16f+64g64f+32c32d8v5d16.>
+  v3 [2 g64ed ]
+  v4 [3 ged v5 ]
+  v6 [3 ged v7 ]
+  v8 [2 ged ]<gd
+
+% macro #44 - channel B: arp fmaj13 (6/4)
+@ o4 v6 [2 d64<fa>er8 ]
+  d64<fa>er8.
+  d64<fa>er16
+  d64<fa>er8
+  d64<fa>er4
+  d64<fa>e
+  o4 c<a>d<fa>e
+  o4 v5c<a>d<fa>e
+
+% macro #45 - channel D: groove (7/8)
+@ d16eedeed+64d+32.e16ed+ded+64d+32.d16
+  d16eeded+64d+32.c+16d+64d+32.e16eded+64d+32.e16
+
+% macro #46 - channel B: g#maj13 (7/8)
+@ o2 v7 [2 g+64>cd+gfd+< v6 ]
+  v5 [2 g+>cd+gfd+< v4 ]
+  v3 [12 g+>cd+gfd+< ]
+  v4 [2 g+>cd+gfd+< v5 ]
+  v6 g+>cd+g
+
+% macro #47 - channel B: f#maj13 (7/8)
+@ o2 v7 [2 f+64a+>c+fd+c+< v6 ]
+  v5 [2 f+a+>c+fd+c+< v4 ]
+  v3 [12 f+a+>c+fd+c+< ]
+  v4 [2 f+a+>c+fd+c+< v5 ]
+  v6 f+a+>c+f
+
+% macro #48 - channel C: bass a# (7/8)
+@ o1v8a+64v6a+16r32.>a+64r32.v8<a+64v6a+32r8r64v8a+64v6a+32.r16>a+64
+  r16.r64v8<a+64v6a+32r8r64>a+64r8r32.
+  a+64r16.r64v8<a+64v6a+32.r4v8a+64v6a+32.r16>a+64r32.v8<a+64v6a+32.
+  r16
+
+%================================ GOOSE COMMUNICATIONS ================================%
+
+% macro #01 - channel B: arp Csus4 #1 (main riff) (3/4)
+@ o5 v5 e64 v4 e32. v3 <b64 v2 b32. v5 >a64 v4 a32. v3 e64 v2 e32. v5
+  b64 v4 b32. v3 a64 v2 a32. v5 e64 v4 e32. v3 b64 v2 b32. v5 <a64 v4
+  a32. v3 >e64 v2 e32. v5 <b64 v4 b32. v3 a64 v2 a32.
+
+% macro #02 - channel A: theme a1 #1 (3/4)
+@ o3 v6 b16r16 v4 b16 v6 b16>e8. v5 e8. v4 e8. v3 e8. v2 e8&e32 v6
+  f+32e32c+32<b16 v4 b16 v6 >d16 v4 d16 v6 f+16 v4 f+16 v6 a8g+8. v5
+  g+8.a64a+64 v6 b8&b32 v5 b8. v4 b8.&b32a+64a64 v6 g+16 v5 g+16 v6
+  e16 v5 e16 v6 g+16 v5 g+16 v6 b16 v5 b16 v6 a8. v5 a8. v6 g+8. v5 
+  g+8. v6 f+8. v5 f+8. v6 <b8.>d64f+64g+8&g+32
+
+% macro #03 - channel A: theme a1 #2 (3/4)
+@ o4 v6 e8. v5 e8. v6 <b8. v5 b8. v4 b8. v3 b8. v2 b8
+
+% macro #04 - channel A: theme a1 #3 (3/4)
+@ o4 v6 e8. v5 e8. v4 e8. v3 e8. v2 e8. v1 e4&e16
+
+% macro #05 - channel A: theme a2 (3/4)
+@ o4 v6 e16r16 v4 e16 v6 e16b32>c+8&c+32 v5 c+8. v4 c+8. v3 c+8.r4 v6
+  c+32e32 v5 e16 v6 <b16 v5 b16 v6 a16 v5 a16 v6 >c16 v5 c16 v6 <b8.
+  v5 b8. v6 >e8. v5 e8. v4 e4 v6 f+8r16 v5 f+16 v6 g+8r16 v5 g+16 v6
+  a4r16 v5 a16 v6 g+4r16 v5 g+16 v6 d+16e4d+32d32c+4r16 v5 c+16 v6 <
+  b4&b16 v5 b4&b16 v4 b4&b16 v3 b4&b16 v2 b4
+
+% macro #06 - channel C: bass pedal C #1 (3/4)
+@ o1 v6 e16 v5 e16r4 v6 e16 v5 e16r8 v6 e16 v5 e16
+
+% macro #07 - channel C: bass pedal G (3/4)
+@ o1 v6 b16 v5 b16r4 v6 b16 v5 b16r8 v6 b16 v5 b16
+
+% macro #08 - channel D: kit pattern a (3/4)
+@ d8ec+ded+64d+16.&r64
+
+% macro #09 - channel B: arp Cmaj (interleaved with macro #01) (3/4)
+@ o4 v5 [3e64<g+64b64>]
+  v4 >a32. v3 e64 v2 e32. v5 b64 v4 b32. v3 a64 v2 a32.<
+  v5 [3e64<g+64b64>]
+  v4 a32. v3 >e64 v2 e32. v5 <b64 v4 b32. v3 a64 v2 a32. v5 >e64 v4
+  e32. v3 <b64 v2 b32.
+  v5 [3e64<g+64b64>]
+  v4 >b32. v3 a64 v2 a32.<
+  v5 [3e64<g+64b64>] v4 a32. v3 >e64 v2 e32. v5 <b64 v4 b32. v3 a64
+  v2 a32.
+
+% macro #10 - channel C: bass pedal F (3/4)
+@ o1 v7 a16 v6 a16 v7 >>e16r8.<<a16 v6 a16 v7 >>e16r16<<a16 v6 a16
+
+% macro #11 - channel C: bass pedal C #2 (3/4)
+@ o1 v7 e16 v6 e16 v7 >>e16r8.<<e16 v6 e16 v7 >>e16r16<<e16 v6 e16
+
+% macro #12 - channel B: arp Cmaj13 transition (3/4)
+@ v7 [2 o3 a64>c+64e64g+64b64>c+64e64a64 v6 ]
+  v5 [2 o3 a64>c+64e64g+64b64>c+64e64a64 v4 ]
+  v3 [2 o3 a64>c+64e64g+64b64>c+64e64a64 v2 ]
+  v3 [2 o5 e64r64<b64r64f+64r64<a64r64 v4 ]
+  v5 [2 o5 e64r64<b64r64f+64r64<a64r64 v6 ]
+  v7 [2 o5 e64r64<b64r64f+64r64<a64r64 v8 ]
+
+  v4 >>e64c+64<b64 v5 a64g+64f+64 v6 e64c+64<b64
+  v7 a64g+64f+64 v8 e64c+64<b64a64
+
+% macro #13 - channel C: bass theme b#1 (4/4)
+@ o2 v7 e16 v6 e16r16 v8 >>e64r32.<e64r16.r64 v7 <e16 v6 e16r8. v8
+  >>e64r32.<e64r8.r32.
+  v7 <d+16 v6 d+16r16 v8 >>e64r32.<e64r16.r64 v7 <d+16 v6 d+16r8. v8
+  >>e64r32.<e64r8.r32.
+  v7 <d16 v6 d16r16 v8 >>e64r32.<e64r16.r64 v7 <d16 v6 d16r8. v8
+  >>e64r32.<e64r8.r32.
+  v7 <c+16 v6 c+16r16 v8 >>e64r32.<e64r16.r64 v7 <c+16 v6 c+16r8. v8
+  >>e64r32.<e64r8.r32.
+  v7 <c16 v6 c16r16 v8 >>e64r32.<e64r16.r64 v7 <c16 v6 c16r8. v8
+  >>e64r32.<e64r8.r32.
+  v7 <<b16 v6 b16r16 v8 o4 e64r32.<e64r16.r64 v7 <<b16 v6 b16r8. v8
+  o4 e64r32.<e64r8.r32.
+
+% macro #14 - channel D: kit b (4/4)
+@ d8e32eeed+8c+edd+64d+16.&r64c8
+
+% macro #15 - channel A: theme b1 #1 (4/4)
+@ o2 v6 b16r8b16>e4 v4 e4 v3 e8 v6 e16d+16
+  e16<b16>e16g+16e16f+8. v4 f+4 v3 f+4
+  v6 <b16r16 v3 b16 v6 b16>g+4 v4 g+4 v3 g+8 v6 g+16g16
+  g+16e16g+16b16a4 v4 a4 v3 a4
+  v6 c+16r16 v3 c+16 v6 c+16a8. v4 a8.r8 v6 a16r16g+32a32g+16
+  f+8a8f+32g+16.r16 v3 g+16 v6 d+32e16.r16 v3 e16 v6 <b8r16 v3 b16
+  v6 b16r16 v3 b16 v6 b16
+
+% macro #16 - channel C: bass theme b#2 (4/4)
+@ o1 v7 a+16 v6 a+16r16 v8 o4 e64r32.<e64r16.r64 v7 <<a+16 v6 a+16r8.
+  v8 o4e64r32.<e64r8.r32. v7 <<b16 v6 b16r16 v8 o4 e64r32.<e64r16.r64
+  v7 <<b16 v6 b16 v8 o4 c+64c64r32<a64
+  g+64r32a64g+64r32>e64r32.<e64r16.r64a64g+64g64f+64f64e64r32
+
+% macro #17 - channel D: kit b fill #1 (4/4)
+@ d8e32eeed+8c+d+16d+d8d+64d+16.&r64d+8
+
+% macro #18 - channel A: theme b ending (4/4)
+@ o3 v6 c+8r16 v3 c+16 v6 e8r16 v3 e16 v6 e32f+16.r32 v3 e32f+16 v6
+  f+32g+16.r32 v3 f+32g+16 v6 e32f+32e8. v5 e4 v4 e4 v3 e4
+
+% macro #19 - channel B: arp Csus4 #1 stub (3/4)
+@ o5 v6 e64 v5 e32. v4 <b64 v3 b32. v6 >a64 v5 a32. v4 e64 v3 e32. v6
+  b64 v5 b32. v4 a64 v3 a32. v6 e64 v5 e32. v4 b64 v3 b32.
+
+% macro #20 - channel D: kit b fill #2 (4/4)
+@ d4dde32eeec8
+
+% macro #21 - channel A: theme b2 #1 (4/4)
+@ [16 o3 v5 e64g+64 v7 b64 ]
+  [5 o3 v5 e64g+64 v7 >e64 ] r64
+  [16 o3 v5 d+64g+64 v7 b64 ]
+  [5 v5 d+64g64 v7 a+64 ] r64
+
+% macro #22 - channel A: arp theme c C#maj7 (4/4)
+@ o3 [2 [3 g+64e64c+64 ] r8.r32. [3 g+64e64c+64 ] r4.r16.r64 ]
+
+% macro #23 - channel B: arp theme d Dmaj9 (6/8)
+@ [4 v6 o5 c+32 v4 <<f32 v6 >f32 v4 >c+32 v6 <g+32 v4 f32 v6 <f+32
+v4 >g+32 v6 <a+32 v4 f+32 v6 f32 v4 a+32 v6 ]
+
+% macro #24 - channel B: arp theme d Fmaj9 (6/8)
+@ [2 o5 e32 v4 <<e32 v6 >g+32 v4 >e32 v6 <b32 v4 g+32 v6 <a32 v4 >b32 v6
+c+32 v4 <a32 v6 e32 v4 >c+32 v6 ]
+
+% macro #25 - channel D: kit d fragment (6/8)
+@ d8ceeecd+64d+16.r64e8c+edd+64d+16.r64d8c+eeed
+
+% macro #26 - channel D: kit e pattern (4/4)
+@ [5 d16c16e16e16d+64d+32.c16c16d+16e32e32c16d16e16d+64d+32.c16e16d+16 ]
+
+% macro #27 - channel C: theme e bass rise (4/4)
+@ o1 [8 v7 c+32.r64 v6 c+32.r64 ]
+  [8 v7 d+32.r64 v6 d+32.r64 ]
+  [8 v7 e32.r64 v6 e32.r64 ]
+  [8 v7 f+32.r64 v6 f+32.r64 ]
+
+% macro #28 - channel C: theme e bass pedal #1 (4/4)
+@ o1 [16 v7 g+32.r64 v6 g+32.r64 ]
+
+% macro #29 - channel A: theme e arp #1 (4/4)
+@ v4 [10 o4 c+32<g+32f+32 ] g+32>c+32
+[10 o4 d+32<a+32g+32 ] a+32>d+32
+[10 o4 d32<a32g32 ] a32>d32
+[10 o4 e32<b32a32 ] a32>b32
+
+% macro #30 - channel A: theme e arp #2 (4/4)
+@ v4 o4 [10 c+32g+32d+32 ] c+32d+32
+
+% macro #31 - channel A: main theme e #1 (4/4)
+@ o3 v7 g+16r8g+16 v8 >c+32 v7 c+8.&c+32 v4 c+4 v3 c+8 v7 >c+64<c+32.>c64<c32.
+>c+64<c+32.g+64<g+32.>>c+64<c+32.>f64<f32.>c+64<c+32. v8 d+32 v7 d+8&d+32
+v4 d+8. v3 d+4&d+16
+v7 <a+16r16 v3 a+16 v7 a+16 v8 >e32 v7 e8.&e32 v4 e4 v3 e8 v7 >e64<e32.>d+64<d+32.
+>e64<e32.b64<b32.>>e64<e32.>g+64<g+32. v8 f+32 v7 f+8.&f+32 v4 f+8. v3 f+8.
+v7 >f+64<f+32.>f64<f32.
+>f+64<f+32.>c+64<c+32.>f+64<f+32.>a+64<a+32.
+
+% macro #32 - channel A: true ending held note (4/4)
+@ o5 v7 e2 v6 e2 v5 e2 v4 e2 v3 e2 v2 e2
+
+% macro #33 - channel B: theme e arp #1 (4/4)
+@ [3 o5 v6 c+32 v4 <c32 v6 f32 v4 >c+32 v6 <g+32 v4 f32 v6 <g+32 v4 >g+32 v6 c32 v4 <g+32 ]
+  v6 >c+32g+32
+
+% macro #34 - channel B: theme e arp #2 (4/4)
+@ [3 o5 v6 d+32 v4 <c32 v6 g32 v4 >d+32 v6 <a+32 v4 g32 v6 <g+32 v4 >a+32 v6 c32 v4 <g+32 ]
+  v6 >d+32a+32
+
+% macro #35 - channel B: theme e arp #3 (4/4)
+@ [3 o5 v6 e32 v4 <d+32 v6 g+32 v4 >e32 v6 <b32 v4 g+32 v6 <b32 v4 >b32 v6 d+32 v4 <b32 ]
+  v6 >d+32b32
+  [3 o5 v6 f+32 v4 <g+32 v6 a+32 v4 >f+32 v6 c+32 v4 <a+32 v6 c+32 v4 >c+32 v6 <g+32 v4 c+32 ]
+  v6 >g+32c+32
+
+% macro #36 - channel B: theme e arp #4 (4/4)
+@ [5 o3 f64>c64a64<a64c64>f64 ]
+  f64>c64
+
+% macro #37 - channel B: arp Csus4 echo (3/4)
+@ o4 v5 a64 v4 a32. v3 >e64 v2 e32. v5 <b64 v4 b32. v3 a64 v2 a32.
+  v3 a64 v2 a32. v1 >e64 v1 e32. v3 <b64 v2 b32. v1 a64 v1 a32.
+  v2 a64 v1 a32. v1 >e16 v3 <b64 v2 b32. v1 e16
+
+%===================================================================%
