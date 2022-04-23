@@ -21,7 +21,7 @@ void generate_mmml(uint8_t *input_buffer, int32_t total_samples, char *mmml_sour
 		// the rest command is technically note 0 and thus requires a frequency 
 		255,
 		// one octave of notes, equal temperament
-		1024,967,912,861,813,767,724,683,645,609,575,542
+		1644,1551,1464,1382,1305,1231,1162,1097,1035,977,922,871
 	};
 
 	// location of individual samples in sample array
