@@ -1,0 +1,911 @@
+%===================================================================%
+% TITLE      : Tiny Jazz Album
+% COMPOSER   : Bart Howard
+% PROGRAMMER : Blake 'PROTODOME' Troise
+% DATE       : 29th April 2019
+% NOTES      : Three cool jazz tunes squeezed into 8KB.
+%              #1: Fly Me To The Moon
+%              #2: 'Til There was You
+%              #3: Puppy Slug Pizza Party
+%===================================================================%
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL A %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@
+
+% FLY ME TO THE MOON
+
+% setup
+?o3 v4 r4
+
+% intro
+[2 d+16d16<a+16g16> ] [2 e16d+16<b16g+16>  ] v5
+[2 f16e16c16<a16>   ] [2 f+16f16c+16<a+16> ]
+[2 g32f+32d32<b32>  ] [2 g+32g32d+32c32    ] v6
+[2 a32g+32e32c+32   ] [2 a+32a32f32d32     ]
+[2 b64a+64f+64d+64  ] [2 >c64<b64g64e64    ] v7
+[2 >c+64c64<g+64f64 ] [2 >d64c+64<a64f+64  ]
+[2 >d+64d64<a+64g64 ] [2 >e64d+64<b64g+64  ] v8
+[2 >f64e64c64<a64   ] [2 >f+64f64c+64<a+64 ] v6
+
+% main melody
+m6 m7 m9
+
+% main melody
+m6 m7 m8 m7
+o4 d64<a64f+16.r4.a8r4
+b64>c64c+64d64d+64e64f64f+64
+
+% transition into solo
+g4r8f4r8 [28 e64g64 ] >g+32f32d+32c+32c32
+<a+32g+32f32d+32c+32c32<g+32
+
+% solo
+r16.>a+64b64>c64c+64d64d+64e8. [2 f64e64d+64e64 ] [6 g32e32 ] <a16>c16
+e16g16a16g+16g16e16c16<b16>c16<a16g16f+16g16e16d16c+16
+c16d16e16a+16g+32g32f+16d+16c16<a+16a16f+16d+16e16f16f+8
+r8b8>f32f+16.<a8b8>d16r16f+8a8
+a64a+64b16. [2 >c64<b64a+64b64 ] a64g+64g16. [2 g+64g64f+64g64 ]
+f+64f64e16. [2 f64e64d+64e64 ] d64c+64c16. [2 c+64c64<b64>c64 ]
+b64>c64c+16.[2 d64c+64c64c+64 ] <b64a+64a16.[2 a+64a64g+64a64 ]
+g+64g64f+16.[2 g64f+64f64f+64 ] f64e64d+16.[2 e64d+64d64d+64 ]
+r8<a+64b64>c64c+64d16d+16f+16g16a+16a16f+16g16e16d16f+16g8
+f+64f64e64d+64d64c+64c64<b64a+64a64r16.>a+16b32>e16<b32a+16a16g32.r64
+e16d16 [4 e64g64 ] r16<a+16
+a32b32a16f+16g16>c16r16<a8>c16r16e8f+16g16b8
+a+8f+8a16e16d+16d16c16<a16b16a+16f+16a16g+16e16
+d16f16a16>c16<f16a16>c16e16<a32>c32e32g32e32g32a32>c32<g32a32>c32e32
+<a32>c32e32g32
+g+16f16e16d16d+16e16c16<b16g+16f16e16g+16d16d+16e16<b16
+>c16<g16>d16c16c+16d16e16g16b16>d16c+16c16<b16g+16f16d16
+m9
+
+% main melody
+m6 m7 m8 m7
+o4 d64<a64f+16.r4.a8r4.
+
+% ending
+g8r4.g8r4.
+g8r4g8r4>g8f+64f64e64d+64d64c+64c64<b64
+r2.
+
+% TIL THERE WAS YOU
+
+% setup
+?o3 v6 r4
+
+% intro
+r4.r16r64a64a+64b64>c8r16<b8r16a+8
+r64a4.&a16&a64r32.b4.&b16&b64r32.
+>c4.&c16.&c64r4e8f8
+
+% theme a1
+m24 o4
+f+32g8.&g32g+64g64f+64g64g+64g64f+64g64r1
+r8<a+32b8.&b32
+>e8f8
+
+% theme a2
+m24 m25 o4
+
+% theme b
+m26
+
+% theme a2
+m24 m25 o4
+
+% solo
+<<d32c32d32e32f32f+32g32e32a32b32>c32d32c32<a32>c32d32e32f32f+32g32e32
+g32a32b32>c32c+32d32c32<a32>c32d32d+32
+e16f16f+16g16d+32e16r32c16r16<g16g+16a32r32e16d16c16<g16>c16
+c+16.c32c+32c32d16.c+32d32c+32 [3 d+32d32 ] d+32e16.g16a+32r32
+>c+16d+16e32r32
+f+32g8&g32>c32.r64<f32f+32f8>c32.r64<<b32>c16.f32.r16r64<a8>d32.r4
+r16r64
+c16d32e32f16g16g+16d+16f16a+16g+16>c32c+32d16d+16
+e32r32d16<b16g16>c32d32<a32f32d32<b32a32a+32b16>d16e16d+16c+16<a+16a16
+g+16
+a8r4.b8r16>c8r16d8
+r8f+32g32a+8>c32<a+32>c32<a+32>c32<a+32g16e16c+16<a+16>e16c+16<a+16g16
+r8>d+16e16f+32g32a+32a32f+32f32c32d32d+16e16f16d+16e16c16<g16f16
+r4>e16r32f64g32.r64d16&d64<b32a32g32e32d32c32<b32>c32c+32d32e32f+32a32
+b32>d32d+32
+e8f32a32>c16e16f32r32e16c32d32c+16<b16a+16>c+16<a16a+16d+32e16.
+r4r16.>c64c+64d16r64c32.<a16r64f32.d16r64<a32r64>c16r64d32.r64e32.r64
+f32.
+r64g+32.r32>c32.<g+32.r64f32.d+16d16c+16f16c32r32d32.r64d+32r64d32c32.
+<g+32.r64f32.r64c32<a+32b64>c64c+64d64
+d+64e16.&e64r16f16r8g16>c16<b32>c32d16f+16a16g+32r32d+16c+16<a+16
+a16.g+32g32f+32f32r8.r32>d32e32<b8r16>c8r16d8
+m25 o4
+
+% theme b
+m26
+
+% theme a3
+f32g8.&g32r2e8f8
+f32g8.&g32>c16r4.r16<e8f16e64d+64d64c+64
+g32a32g32a32g8f8.f+64g64g+64a64b16>c4&c16d16e16
+c32d8d+64d64c+64d64d+64d64c8&c32c+64c64<b64>c64c+64c64r4<c8d8
+e8r4e8a32b16.r16b8r16a+32b32a+16
+a8b32a32f32d32<b32a32g32f32d32c32d32e32b8r16b32>c16.r16d8
+
+% ending a3
+c8r16f8r16d+8r16g+8r16a8r16a+2&
+a+16b2
+m27 v4 m27 v2 m27 v1 m27
+r2.
+
+% PUPPY SLUG PIZZA PARTY
+
+% setup
+?o5 v7 r4
+
+% intro
+c64<c64r8.r32>c64<c64r8.r32>c64<c64r4.r16.
+g+32.r8.r64a+16r32a+64r32.>f32r16<d+64> [10 d+64<a+64d+64> ]
+d+64<a+64r4>g32.d32r16f32r16d+32.r16.r64c32r16<a+32r8b32r16
+a+32>c16.&c64r16.r64< [4 c64a+64 ] r8 [4 c64a64 ]
+r8g+16.r8r32
+g2r4b64a+64a64g+64g64f+64f64e64d+64d64c+64c64<b64a+64a64g+64
+
+% vamp A
+r4 m47 r2 m48
+
+% theme A
+m39 o5
+d+32.r32e32.f32r64d+32r32.e32r32.c32.r32.<b32r32.a+32r32>c+64d64r32
+f32r32a16g+16d+64e32r64c+32.r64<a+32.r64
+a16r2r64>c32.r32.c32.r32c32.r8<d+32.r4.
+r32g32a32>c32d32
+d+16r64<b64>c32r32.<a16g+64>d16d+64d64c+64d64d+64d64c+64c16r4
+r64
+
+% vamp B
+m47 o5 r4c64<b64a+64a64g+64g64f+64f64e64d+64d64c+64>d64d+64
+e64f64
+f+32g32r64a+32r32.g32.r32f+64f32a+64r32d+64g64d+64g64r64f64a64f64a64
+r64d+64g64d+64g64r32g64f64d+64c64<g32.r32.>c16r32c16r64c16r32
+
+% theme B
+c16r8. m47 o5 c32.<b64a+64a64r1
+r4.r32
+f16.r16r64f32r4r32.>c64r16c64r16r64c64r4r16
+<f16.r16r64f32.r4r32>c64r16c64r16r64c64r16d64d+8.&d+32.
+r4<<g+64a32r32a+32.r2.
+r8x>a4r8.a+4&a+16
+r2r16r64>c32.r32.c32.r32c32.r8<d+32.r32
+r1
+
+[2 o4 r16.r64c64r32.<g32r32.f32r8.r32f+32r64g4.r4
+a16&a64r16r64>f64r16r64<d64r8.r32.g32g+8.&g+32g64r8.
+r32.
+g32r4r32.f+32r64g4.r16r64
+d32r32>c+64d32.r32.c4r8r64d64d+32.r32.<a64a+8.&a+32.r16r64 ]
+
+>>b64a+64a64g+64g64f+64f64r16<<a+32r32.g+32r8.r32a32r64a+4.r16r64
+f64r8r32>c16&c64r16r64g+64r16r64<f64r8.r32.a+32b8.&b32a+64r8.
+r32.
+a+32r4r32.a+32r4r16r64>f64r64f+64r64g2&
+g16& [7 g64g+64g64f+64 ] f64e64d+64d64c+64
+
+% vamp A
+r4 m47 r2 m48
+
+% theme A (truncated)
+m39
+
+% ending
+>c8.c+64c64<b64>c64<g32a32r32>c32r32.c32r32.<d+64>c64<e64r32.>c32r32.
+c32.r32<d+64e32.r32c32r32.<a16&a64
+f32g16.r32>d32.r32.g16.r16r64a16 [5 <a64>e64a64 ]
+r32<g64a64>c+64e64r16.r64f+16r64
+g32a16.&a64r32f+16r64a16r16.>c16.<<d64f+64>c64r8.r64c32.<f32r64d+32r32.
+a16r32
+g32.r32c32r32.<a32r32.g16r32a32r32.b64>c32.r64d64d+16&d+64r16c16&c64
+r64d16r16.c16.
+r4g16r16.b32>c16<f+16r16.>c16.<f16r16.>c32d64c64d64c64
+<e16.r4.r32r4
+r4
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL B %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@
+
+% FLY ME TO THE MOON
+
+% setup
+?o3 v6 r4
+
+% intro
+[4 r1 ]
+
+% main melody
+m10 m11 m13
+
+% main melody
+m10 m11 m12 m11
+c8r4.d+8r4.>
+
+% transition into solo
+[5 <d+64g+64>c64 ] r8r64
+[5 d64<g64a+64> ] d64<g64r16.r64
+[18 b64>c64<d64 ]
+b64>c64r4.<
+
+% solo
+m14 r2r8.[4 g64>c64<e64 ]
+r2r8. [4 g64b64f64 ] r16
+[4 f+64a+64e64 ] r2r8. [4 f+64b64e64 ]
+r2.r8.
+m14 r2.r16
+[4 f+64>c+64<a64 ] r2.r16
+[4 f+64b64>d+64< ] r2r8. m14
+r2.r8.
+[4 g64>c64<e64 ] r2.r16
+[4 f+64a64>d64< ] r2.r16
+[4 g64>c64<f64 ] r2.r16
+[4 e64g+64b64 ] r1
+r2.r16
+m13
+
+% main melody
+m10 m11 m12 m11
+o3 c8r4.d+8r4.
+
+% ending
+<b8r4.>c8r4.
+c+8r4d8r4>[4 e64g64]r8
+r2.
+
+% TIL THERE WAS YOU
+
+% setup
+?o3 v6 r4
+
+% intro
+r4.r16r64f+64g64g+64a8r16g+8r16g8
+[15 d64f+64 ] r32 [15 e64g+64 ] r32
+[16 f64a64 ] r4g+8g8
+
+% theme a1
+m28 o3 f8r16g8r16g+8
+>e4.r8< m32 o3 g+8g8
+
+% theme a2
+m28 o3 f8r16g+8r16a8 m29 o3
+
+% theme b
+m30
+
+% theme a2
+m28 o3 f8r16g+8r16a8 m29 o3
+
+% solo
+r1
+m31 o3
+r2 m32 r4
+m31 m29 o3
+
+% theme b
+m30 o3
+
+% theme a3
+[5 e64g64b64 ] r2r64a8a+8
+[5 g64a+64e64 ] r2r64a+64g64a+64g64
+a+64g64a+64g64>c+16c64<b64a+64a64
+[5 >c64<f64a64 ] >c64c4f4d32e16.
+c16r16
+[5 <f64g+64>c64 ] <f64g+4r4
+f8g+8
+b8r4b8>d8r16d8r16c+8
+c8r4.<f8r16f8r16f8
+f8r16g+8r16a+8r16a8r16b8r16>c64
+[11 <g64>f64c64] <g64>f64
+[10 c+64<g+64>e64] c+64<g+64
+r1
+r2.
+
+% PUPPY SLUG PIZZA PARTY
+
+% setup
+?o2 v7 r4
+
+% intro
+r2.e64r16f64r16r64f+64r16
+>>f64c64f64c64r8.f+64f32r32d+64r16f32r2.
+r16r64>c+32.r16.
+d32r16<a+32.r16.r64<b32r16a+32r8b32r16
+>f+32.g16.r16.r64f+32.g16&g64r8f16.&f64r8r64 [3 c64f64 ] r8r32
+[2 <a+64>d+64 ] [14 <b64>d+64 ]r4
+a+64a64g+64g64f+64f64e64d+64d64c+64c64<b64a+64a64g+64g64
+
+% vamp A
+m44 r1
+
+% theme A
+m44 r1 m45 m46
+
+% vamp B
+m44 [15 o4 d+64 o3 f64a64 ]
+>d+64r64f+64f16d+16&d+64r64
+c16r32
+
+% theme B
+m44 r1 m45 m46 o3
+
+% jazzy interlude Cmin
+[2 c64r16.f64r32.d+32r4r32. [7 d32d+32 ] r16
+d64r8r64 [3 e64f64 ] r16r64f32.r4r16 [4 d+32f32 ]
+r8.
+r32.d+32r4r32. [5 d32d+32 ] d32
+d+32d32d+32r8.
+r32.a4r4f4r16r64 ]
+
+% jazzy interlude D#min
+>>c64<b64a+64a64g+64g64f+64d+64r32.<f+32r4r32. [6 f32f+32 ] f32r64d+64r8.
+r32. [3 g+64g64 ]
+r4.r32. [4 f+32g+32 ] r16
+d64r8r32f+32r4r32.f+32r4. [11 f64a64>c64e64c64<a64 ] r16
+
+% vamp A
+m44 r1
+
+% theme A (truncated)
+m44 r1 m45
+
+% ending
+e8r8e16&e64>c32r16c64r16<f16.>f64r16f+64g32r32<f16r4
+r16.
+e32.r32. [3 g64>d64< ] >r16r64e16r4r64<e64c+64<a64g64r16.r64>a16
+r64
+[3 a64>c64e64< ] >r16.r64<c64d64a64>c64e64r16r64f+64g+64
+a16r4<a+32.r8f16r32
+d+64e32r4.r16<a+16.&a+64r8r64g+16r16.g64a+64e64g64a+64e64
+r4>e16r8.d+16r8.d16r8.
+c16.r4.r32r4
+r4
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL C %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@
+
+% FLY ME TO THE MOON
+
+% setup
+?o1 v7 r4
+
+% intro
+[4 r1 ]
+
+% main melody
+m15 m16 m17 m19 m20
+
+% main melody
+m15 m16 m17 m18 m17 m19
+g+4r8>d+4r8d2.&
+d8r4.
+
+% solo
+e8.r16<g8.r16b8.r16>d8.r16
+<a8.r16>c8.r16e8.r16<g8.r16
+>d8.r16<a8.r16>c8.r16f+8.r16
+<g4b8.r16>d8.r16f+8.r16
+c16r16<g8>e16r16c8g16r16e8b16r16g8
+f+16r16c+8a16r16f+8>c+8<a8c+8c8
+<b8>b16r16d+8>c16r16<f+8>d+16r16<a8e8
+r8d8r8<b8r8g16r16>d8e8
+<a8.r16>c8.r16e8.r16a8.r16
+f+8.r16d8.r16c8.r16<a8.r16
+b8.r16>d8.r16f8.r16a8.r16
+g+8.r16f8.r16e8.r16d8.r16
+<a8.r16b8.r16>c8.r16c+8.r16
+m19 m20
+
+% main melody (reggae)
+o2 e8r4>a+8f+8r8e8<<a16r4
+r16a4>>f+16r8.<<a4
+>>a8r8<d4r4d4
+>>e16r8.o1g4>f+16>d+16f+16g16<f16a16c+8
+>g8r8<c4r4c4
+r4f+4r4f+4
+r4<b4r4b4
+m16 m17 m18 m17 m19
+
+o2 g8r4.a8r4.
+a+8r4b8r4<g8r8
+r2.
+
+% TIL THERE WAS YOU
+
+% setup
+?o1 v7 r4
+
+% intro
+r4.r16r64o1e64f64f+64g8r16f+8r16f8
+v8 o4a64r32.<<f+32r32g+32r32<e16r16e16>d16e16>>b64r32.<<g+16f+32r32c+16
+<g+32r32>e16c+16<f+16
+o5c64o1g4.&g16&g64>f64f+64g16.&g64r8r64<d8c+8
+
+% theme a1
+v7 c16r8c16r16>c64r32.<c16r16b32>c16.<g16r16e16r16g8
+c+16r8c+16r16>d64r32.<c+16r16>d+32e16.<b32>c16.c+16r16<g8
+d16r16>c64r32.<d16r8d16r16>f+64g16.&g64<f8>c32d16.<a8
+g+16r8g+16r8g+16r8g+16>g64r32.>c64r32.<<g+8a+8
+>c16r8c16r8c16r16e8r16e8r16d+8
+d8r16<d16>g16>c64r32.<<g+8g8.&g32.>c64f64g8.&g32.
+m33
+
+% theme a2
+m34
+
+% theme b
+m35
+
+% theme a2
+m34
+
+% solo
+r1
+m36
+m33 
+m36 o2
+f4r4<c+8r16c+8r16c8
+
+% theme b
+m35 o1
+
+% theme a3
+c16r8c16r16>c64r32.<c16>e64r32.<b32>c16.a16<d+16f8d8
+c+16r8c+16r16>>c64r32.<f+16g16d+32e32g64a64g64r64<b16>c16r16<a+16g16
+f+64f64e64d+64
+d16r16>c64r32.<d16r16>c64r32.<d16r16f16>a32r32d16r16<a32r32>g16<d+16
+e16
+g+8.&g+32g64f+64f4r4>d8f8
+c8r4c8<e8r16e8r16d+8
+d8g8>d8f8g8r16g8r16g8
+c+8r16d+8r16f8r16f+8r16g8r16g+2&
+g+16a2
+r1
+r2.
+
+% PUPPY SLUG PIZZA PARTY
+
+% setup
+?o1 r4
+
+% intro
+v8 r2.e16r64f16r32f+16r64
+g+32.r8.r64>> v6 [2 c64<g+>d+ ] c64<g+64r32>>a+32r16<[2<g+64>d+64c64]
+r8r64 v8 d+32r16<<f64r16f+32.r32.
+g16 v6 r16.r64>f32.r32.f64b64f64 [2 >e64<b64r16 ] >d+64<b64f64>d+64<b64
+r16r64>>g32r16<d+32r8d+32r16
+>c8&c64r64 v8 o1 c32.r32.e8r32.e32r32.f16.&f64r16f32r16f+16&f+64r16f+32r16
+g2r2
+
+% vamp A & B, themes A & B
+v8 [2 [3 m37 ] r1 [3 m37 ] m38 m37 o2 c16&c64r16.c16r64 v6 > [8 g64a+64 ]
+v8 <<a8&a32. v6 [10 o4 c64 o3 g64 ] r64
+v8 <<d16&d64r8r32.e16&e64r8r32.f16&f64>f32.r32.<c32.r32f+8r32.g16r1
+r64 ]
+
+% jazzy interlude Cmin
+[2 o2 c16.r16r64a+64r8r64e64f64r16c+64r16a+4.&a+32.c16r64
+d8&d64r32>c16r64<a32.r8d32r32.g16.r16r64b4g16r64
+c8.r4r16a+4.&a+32.c16r64
+d32.r8> [4 f32e32 ] d64r16<g32.r8 [4 >d+32<b32 ] g32r32. ]
+
+% jazzy interlude D#min
+>>c64<b64a+64a64g+64g64f+64f64r32.c+64r8r64<g64g+64r16e64d+16>c+4.&c+32.
+<d+16r64
+f8&f64r32>d+16r64c32.r8<f32r32.a+16.r16r64>d4<a+16r32
+d+32.r16.r64>c+64r8.r32.<d+64r16>c+64r8.r32.<d+64r8r32<
+g1
+r16r64
+
+% vamp A, theme A (truncated)
+[3 m37 ] r1 [3 m37 ] m38 m37
+
+% ending
+o2 c8r8c16&c64r8r32.d16.r8r32d8r8
+e8r8e16&e64d+64d64c+64c64<b64a+64a8.r16r64a32r8a32r32.>f+16&f+64
+<d16r16.>f+16.r8r32>>c16.r16r64 o1 a32.r32>a32.r32.<a32.r32g+16r32>g+16
+r64
+<g16r4.r16>f+16.&f+64r8r64f16r16.<c16.
+r4>>c16r8r32.c16r8.r32c32.r8.
+<c16.r4r16r64<c16&c64r4
+r4
+
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-% CHANNEL D %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+@
+
+% FLY ME TO THE MOON
+
+% setup
+?t36 r4
+
+[4 r1 ]
+m4
+[6 m1 ]
+m2 m1 m1 m3
+r4d4d4d4
+m4
+[6 m1 ]
+m2
+[6 m1 ]
+m3 r1
+[13 m1 ]
+m3 r4d4d4d4
+d8r4c8e8d8d+64d+16.r64d8
+[7 m5 ]
+m2
+[6 m1 ]
+d2d8e8d+64d+16.r64e8
+d+8r2r8e8r4.
+e8r4.d8r8
+r2.
+
+% TIL THERE WAS YOU
+
+% setup
+?t50 r4
+e4e4e4e4
+d8e16d+8e16e16e16d8e16d+8e32e32c+32e32c32e32
+d8d8d8d8d+4e4
+[12 m1 ]
+d8e16d16d+8 m23
+m22
+[5 m1 ]
+d8e16d16d+8d8d8.d8.d8
+d+64d+32.r8.e8c16d+16d8.d8.d8
+e4e4e8.d+64d+32.e16d16d+16d16
+[14 m1 ]
+m22
+[3 m1 ]
+d4d+8.d16e64e64e64e64d+16c+16c16d+8e8
+d16e32e32e32e32d16c+16d+16 m23
+d+64d+32.r8d8. t60 d8.d8 t70 c16d+16c16c+16d+64d+32. t50
+r1
+d1
+r2.
+
+% PUPPY SLUG PIZZA PARTY
+
+% setup
+?t50 r4
+
+% intro
+r2.d16r64e16.c+16r+64
+d+16r+64r2r8r32.d+64d+16d16.c+16r+64
+d16r64r2r8r32.c+8r+32.c16r64
+e8r32e16.e16.r16r64e16r64e16.e16r64e16r64e16.r16e16.
+e4e4e4e4
+
+% vamp A & B, themes A & B
+[2 [3 m40 ] m41 [8 m40 ] m42 r1 ]
+
+% jazzy interlude Cmin, jazzy interlude d#min
+[10 m43 ]
+d8r32.e8r32.c+16r64e16r64d+4e8r32.d16r64
+r1
+
+% vamp A, theme A (truncated)
+[3 m40 ]
+m41
+[6 m40 ]
+m42
+
+% ending
+[3 m43 ]
+d1
+e4e4e4e4
+d+16.r4r16r64d16&r64r4
+r4
+
+%-~-~-~-~-~-~-~-~-~-~-~-~-~-%   MACRO   %-~-~-~-~-~-~-~-~-~-~-~-~-~-%
+
+% FLY ME TO THE MOON
+
+% macro #1 - channel D: drum loop a
+@ d8ed+eedd+e
+
+% macro #2 - channel D: drum fill #1
+@ d8eed+eded
+  e8eed+eded
+  e8ed+eedd+e
+
+% macro #3 - channel D: drum fill #2
+@ d2d8e8d+64d+16.r64e8
+  d+8r4d+64d+16.r64r4d4
+
+% macro #4 - channel D: drum fill #3
+@ d8r4c8e8d8d+64d+16.r64d8
+  e8e8d+8e8e8d8d+8e8
+
+% macro #5 - channel D: drum loop b
+@ c+8e8d8e8d+64d+16.r64c8d8e8
+
+% macro #6 - channel A: main melody
+@ o4 g8f+64f64e64d+64d64c+64c64<b64r8>f+8e8r8d8<b32>c8.&
+  c32c+64
+  c64<b64>c64c+64c64<b64>c64r8c+16d16e8b16r16g8r8
+  f+8a16r16e8g16r16c+16d16f+16d+32<a+32b64>c16.&c64<b4.
+  [4 >c64<b64a+64b64 ] >>g16f+16
+  d16<b16>g16f+16d16<b16
+  e8r4d8c8<b8> [2 >e64c64<g64 ] >e64c64<<a8
+  r8a+32b16.r8>c8r8d+32e4&e32f64e64d+64e64
+  d+8>f+16e16d+16<b16c8<b32>c32<b16&b64r16.r64a8 [8 b64>d64< ]
+  >r2r8<g32g+16.r8
+  a8>d+32r64e16&e64g32.r16r64e64a64e64a64e16r8<a+8r8a8
+  r4.>g8r8f+8r8c+16d4&
+  d16 [2 d+64d64c+64d64 ] r4d8
+  r4
+  f8r4e8r4d8.&d32d+32
+
+% macro #7 - channel A: turnaround (VI7) ii7 V
+@ o4 e16&e64d+64c64<a64g8r8g8r4e8r8
+
+% macro #8 - channel A: turnaround V7 iii7 VI7
+@ o3 f+8r2r8>f16f+8r16
+  f+8<a8r8a4a+64a64g+64a64a+64a64g+64a64f+8r8
+  g+8r4g+8r4>d8.&d32d+32
+
+% macro #9 - channel A: tritone substitution cadence
+@ o4 d64<a64f+16.r4.a8r4.
+  >g8>c16<a+16g+16g16d+16 v5 >c16<a+16g+16g16d+16 v6 g8r8
+  v5 <<a64 v4 a+64b64>c64c+64d64d+64e64f64f+64g64g+64a64a+64r32
+  v6 b8r8>c8r8a8r8
+
+% macro #10 - channel B: main melody
+@ o3 [4 b64>d64< ] >r4d+8<b8g16r16g+8g4
+  r8g16r8.>c8r8c+8r8
+  c8r8c8r8<a8.r16g8f+4.
+  r2.
+  >c8r4<b8a8g8r8e8
+  r8f+8r8a8r8c8f+32r32a32r32b32r32>d32r32
+  < [4 f+64b64 ] r4a8g8r8f+8g4
+  [4 g+64g64f+64g64 ] r4.d8r8
+  e8r4g+16a16r8g8r8f+8
+  r4. [4 a64>c64< ] r8 [4 g64a+64 ] r8a8
+  r4a8r4b8r4
+  [4 a64>d64< ] r4 [4 g+64b64 ] r4g+8&g+32
+  a32a+32b32
+
+% macro #11 - channel B: turnaround (VI7) ii7 V
+@ o4 c16&c64r32.<c8r8c8r4<a+8r8
+
+% macro #12 - channel B: turnaround V7 iii7 VI7
+@ o3 c8r2r8>d8.c+64<b64a64g64
+  f+8d8r8c+32d16.c+8c8<b8r8
+  >d8r4d8r4g+8&g+32a32a+32b32
+
+% macro #13 - channel B: tritone substitution cadence
+@ o3 c8r4.d+8r4.
+  [8 d+64>c64< ]
+  v5 [8 d+64>c64< ]
+  v4 [8 d+64>c64< ]
+  v6 b8r8
+  r32<a64a+64b64>c64c+64d64d+64e64f64f+64
+  g64g+64a64a+64
+  d+8r8e8r8d+8r8
+
+% macro #14 - channel B: e minor arpeggio (saves a few bytes)
+@ o3 [4 g64b64e64 ]
+
+% macro #15 - channel C: main melody bass #1
+@ o1 e8r4>>c8<<g8r8a+8a8
+  r8g8r8f+8>a+8<e8d+8>d+8
+  <d8r8e8r8f8r8f+8g8
+  >>e16r16o1g16r16>g8>>e16r16<<f+16>d+16f+16g16<f16a16c+8
+  c8e32r16.<b8>c16r16>d16r16<e8b16r16f+8
+  a16r16f+8>c+16r16<f8e8f+8c+8c8
+  <b8>c+8d+16r16e16r16f+8g8a16r16e8
+
+% macro #16 - channel C: main melody bass #2
+@ o2 b16r16>d8e16r16<d8>f+8<g16r16e8r8
+  c8r4c8g16r16c+8g+16r16d8
+  b16>d16<a16e16<a8b16r16>c8c+8e16r16d4
+  >d16r16<f8r8a8>f8c8r8
+  <b8e16r16>c8d8r8d+8
+
+% macro #17 - channel C: turnaround (VI7) ii7 V
+@ o3 e8<<a+8
+  >>a16&a64r32.<a8<b8>a8c8r8c+8r8
+
+% macro #18 - channel C: turnaround V7 iii7 VI7
+@ o2 d8<g8b8>c16r16c+8d8f+8a+8
+  b8<b8r8>a8r4d8r8
+  e8g+16r16b8e8b16r16>d8
+
+% macro #19 - channel C: V7 v7b9 preparation
+@ o2 d8<a8b16r16>c16r16d8d+16r16f+16r16a8
+
+% macro #20 - channel C: tritone substitution cadence
+@ o2 a+8d+8<g+8 v6 >a+8d+8<g+8 v7 g8r4.
+  >f8r8f+8r8<b8r8
+
+% TIL THERE WAS YOU
+
+% macro #21 - channel D: main drum loop
+@ d8e16d16d+8d8e8c+8d+8e8
+
+% macro #22 - channel D: some drum stuff #1
+@ d+64d+32.r8.e8c16d+16d8.d8.d8
+  e8e8e8d+16e16d16e64e64e64e64e16d+16e16c+16d+16e16
+  [6 d8e16d16e8d8d+64d+16.r64e8d8e16e16 ]
+  d8d8d8d8d8d8d8d16d16
+  d16d16d16d16[8 d32 ]d+64d+32.r8.c+8c8
+
+% macro #23 - channel D: some drum stuff #2
+@ d8d8.d8.d8
+  d+64d+32.r16e16d16d+8d8d8c16d8c+16d8
+
+% macro #24 - channel A: theme a
+@ o4 f32g8.&g32r8>d32r32c32r32<g32r32d32r32<b32r32g32r32>e8f8
+  f32g8.&g32r16>c64c+64d64d+64e32r32c+32r32<a32r32f32r32e32r32c+32r32e8
+  f8
+  g32a32g32a32g8f4b16>c8.[2 c+64c64<b64>c64 ] <a16r16
+  f32g8g+64g64f+64g64g+64g64f8&f32f+64f64e64f64f+64f64r4c8d8
+  e16r8e16r8e16r16b8r16a+32b16.r16a+8
+  a8r4.<b8r16>c8r16d8
+
+% macro #25 - channel A: c#maj7, cmaj7
+@ o4 c4r4c8r16c8r16c8
+
+% macro #26 - channel A: theme b
+@ o4 r2r8e16r16g16r16a64a+32.r16
+  >c+16d8.c4&c16 [3 c+64c64<b64>c64 ] <c4
+  <b8>>c64r32.c64r32.<c8>c64r32.c64r32.c+32d16.r16d8r16c8
+  <a8>c64r32.c64r32.<g4r16>c64r32.<b64r32.>c64r32.<e8f32f+32g32g+32
+  a16a+8.a8a+64a64g+64a64a+64a64g+64a64>c+64r32.e64r32.<f+32g8&g32f+64
+  f16.&f64r16
+  e8r8c8r16f64r32.f+16g64r32.d64r32.e16c64r32.d64r32.<g16>c64r32.
+  e8r8c8r16a64r32.g+16a16f+64r32.d64r16.r64d8c+64c32c+64
+  d8r2r8g+32a8.g+64f64
+  d+4e64 [4 d+64d64d+64e64 ] d+64d64
+  r8.r64e8f8
+
+% macro #27 - channel A: ending arpeggio
+@ o4 [2 b32g+32e32c+32 ]
+
+% macro #28 - channel B: theme a
+@ o3 [5 e64g64b64 ] r2r64b8>c8
+  < [5 g64a+64e64 ] r2r64 [4 a+64g64 ] >c+8
+  [5 c64<f64a64> ] c64c4f4d32e16.
+  c16r16
+  [5 <f64g+64>c64 ] <f64g+4r4
+  f8g+8
+  >d16r8c16r8<b16r16g64 [3 >d64<g64 ] >d64r16<g64 [3 >d64<g64 ]
+  >d64r16 [4 <f+64>c+64 ]
+  [4 <f64>c64 ] r4.
+
+% macro #29 - channel B: c#maj7, cmaj7
+@ o3 g+4r4 [4 f64g+64 ] r16 [4 f64g+64 ] r16e64
+  [3 g64e64 ] g64
+
+% macro #30 - channel B: theme b
+@ o3 r2r8>c16r16d16r16e16r16
+  a4f4.&f16.r32<a8.&a32g+64g64
+  f+8r8a8r8>g+32a16.r16a8r16a8
+  e8r8e4r4<g+8a32a+32b32>c32
+  c+2r8c+8&c+32r32c+8r16
+  c8r8<g8r2r8
+  a8r8f+8r4.e16a8r16
+  [24 f64b64 ] >f8.&f32r32<
+  [18 g+64b64 ]
+  a+64a64g+64g64f+64f64e64d+64d64c+64c64<b64>g+8g8
+
+% macro #31 - channel B: solo accompaniment
+@ o3 [3 [2 e64g64b64 ] r16. ] r4.r16
+  [3 [2 g64a+64e64 ] r16. ] r4.r16
+  [3 [2 >c64<f64a64 ] r16. ] r4.r16
+  [3 [2 f64g+64>c64< ] r16. ] r8.r2.>
+  [2 [4 <g64>d64 ] r16 ] [4 <f+64>c+64 ]
+  [4 <f64>c64 ] r4.<d8r16f8r16g8
+
+% macro #32 - channel B: 6-2-5-1 turnaround
+@ o3 [3 a+64>c+64<a+64g64e64g64 ] r8.r32
+  [3 a64f+64e64f+64a64>c64< ] r8.r32
+  [8 d+64f64 ]
+
+% macro #33 - channel C: 6-2-5-1 turnaround
+@ o1 c8e8f8f+8a32.r32a32.g8>c+8e16d+64d64c64<e64
+  d8e8f8f+8g8a8a+8b8
+
+% macro #34 - channel C: theme a
+@ o1 c16r8c16r16>f+16g16<b16>c32r32<g16e32r32f16f+16g16c8
+  [2 c+16r16>c+32r32< ] c+16>d16d+32e16.<b32>c16.c+16r16<c+8
+  d16r8d16>e16f16<d16r16d+32r32>c16d8c32f16.<a8
+  g+16r8g+16r8>d+16e16f16c16<a+16f16g16g+16c16d+16
+  [2 c16r16>d32r32< ] c16r16>e8r16e8r16d+8
+  d8<d8>c16d16g16f+64f64e64d+64d8r16f8r16f+8
+  f4r4<c+8r16c+8r16c8
+
+% macro #34 - channel C: theme b
+@ o1 r16d+16e16g16>c16e16f16f+16g16a16a+16a64f+64d+64c64<a+16r16f+8
+  [16 f32r32 ]
+  [16 f#32r32 ]
+  [16 g32r32 ]
+  [13 a32r32 ] g+32r32g32r32f+32r32
+  f16.r32 [4 f32r32 ] f16r16>c32r32<f32r32>e16f16<f32r32a16
+  >c16<f16
+  f+32r32f+16.r32 [3 f32r32 ] f+16r16>c32r32<f+32r32>f16f+16<g+16
+  a16>c16<f+16
+  [3 g32r32 ] >g16< [7 g32r32 ] >g16
+  <g32r32g32r32>g16<g32r32
+  f8>f8<f+8>f+8<g8f+32f32e32d+32d8c+8
+
+% macro #36 - channel C: solo accompaniment
+@ o1 c16r8c16r8c16r16b32>c16.<g16r16e16r16g8
+  c+16r8c+16r8c+16r16>d+32e16.<b32>c16.c+16r16<g8
+  d16r8d16r8d16r8.f8>c32d16.<a8
+  g+16r8g+16r8>g+8d+32f16.g8<a#8b8>
+  c16r8c16r8c16r16e8r16e8r16d+8
+  d8<c8c+8d8g8.&g32.>c64f64g8.&g32.
+
+% PUPPY SLUG PIZZA PARTY
+
+% macro #37 - channel C: main bass riff
+@ o2 c16&c64r16.c16r64c64r16c64r8r32c64r16d+32.r32.<a16&a64a+8r32.b16r64
+
+% macro #38 - channel C: bass loop #1
+@ o2 c16r64>c32.r32.<c64r16d16.r16r64d16r64d+16r16.r64d+32.r32e32.r8e64r16
+  f16.r16r64f32.r2r32a32r32.a+32.r8
+  f16.r16r64f32.r2r32>f32r32.d+16&d+64r64c64r16
+
+% macro #39 - channel A: main melody #1
+@ o3 r4a32.r32a+32.r4.>g64g+64a16
+  >c32r32.d32.<a32r64
+  o5 c8.&c32. [3 c+64c64<b64>c64 ] r8r64<<a32.
+  r32.a+32.r32>d32d+8.r4
+  r32<a32.r32a+32.r8>>c32.<b64a+64a64
+  r8r32g64g+64a16>c32r32.d32.<a32
+  >d64d+16&d+64r16r64d+32r32.d16&d64c+64d64d+64d64c+64r64d32r32.<g32g+16.&g+64
+  g64r64f32.r32d64d+32r32c64r16r64<a+64r16
+  >f16.r16r64f32r4r32.>c64r16c64r16r64c64r16<d+32g32a+32>d32r32<g+16.
+  a16&a64r16.a32.r4r32>c64r16c64r16r64c64r16d64d+8.&d+32.
+  r4<<g+64a32r32a+32.r4.>g64g+64a16>c32r32.d32.<a32
+
+% macro #40 - channel D: main drum loop #1
+@ d16r64.e16r64e16r64.e16r64.e16r64e16r64.d#64d#16r128e16r64e16r64.e16r64.e16r64e16r64.
+
+% macro #41 - channel D: fill #1
+@ d4e4e4e8r32e32e32e32
+
+% macro #42 - channel D: fill #2
+@ d16r64r16.e16r64d16r64r16.e16r64d+64d+16e16.d16r64d+8r32.d+16r+64
+
+% macro #43 - channel D: main drum loop #2
+@ d4 e16r16.r128.e16r64.d#4e16r16.r128.e16r64.
+
+% macro #44 - channel B: vamp harmony
+@ o3 r4d+32.r32e32.r32.c32.r2.
+  r8.r64c32.r16.r64d+32.r32.e32.
+  r32 [7 o3 a64 o4 c64 ] r32r4
+  o3 d+32.r32e32.r32.c32.r32r2
+
+% macro #45 - channel B: F7,C7 harmony
+@ o3 d+16.r16r64d+32r32.d64r16d64r16d+16.r16r64c64r16r64d+32.r8.r64f16r64
+  d+16.r16r64d+32.r8.d+16.r8r32.c16&c64> [8 d64a64 ]
+  r4<d+32.r32e32.r32.c32.r2r32
+
+% macro #46 - channel B: Em43/A,A#5b9
+@ o4 r4 v6 [8 d64e ]
+  v7 <<a64r8r32 v6 >> [10 f64c+ ] r4.
+  r16 v7 <c32.
+  r32<c64r16>>f+32.r32.f32.r32e32.r8<b32.r32
+  r1
+
+% macro #47 - channel A: vamp #1
+@ o3 a32.r32a+32.r1
+  r8.r64a32.r32.a+32.r32>d32d+8.r4
+  r32
+  <a32.r32a+32.r8
+
+% macro #48 - channel A: bass fill
+@ o2 c32r32.>c32.d+32<a+32r16c64r16<a+16&a+64r64a32r32.>c64r16d+32.r32.<a16&a64
+  a+32.r32>d64d+16g+64b16r64
+
+%===================================================================%

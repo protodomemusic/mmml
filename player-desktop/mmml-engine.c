@@ -104,7 +104,8 @@ void generate_mmml(uint8_t *input_buffer, int32_t total_samples, char *mmml_sour
 	uint16_t       tick_counter    = 0;
 	uint16_t       tick_speed      = 0;
 
-	uint16_t       header_size = 0;
+	// misc
+	uint16_t       header_size     = 0;
 
 	//===== WAVE SAMPLE DATA CODE =====//
 

@@ -156,7 +156,7 @@ int main(int argc, char *argv[])
 	}
 
 	// where we'll stick the final audio data
-    uint32_t total_samples = duration * SAMPLE_RATE;
+	uint32_t total_samples = duration * SAMPLE_RATE;
 	uint8_t  *audio_buffer = (uint8_t*)malloc(total_samples * sizeof(uint8_t));
 
 	// generate mmml audio
