@@ -39,9 +39,9 @@
 #include "musicdata.h"      // holds the data[] and data_index[] arrays
 
 // note table (plus an initial 'wasted' entry for rests)
-const unsigned int note[13] PROGMEM = 
+const unsigned int note[13] PROGMEM =
 {
-	// the rest command is technically note 0 and thus requires a frequency 
+	// the rest command is technically note 0 and thus requires a frequency
 	255,
 	// one octave of notes, equal temperament in Gb
 	1024,967,912,861,813,767,724,683,645,609,575,542
@@ -96,7 +96,7 @@ const unsigned char sample[SAMPLE_LENGTH] PROGMEM =
 	0b10011010,0b01110100,0b11010100,0b00110011,
 	0b00110011,0b11101000,0b11101000,0b01010101,
 	0b01010101,
-	// end (26)
+	// end (126)
 };
 
 // channel variables (grouped in arrays)
@@ -118,7 +118,7 @@ unsigned int   data_pointer     [CHANNELS],
 unsigned char current_track;
 
 // locations for different track starting values
-const unsigned int track_data_index[TOTAL_TRACKS][CHANNELS] PROGMEM = 
+const unsigned int track_data_index[TOTAL_TRACKS][CHANNELS] PROGMEM =
 {
 	// tiny jazz album
 	//{0,   1734,2540,3550},
