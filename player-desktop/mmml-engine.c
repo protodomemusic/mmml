@@ -1,6 +1,6 @@
 /**************************************************************
 * This is where all the sequencing happens.
-* 
+*
 * Feed this .mmmldata files, the number of samples (frames) you
 * want and it'll send 1-bit (well, technically 8-bit) mono
 * samples to the input audio buffer.
@@ -16,9 +16,9 @@
 void generate_mmml(uint8_t *input_buffer, int32_t total_samples, char *mmml_source)
 {
 	// note table (plus an initial 'wasted' entry for rests)
-	const uint16_t note[13] = 
+	const uint16_t note[13] =
 	{
-		// the rest command is technically note 0 and thus requires a frequency 
+		// the rest command is technically note 0 and thus requires a frequency
 		255,
 		// one octave of notes, equal temperament
 		1024,967,912,861,813,767,724,683,645,609,575,542
@@ -71,7 +71,7 @@ void generate_mmml(uint8_t *input_buffer, int32_t total_samples, char *mmml_sour
 		0b10011010,0b01110100,0b11010100,0b00110011,
 		0b00110011,0b11101000,0b11101000,0b01010101,
 		0b01010101,
-		// end (26)
+		// end (126)
 	};
 	// channel variables (grouped in arrays)
 	uint8_t        output           [TOTAL_VOICES] = {0};
@@ -222,7 +222,7 @@ void generate_mmml(uint8_t *input_buffer, int32_t total_samples, char *mmml_sour
 						else if(buffer2 == 2)
 						{
 							pointer_location[v] = data_pointer[v] + 2;
-							
+
 							data_pointer[v] = (uint8_t)mmml_source[(buffer3 + TOTAL_VOICES) * 2] << 8;
 							data_pointer[v] = data_pointer[v] | (uint8_t)mmml_source[((buffer3 + TOTAL_VOICES) * 2) + 1];
 						}
